@@ -1,1 +1,6 @@
+@import '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.css';
 @import 'tailwindcss';
+
+@theme {
+	--font-sans: 'SUIT Variable';
+}
