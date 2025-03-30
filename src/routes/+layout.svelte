@@ -1,10 +1,13 @@
 <script lang="ts">
 	import '../app.css';
+	import favicon from './favicon.svg';
+
 	let { children } = $props();
 </script>
 
 <svelte:head>
 	<link rel="canonical" href="https://pages.hyunbin.cc/" />
+	<link rel="icon" type="image/svg+xml" href={favicon} />
 	<meta name="robots" content="noindex" />
 </svelte:head>
 
