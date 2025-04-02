@@ -18,7 +18,7 @@
 </svelte:head>
 
 {#if page.url.pathname !== '/'}
-	<div class="flex min-h-screen flex-col *:p-4">
+	<div class="flex min-h-dvh flex-col *:p-4">
 		<main class="flex-1 overflow-y-auto">
 			{@render children()}
 		</main>
