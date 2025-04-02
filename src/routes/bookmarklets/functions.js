@@ -1,3 +1,29 @@
+export const copyZwsp = () => {
+	navigator.clipboard.writeText('​');
+	alert('ZWSP가 복사되었습니다.');
+};
+
+export const getViewportSize = () => {
+	prompt(
+		'뷰포트 크기는 다음과 같습니다:',
+		[
+			window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+			window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+		].join(' x '),
+	);
+};
+
+export const normalizeString = () => {
+	let string = prompt('자소가 분리된 문자열을 입력하세요.');
+	if (!string) return;
+
+	const normalized = string.normalize('NFC');
+	prompt(
+		normalized !== string ? '다음 값을 복사해 사용하세요.' : '자소가 분리되어 있지 않습니다.',
+		normalized,
+	);
+};
+
 export const snuLibraryProxy = () => {
 	location.href = `https://libproxy.snu.ac.kr/link.n2s?url=${encodeURIComponent(location.href)}`;
 };

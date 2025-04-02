@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { snuLibraryProxy, snuSugangEnter } from './functions';
+	import {
+		copyZwsp,
+		getViewportSize,
+		normalizeString,
+		snuLibraryProxy,
+		snuSugangEnter,
+	} from './functions';
 </script>
 
 <svelte:head>
@@ -12,9 +18,13 @@
 	</a>
 {/snippet}
 
-<p>북마크바에 끌어놓아 추가합니다:</p>
+<p>북마크바에 끌어놓아 추가할 수 있습니다.</p>
 <ul class="mt-3 space-y-3">
-	<li>{@render anchor('서울대 도서관 학외 접속', snuLibraryProxy)}</li>
+	<li>{@render anchor('뷰포트 크기 확인', getViewportSize)}</li>
+	<li>{@render anchor('폭 없는 공백 (ZWSP) 복사', copyZwsp)}</li>
+	<li>{@render anchor('한글 자소 분리 해결 ⭐', normalizeString)}</li>
+	<!-- 서울대학교 -->
+	<li>{@render anchor(`서울대 도서관 학외 접속`, snuLibraryProxy)}</li>
 	<li>{@render anchor(`서울대 수강신청 '이미 프로그램 사용 중' 우회`, snuSugangEnter)}</li>
 </ul>
 
