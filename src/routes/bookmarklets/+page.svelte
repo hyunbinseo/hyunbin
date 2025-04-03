@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {
 		copyZwsp,
+		generatePINString,
 		getViewportSize,
 		normalizeString,
 		snuLibraryProxy,
@@ -20,6 +21,7 @@
 
 <p>북마크바에 끌어놓아 추가할 수 있습니다.</p>
 <ul class="mt-3 space-y-3">
+	<li>{@render anchor('무작위 숫자 비밀번호 생성', generatePINString)}</li>
 	<li>{@render anchor('뷰포트 크기 확인', getViewportSize)}</li>
 	<li>{@render anchor('폭 없는 공백 (ZWSP) 복사', copyZwsp)}</li>
 	<li>{@render anchor('한글 자소 분리 해결 ⭐', normalizeString)}</li>
