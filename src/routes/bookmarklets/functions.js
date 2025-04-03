@@ -3,9 +3,18 @@ export const copyZwsp = () => {
 	alert('ZWSP가 복사되었습니다.');
 };
 
+export const generatePINString = (length = 6) => {
+	let pin = '';
+	while (pin.length < length) {
+		const [randomValue] = crypto.getRandomValues(new Uint32Array(1));
+		pin = pin + randomValue.toString();
+	}
+	prompt('무작위 숫자 문자열:', pin.substring(0, length));
+};
+
 export const getViewportSize = () => {
 	prompt(
-		'뷰포트 크기는 다음과 같습니다:',
+		'뷰포트 크기:',
 		[
 			window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
 			window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,

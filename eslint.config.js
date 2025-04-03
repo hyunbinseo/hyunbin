@@ -32,4 +32,5 @@ export default ts.config(
 			},
 		},
 	},
+	{ rules: { 'no-inline-comments': 'warn' } },
 );
