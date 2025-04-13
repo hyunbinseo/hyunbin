@@ -8,23 +8,23 @@
 
 <h1 class="text-2xl font-bold">안녕하세요!</h1>
 <p class="mt-2">
-	<a href={PUBLIC_GITHUB}>오픈소스 개발자</a>,
-	<a href={PUBLIC_LINKEDIN}>창업가</a>
+	<a href={PUBLIC_GITHUB} target="_blank">오픈소스 개발자</a>,
+	<a href={PUBLIC_LINKEDIN} target="_blank">창업가</a>
 	서현빈입니다.
 </p>
 
 <ul class="mt-8 list-inside list-disc space-y-2.5">
 	<li>
 		<a href="mailto:{PUBLIC_EMAIL}">이메일</a>,
-		<a href={PUBLIC_LINKEDIN}>LinkedIn</a>
+		<a href={PUBLIC_LINKEDIN} target="_blank">LinkedIn</a>
 	</li>
-	<li><a href="{PUBLIC_GITHUB}/holidays-kr#readme">대한민국의 공휴일</a></li>
+	<li><a href="{PUBLIC_GITHUB}/holidays-kr#readme" target="_blank">대한민국의 공휴일</a></li>
 	<li>
-		<a href="https://jamoya.one/">자모야 모여라</a>
+		<a href="https://jamoya.one/" target="_blank">자모야 모여라</a>
 		<span>한글 자소 분리 해결 (파일명 깨짐)</span>
 	</li>
 	<li>
-		<a href="https://github.com/hyunbinseo/better-surf#readme">Better Surf</a>
+		<a href="https://github.com/hyunbinseo/better-surf#readme" target="_blank">Better Surf</a>
 		<span>더 나은 웹 서핑을 위한 확장 프로그램</span>
 	</li>
 	<li>
