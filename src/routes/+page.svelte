@@ -13,19 +13,32 @@
 	서현빈입니다.
 </p>
 
-<ul class="mt-8 list-inside list-disc space-y-1.5">
+<ul class="mt-8 list-inside list-disc space-y-2.5">
 	<li>
 		<a href="mailto:{PUBLIC_EMAIL}">이메일</a>,
 		<a href={PUBLIC_LINKEDIN}>LinkedIn</a>
 	</li>
 	<li><a href="{PUBLIC_GITHUB}/holidays-kr#readme">대한민국의 공휴일</a></li>
-	<li><a href="https://jamoya.one/">자모야 모여라</a></li>
-	<li><a href="/bookmarklets">Bookmarklets</a></li>
+	<li>
+		<a href="https://jamoya.one/">자모야 모여라</a>
+		<span>한글 자소 분리 해결 (파일명 깨짐)</span>
+	</li>
+	<li>
+		<a href="https://github.com/hyunbinseo/better-surf#readme">Better Surf</a>
+		<span>더 나은 웹 서핑을 위한 확장 프로그램</span>
+	</li>
+	<li>
+		<a href="/bookmarklets">Bookmarklets</a>
+		<span>북마크에 끌어놓고 쓰는 유틸리티</span>
+	</li>
 </ul>
 
 <style>
 	@reference "$app.css";
 	a {
 		@apply underline underline-offset-4 hover:decoration-2;
+	}
+	li > a + span {
+		@apply text-xs text-gray-500 before:content-['/\00a0'];
 	}
 </style>
