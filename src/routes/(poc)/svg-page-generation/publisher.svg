@@ -1,38 +1,70 @@
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-    style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10" viewBox="0 0 2481 3508"><text x="56.693" y="71.253"
-        style="font-family:&quot;SUIT-ExtraBold&quot;,&quot;SUIT&quot;;font-weight:800;font-size:16px;fill:#0c9344"
-        transform="scale(4.16667)">④</text><text x="75.445" y="69.277"
-        style="font-family:&quot;SUIT-Bold&quot;,&quot;SUIT&quot;;font-weight:700;font-size:14px;fill:#231f20"
-        transform="scale(4.16667)">다<tspan
-            x="87.331px 99.217px 102.087px 113.973px 125.859px 137.745px 141.315px 153.201px 156.071px 167.957px 179.843px 191.729px"
-            y="69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px">
-            음 계산을 해 보세요.</tspan></text><text x="68.032" y="132.943"
-        style="font-family:&quot;SUIT-ExtraBold&quot;,&quot;SUIT&quot;;font-weight:800;font-size:11px;fill:#0c9344"
-        transform="scale(4.16667)">1<tspan x="74.049" y="132.943">)</tspan></text><text x="92.693" y="135.491"
-        style="font-family:&quot;SUIT-SemiBold&quot;,&quot;SUIT&quot;;font-weight:600;font-size:18px;fill:#231f20"
-        transform="scale(4.16667)">
-        <tspan x="92.693px 102.953px 120.917px 133.967px 151.931px 159.185px 177.149px"
-            y="135.491px 135.491px 135.491px 135.491px 135.491px 135.491px 135.491px">2 + 1 =</tspan>
-    </text><text x="316.063" y="132.943"
-        style="font-family:&quot;SUIT-ExtraBold&quot;,&quot;SUIT&quot;;font-weight:800;font-size:11px;fill:#0c9344"
-        transform="scale(4.16667)">2<tspan x="323.62" y="132.943">)</tspan></text><text x="340.724" y="135.491"
-        style="font-family:&quot;SUIT-SemiBold&quot;,&quot;SUIT&quot;;font-weight:600;font-size:18px;fill:#231f20"
-        transform="scale(4.16667)">
-        <tspan x="340.724px 350.984px 369.668px 379.838px 398.522px 405.776px 424.46px"
-            y="135.491px 135.491px 135.491px 135.491px 135.491px 135.491px 135.491px">2 - 1 =</tspan>
-    </text><text x="528.983" y="795.077"
-        style="font-family:&quot;SUIT-Regular&quot;,&quot;SUIT&quot;;font-size:10px;fill:#231f20"
-        transform="scale(4.16667)">51</text><text x="56.693" y="795.077"
-        style="font-family:&quot;SUIT-SemiBold&quot;,&quot;SUIT&quot;;font-weight:600;font-size:10px;fill:#231f20"
-        transform="scale(4.16667)">배움 10.</text><text x="91.903" y="795.077"
-        style="font-family:&quot;SUIT-Medium&quot;,&quot;SUIT&quot;;font-weight:500;font-size:10px;fill:#231f20"
-        transform="scale(4.16667)">덧셈과 뺄셈</text>
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10" viewBox="0 0 2481 3508">
+    <defs>
+        <style>
+            * {
+                font-family: 'SUIT Variable', sans-serif;
+            }
+
+            .text-green {
+                font-weight: 800;
+                fill: #0c9344;
+            }
+
+            .text-bold {
+                font-weight: 700;
+                fill: #231f20;
+            }
+
+            .text-semibold {
+                font-weight: 600;
+                fill: #231f20;
+            }
+
+            .text-regular {
+                font-size: 10px;
+                fill: #231f20;
+            }
+
+            .text-medium {
+                font-weight: 500;
+                font-size: 10px;
+                fill: #231f20;
+            }
+
+            .box-outline {
+                fill: none;
+                fill-rule: nonzero;
+                stroke: #0c9344;
+                stroke-width: 1px;
+            }
+        </style>
+    </defs>
+
+    <text x="56.693" y="71.253" class="text-green" style="font-size:16px" transform="scale(4.16667)">④</text>
+    <text x="75.445" y="69.277" class="text-bold" style="font-size:14px" transform="scale(4.16667)">다음 계산을 해 보세요.</text>
+
+    <text x="68.032" y="132.943" class="text-green" style="font-size:11px" transform="scale(4.16667)">1)</text>
+    <text x="92.693" y="135.491" class="text-semibold" style="font-size:18px" transform="scale(4.16667)">
+        <tspan x="92.693 102.953 120.917 133.967 151.931 159.185 177.149"
+            y="135.491 135.491 135.491 135.491 135.491 135.491 135.491">2 + 1 =</tspan>
+    </text>
     <path
         d="M0 29.177h-19.886a4.645 4.645 0 0 1-4.645-4.646V4.646A4.645 4.645 0 0 1-19.886 0H0a4.646 4.646 0 0 1 4.646 4.646v19.885A4.646 4.646 0 0 1 0 29.177Z"
-        style="fill:none;fill-rule:nonzero;stroke:#0c9344;stroke-width:1px"
-        transform="translate(968.357 476.46)scale(4.16667)" />
+        class="box-outline" transform="translate(968.357 476.46)scale(4.16667)" />
+
+    <text x="316.063" y="132.943" class="text-green" style="font-size:11px" transform="scale(4.16667)">2)</text>
+    <text x="340.724" y="135.491" class="text-semibold" style="font-size:18px" transform="scale(4.16667)">
+        <tspan x="340.724 350.984 369.668 379.838 398.522 405.776 424.46"
+            y="135.491 135.491 135.491 135.491 135.491 135.491 135.491">2 - 1 =</tspan>
+    </text>
     <path
         d="M0 29.177h-19.886a4.645 4.645 0 0 1-4.645-4.646V4.646A4.645 4.645 0 0 1-19.886 0H0a4.646 4.646 0 0 1 4.646 4.646v19.885A4.646 4.646 0 0 1 0 29.177Z"
-        style="fill:none;fill-rule:nonzero;stroke:#0c9344;stroke-width:1px"
-        transform="translate(2001.82 476.46)scale(4.16667)" />
+        class="box-outline" transform="translate(2001.82 476.46)scale(4.16667)" />
+
+    <text x="528.983" y="795.077" class="text-regular" transform="scale(4.16667)">51</text>
+    <text x="56.693" y="795.077" class="text-semibold" style="font-size:10px" transform="scale(4.16667)">배움 10.</text>
+    <text x="91.903" y="795.077" class="text-medium" transform="scale(4.16667)">덧셈과 뺄셈</text>
+
+
 </svg>
