@@ -23,7 +23,7 @@
 	</script>
 </svelte:head>
 
-{#if page.url.pathname !== '/'}
+{#if page.data.footer !== false}
 	<div class="flex min-h-dvh flex-col *:p-4">
 		<main class="flex-1 overflow-y-auto">
 			{@render children()}
@@ -48,7 +48,5 @@
 		</footer>
 	</div>
 {:else}
-	<main class="p-4">
-		{@render children()}
-	</main>
+	{@render children()}
 {/if}
