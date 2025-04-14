@@ -1,29 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 2481 3508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
-    <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-        <text x="56.693px" y="71.253px" style="font-family:'SUIT-ExtraBold', 'SUIT';font-weight:800;font-size:16px;fill:rgb(12,147,68);">④</text>
-        <text x="75.445px" y="69.277px" style="font-family:'SUIT-Bold', 'SUIT';font-weight:700;font-size:14px;fill:rgb(35,31,32);">다<tspan x="87.331px 99.217px 102.087px 113.973px 125.859px 137.745px 141.315px 153.201px 156.071px 167.957px 179.843px 191.729px " y="69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px ">음 계산을 해 보세요.</tspan></text>
-    </g>
-    <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-        <text x="68.032px" y="132.943px" style="font-family:'SUIT-ExtraBold', 'SUIT';font-weight:800;font-size:11px;fill:rgb(12,147,68);">1<tspan x="74.049px " y="132.943px ">)</tspan></text>
-        <text x="92.693px" y="135.491px" style="font-family:'SUIT-SemiBold', 'SUIT';font-weight:600;font-size:18px;fill:rgb(35,31,32);"><tspan x="92.693px 102.953px 120.917px 133.967px 151.931px 159.185px 177.149px " y="135.491px 135.491px 135.491px 135.491px 135.491px 135.491px 135.491px ">2 + 1 =</tspan></text>
-    </g>
-    <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-        <text x="316.063px" y="132.943px" style="font-family:'SUIT-ExtraBold', 'SUIT';font-weight:800;font-size:11px;fill:rgb(12,147,68);">2<tspan x="323.62px " y="132.943px ">)</tspan></text>
-        <text x="340.724px" y="135.491px" style="font-family:'SUIT-SemiBold', 'SUIT';font-weight:600;font-size:18px;fill:rgb(35,31,32);"><tspan x="340.724px 350.984px 369.668px 379.838px 398.522px 405.776px 424.46px " y="135.491px 135.491px 135.491px 135.491px 135.491px 135.491px 135.491px ">2 - 1 =</tspan></text>
-    </g>
-    <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-        <text x="528.983px" y="795.077px" style="font-family:'SUIT-Regular', 'SUIT';font-size:10px;fill:rgb(35,31,32);">51</text>
-    </g>
-    <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-        <text x="56.693px" y="795.077px" style="font-family:'SUIT-SemiBold', 'SUIT';font-weight:600;font-size:10px;fill:rgb(35,31,32);">배움 10.</text>
-        <text x="91.903px" y="795.077px" style="font-family:'SUIT-Medium', 'SUIT';font-weight:500;font-size:10px;fill:rgb(35,31,32);">덧셈과 뺄셈</text>
-    </g>
-    <g transform="matrix(4.16667,0,0,4.16667,968.357,476.46)">
-        <path d="M0,29.177L-19.886,29.177C-22.452,29.177 -24.531,27.097 -24.531,24.531L-24.531,4.646C-24.531,2.08 -22.452,0 -19.886,0L0,0C2.566,0 4.646,2.08 4.646,4.646L4.646,24.531C4.646,27.097 2.566,29.177 0,29.177Z" style="fill:none;fill-rule:nonzero;stroke:rgb(12,147,68);stroke-width:1px;"/>
-    </g>
-    <g transform="matrix(4.16667,0,0,4.16667,2001.82,476.46)">
-        <path d="M0,29.177L-19.886,29.177C-22.452,29.177 -24.531,27.097 -24.531,24.531L-24.531,4.646C-24.531,2.08 -22.452,0 -19.886,0L0,0C2.566,0 4.646,2.08 4.646,4.646L4.646,24.531C4.646,27.097 2.566,29.177 0,29.177Z" style="fill:none;fill-rule:nonzero;stroke:rgb(12,147,68);stroke-width:1px;"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10" viewBox="0 0 2481 3508"><text x="56.693" y="71.253"
+        style="font-family:&quot;SUIT-ExtraBold&quot;,&quot;SUIT&quot;;font-weight:800;font-size:16px;fill:#0c9344"
+        transform="scale(4.16667)">④</text><text x="75.445" y="69.277"
+        style="font-family:&quot;SUIT-Bold&quot;,&quot;SUIT&quot;;font-weight:700;font-size:14px;fill:#231f20"
+        transform="scale(4.16667)">다<tspan
+            x="87.331px 99.217px 102.087px 113.973px 125.859px 137.745px 141.315px 153.201px 156.071px 167.957px 179.843px 191.729px"
+            y="69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px 69.277px">
+            음 계산을 해 보세요.</tspan></text><text x="68.032" y="132.943"
+        style="font-family:&quot;SUIT-ExtraBold&quot;,&quot;SUIT&quot;;font-weight:800;font-size:11px;fill:#0c9344"
+        transform="scale(4.16667)">1<tspan x="74.049" y="132.943">)</tspan></text><text x="92.693" y="135.491"
+        style="font-family:&quot;SUIT-SemiBold&quot;,&quot;SUIT&quot;;font-weight:600;font-size:18px;fill:#231f20"
+        transform="scale(4.16667)">
+        <tspan x="92.693px 102.953px 120.917px 133.967px 151.931px 159.185px 177.149px"
+            y="135.491px 135.491px 135.491px 135.491px 135.491px 135.491px 135.491px">2 + 1 =</tspan>
+    </text><text x="316.063" y="132.943"
+        style="font-family:&quot;SUIT-ExtraBold&quot;,&quot;SUIT&quot;;font-weight:800;font-size:11px;fill:#0c9344"
+        transform="scale(4.16667)">2<tspan x="323.62" y="132.943">)</tspan></text><text x="340.724" y="135.491"
+        style="font-family:&quot;SUIT-SemiBold&quot;,&quot;SUIT&quot;;font-weight:600;font-size:18px;fill:#231f20"
+        transform="scale(4.16667)">
+        <tspan x="340.724px 350.984px 369.668px 379.838px 398.522px 405.776px 424.46px"
+            y="135.491px 135.491px 135.491px 135.491px 135.491px 135.491px 135.491px">2 - 1 =</tspan>
+    </text><text x="528.983" y="795.077"
+        style="font-family:&quot;SUIT-Regular&quot;,&quot;SUIT&quot;;font-size:10px;fill:#231f20"
+        transform="scale(4.16667)">51</text><text x="56.693" y="795.077"
+        style="font-family:&quot;SUIT-SemiBold&quot;,&quot;SUIT&quot;;font-weight:600;font-size:10px;fill:#231f20"
+        transform="scale(4.16667)">배움 10.</text><text x="91.903" y="795.077"
+        style="font-family:&quot;SUIT-Medium&quot;,&quot;SUIT&quot;;font-weight:500;font-size:10px;fill:#231f20"
+        transform="scale(4.16667)">덧셈과 뺄셈</text>
+    <path
+        d="M0 29.177h-19.886a4.645 4.645 0 0 1-4.645-4.646V4.646A4.645 4.645 0 0 1-19.886 0H0a4.646 4.646 0 0 1 4.646 4.646v19.885A4.646 4.646 0 0 1 0 29.177Z"
+        style="fill:none;fill-rule:nonzero;stroke:#0c9344;stroke-width:1px"
+        transform="translate(968.357 476.46)scale(4.16667)" />
+    <path
+        d="M0 29.177h-19.886a4.645 4.645 0 0 1-4.645-4.646V4.646A4.645 4.645 0 0 1-19.886 0H0a4.646 4.646 0 0 1 4.646 4.646v19.885A4.646 4.646 0 0 1 0 29.177Z"
+        style="fill:none;fill-rule:nonzero;stroke:#0c9344;stroke-width:1px"
+        transform="translate(2001.82 476.46)scale(4.16667)" />
 </svg>
