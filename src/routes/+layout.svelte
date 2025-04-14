@@ -17,6 +17,10 @@
 		<link rel="icon" type="image/svg+xml" href={favicon} />
 		<script defer src="https://assets.onedollarstats.com/stonks.js"></script>
 	{/if}
+	<script>
+		if (!CSS.supports('selector(:has(*)) and selector(&)'))
+			alert('지원되지 않는 브라우저입니다. 일부 기능이 작동하지 않을 수 있습니다.');
+	</script>
 </svelte:head>
 
 {#if page.url.pathname !== '/'}
