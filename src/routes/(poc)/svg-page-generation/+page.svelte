@@ -126,10 +126,6 @@
 	);
 </script>
 
-<svelte:head>
-	<title>SVG 기반 동적 페이지 생성</title>
-</svelte:head>
-
 <main class="not-print:mx-auto not-print:max-w-[21cm] not-print:space-y-10 not-print:py-10">
 	<header class="flex items-center justify-center gap-4 *:rounded-md *:px-3 *:py-2 print:hidden">
 		<button

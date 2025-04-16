@@ -9,10 +9,6 @@
 	} from './functions';
 </script>
 
-<svelte:head>
-	<title>Bookmarklets</title>
-</svelte:head>
-
 {#snippet anchor(label: string, fn: () => void)}
 	<a href={`javascript:((${fn.toString()})())`}>
 		{label}

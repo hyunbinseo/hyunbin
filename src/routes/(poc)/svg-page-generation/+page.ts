@@ -2,4 +2,7 @@ import type { PageLoad } from './$types';
 
 export const ssr = false;
 
-export const load = (() => ({ footer: false })) satisfies PageLoad;
+export const load = (() => ({
+	title: 'SVG 기반 동적 페이지 생성',
+	footer: false,
+})) satisfies PageLoad;

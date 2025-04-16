@@ -2,10 +2,6 @@
 	import { PUBLIC_EMAIL, PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
 </script>
 
-<svelte:head>
-	<title>서현빈 | Hyunbin Seo</title>
-</svelte:head>
-
 <main class="p-4">
 	<h1 class="text-2xl font-bold">안녕하세요!</h1>
 	<p class="mt-2">

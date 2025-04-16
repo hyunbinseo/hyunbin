@@ -1,5 +1,4 @@
 <svelte:head>
-	<title>Check AVIF Support</title>
 	<script>
 		try {
 			var img = new Image();

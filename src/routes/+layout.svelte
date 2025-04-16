@@ -11,6 +11,9 @@
 </script>
 
 <svelte:head>
+	{#if page.data.title}
+		<title>{page.data.title}</title>
+	{/if}
 	<link rel="canonical" href="https://hyunbin.cc/" />
 	<meta name="robots" content="noindex" />
 	{#if !dev}

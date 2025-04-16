@@ -7,10 +7,6 @@
 	};
 </script>
 
-<svelte:head>
-	<title>카카오톡 인앱 브라우저에서 외부 브라우저 열기</title>
-</svelte:head>
-
 {#if navigator.userAgent.includes('KAKAOTALK')}
 	<span>카카오톡 인앱 브라우저입니다.</span>
 	<a
