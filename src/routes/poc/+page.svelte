@@ -1,10 +1,12 @@
 <script lang="ts">
-	const { data } = $props();
+	// Reference https://github.com/vitejs/vite/pull/18666
+	const paths = Object.keys(import.meta.glob('../\\(poc\\)/*/+page.ts')) //
+		.map((path) => path.substring(8, path.length - 9));
 </script>
 
 <ul class="list-inside list-disc space-y-2 font-mono">
 	<!-- eslint-disable-next-line svelte/require-each-key -->
-	{#each data.paths as href}
+	{#each paths as href}
 		<li>
 			<a {href}>{href}</a>
 		</li>

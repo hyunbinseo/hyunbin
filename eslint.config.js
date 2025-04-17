@@ -32,5 +32,8 @@ export default ts.config(
 			},
 		},
 	},
-	{ rules: { 'no-inline-comments': 'warn' } },
+	{
+		files: ['src/routes/bookmarklets/functions.js'],
+		rules: { 'no-inline-comments': 'error' },
+	},
 );
