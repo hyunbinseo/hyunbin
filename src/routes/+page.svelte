@@ -21,6 +21,10 @@
 			<span>한글 자소 분리 해결 (파일명 깨짐)</span>
 		</li>
 		<li>
+			<a href="/markdown-to-sticky-notes">목록을 메모지로 변환</a>
+			<span>인쇄해 잘라 쓸 수 있도록</span>
+		</li>
+		<li>
 			<a href="https://github.com/hyunbinseo/better-surf#readme" target="_blank">Better Surf</a>
 			<span>더 나은 웹 서핑을 위한 확장 프로그램</span>
 		</li>

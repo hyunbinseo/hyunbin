@@ -1,12 +1,19 @@
 <script lang="ts">
 	import { marked } from 'marked';
 	import { tick } from 'svelte';
+	import example from './example.md?raw';
 	import placeholder from './placeholder.md?raw';
 
 	let textarea: HTMLTextAreaElement;
-	let html = $state<string>();
+	const minRows = placeholder.match(/\n/g)!.length + 1;
+	const setRows = () => {
+		textarea.rows = Math.max(
+			(textarea.value.match(/\n/g) || []).length + 1, //
+			minRows,
+		);
+	};
 
-	const rows = placeholder.match(/\n/g)!.length + 1;
+	let html = $state<string>();
 
 	const lengths = [50, 60, 70, 90] as const;
 	let dimension = $state<[number, number]>([60, 60]);
@@ -26,19 +33,26 @@
 		<span>마크다운을 입력하세요:</span>
 		<textarea
 			bind:this={textarea}
-			oninput={({ currentTarget }) => {
-				currentTarget.rows = Math.max(
-					(currentTarget.value.match(/\n/g) || []).length + 1, //
-					rows,
-				);
-			}}
+			oninput={setRows}
 			{placeholder}
-			{rows}
+			rows={minRows}
 			required
 			class="mt-2 block w-full resize-none border"
 		></textarea>
 	</label>
-	<button class="mt-2.5 bg-blue-100">포스트잇®으로 변환</button>
+	<nav class="mt-4 flex justify-between gap-4 break-keep">
+		<button class="bg-blue-100">메모지로 변환하기</button>
+		<button
+			type="button"
+			onclick={() => {
+				textarea.value = example;
+				setRows();
+			}}
+			class="bg-gray-100"
+		>
+			예시 입력
+		</button>
+	</nav>
 </form>
 
 <div class="flex flex-col gap-y-6" class:hidden={!html}>
