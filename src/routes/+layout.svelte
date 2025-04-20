@@ -27,12 +27,12 @@
 </svelte:head>
 
 {#if page.data.footer !== false}
-	<div class="flex min-h-dvh flex-col *:p-4">
+	<div class="flex min-h-dvh flex-col *:not-print:p-4">
 		<main class="flex-1 overflow-y-auto">
 			{@render children()}
 		</main>
 		<footer
-			class="flex items-center gap-x-4 overflow-x-auto bg-gray-100 *:flex-shrink-0 *:text-blue-800"
+			class="flex items-center gap-x-4 overflow-x-auto bg-gray-100 *:flex-shrink-0 *:text-blue-800 print:hidden"
 		>
 			<a href="/">처음으로</a>
 			<a
