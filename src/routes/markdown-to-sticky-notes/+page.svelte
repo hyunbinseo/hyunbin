@@ -101,10 +101,10 @@
 		:is(h1, h2, h3, li) {
 			width: calc(var(--width) * 1mm);
 			height: calc(var(--height) * 1mm);
-			@apply shrink-0 break-inside-avoid overflow-y-auto border p-4 text-2xl break-keep print:overflow-hidden;
+			@apply shrink-0 break-inside-avoid overflow-y-auto border p-4 text-3xl wrap-break-word break-keep print:overflow-hidden;
 		}
 		:is(h1, h2, h3) {
-			@apply font-bold;
+			@apply text-4xl font-bold;
 		}
 		h1 {
 			background-color: rgba(246, 194, 217, 0.1);
