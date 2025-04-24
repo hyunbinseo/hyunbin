@@ -17,6 +17,9 @@
 
 	const lengths = [50, 60, 70, 90] as const;
 	let dimension = $state<[number, number]>([60, 60]);
+	let bgOpacity = $state(1);
+	let isTextCenterX = $state(false);
+	let isTextCenterY = $state(false);
 </script>
 
 <form
@@ -69,16 +72,38 @@
 				</select>
 			</label>
 		{/each}
+		<label>
+			<span class="text-sm">배경 진하기</span>
+			<br />
+			<select bind:value={bgOpacity}>
+				{#each { length: 11 }, index}
+					<option value={index}>{index}</option>
+				{/each}
+			</select>
+		</label>
 		<button type="button" onclick={() => window.print()} class="bg-blue-100">인쇄하기</button>
 		<button type="button" onclick={() => (html = undefined)} class="bg-gray-200 sm:ml-auto">
 			입력란으로
 		</button>
 	</nav>
 	<hr class="print:hidden" />
+	<nav class="flex flex-col gap-y-2 print:hidden">
+		<label>
+			<input bind:checked={isTextCenterX} type="checkbox" />
+			<span>가운데 정렬</span>
+		</label>
+		<label>
+			<input bind:checked={isTextCenterY} type="checkbox" />
+			<span>제목 세로 중앙 정렬</span>
+		</label>
+	</nav>
 	<section
 		class="flex flex-wrap not-print:gap-4"
+		class:text-center={isTextCenterX}
+		class:text-center-y={isTextCenterY}
 		style:--width={dimension[0]}
 		style:--height={dimension[1]}
+		style:--bg-opacity={bgOpacity}
 	>
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html html}
@@ -94,6 +119,9 @@
 	select {
 		@apply rounded;
 	}
+	label:has(> input[type='checkbox']) {
+		@apply flex w-fit items-center gap-x-2 select-none;
+	}
 	section :global {
 		> :is(ul, ol) {
 			@apply contents;
@@ -103,20 +131,25 @@
 			height: calc(var(--height) * 1mm);
 			@apply shrink-0 break-inside-avoid overflow-y-auto border p-4 text-3xl wrap-break-word break-keep print:overflow-hidden;
 		}
+		&.text-center-y {
+			:is(h1, h2, h3) {
+				@apply flex items-center;
+			}
+		}
 		:is(h1, h2, h3) {
 			@apply text-4xl font-bold;
 		}
 		h1 {
-			background-color: rgba(246, 194, 217, 0.1);
+			background-color: rgba(246, 194, 217, calc(var(--bg-opacity) / 10));
 		}
 		h2 {
-			background-color: rgba(188, 223, 201, 0.1);
+			background-color: rgba(188, 223, 201, calc(var(--bg-opacity) / 10));
 		}
 		h3 {
-			background-color: rgba(161, 200, 223, 0.1);
+			background-color: rgba(161, 200, 223, calc(var(--bg-opacity) / 10));
 		}
 		li {
-			background-color: rgba(255, 246, 155, 0.1);
+			background-color: rgba(255, 246, 155, calc(var(--bg-opacity) / 10));
 		}
 	}
 </style>
