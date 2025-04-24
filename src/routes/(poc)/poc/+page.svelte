@@ -1,7 +1,7 @@
 <script lang="ts">
 	// Reference https://github.com/vitejs/vite/pull/18666
-	const paths = Object.keys(import.meta.glob('../\\(poc\\)/*/+page.ts')) //
-		.map((path) => path.substring(8, path.length - 9));
+	const paths = Object.keys(import.meta.glob(['../*/+page.ts', '!./+page.ts'])) //
+		.map((path) => path.substring(2, path.length - 9));
 </script>
 
 <ul class="list-inside list-disc space-y-2 font-mono">
