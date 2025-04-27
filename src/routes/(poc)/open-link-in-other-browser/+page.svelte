@@ -7,8 +7,10 @@
 		return () => (document.documentElement.lang = 'ko');
 	});
 
+	type Anchors = [string, string?][];
+
 	const [scheme, urlFromHostname] = $derived(page.url.toString().split('://'));
-	const chromeForAndroid = $derived<[string, string?][]>([
+	const chromeForAndroid = $derived<Anchors>([
 		[
 			`intent://${urlFromHostname}#Intent;scheme=${scheme};package=com.android.chrome;end`,
 			`Shows a 'Choose activity' dialog in Chromium browsers including self as an option`,
@@ -18,38 +20,42 @@
 			'Silently fails in Chromium browsers, probably because they share the URI scheme',
 		],
 	]);
+
+	const edge = $derived<Anchors>([
+		[
+			`microsoft-edge:${page.url.toString()}`,
+			`Shows a 'Choose activity' dialog in Android Chromium browsers`,
+		],
+	]);
 </script>
+
+{#snippet anchorListItems(anchors: Anchors)}
+	<!-- eslint-disable-next-line svelte/require-each-key -->
+	{#each anchors as [href, description]}
+		<li>
+			{#if description}
+				<span>{description}</span><br />
+			{/if}
+			<a {href}>
+				<code>{href}</code>
+			</a>
+		</li>
+	{/each}
+{/snippet}
 
 <section>
 	<h2 class="text-xl font-bold">Chrome for Android</h2>
 	<p class="mt-1">Chromium browsers include Samsung Internet, Brave, Vivaldi</p>
 	<ul class="mt-4">
-		<!-- eslint-disable-next-line svelte/require-each-key -->
-		{#each chromeForAndroid as [href, description]}
-			<li>
-				{#if description}
-					<span>{description}</span><br />
-				{/if}
-				<a {href}>
-					<code>{href}</code>
-				</a>
-			</li>
-		{/each}
+		{@render anchorListItems(chromeForAndroid)}
 	</ul>
 </section>
 
 <section class="mt-8">
-	<h2 class="text-xl font-bold">Microsoft Edge for Desktop</h2>
-	<p class="mt-1">Tested on macOS and Windows 11</p>
+	<h2 class="text-xl font-bold">Microsoft Edge</h2>
+	<p class="mt-1">Tested on Android, macOS, Windows 11</p>
 	<ul class="mt-4">
-		<li>
-			{#if true}
-				{@const href = `microsoft-edge:${page.url.toString()}`}
-				<a {href}>
-					<code>{href}</code>
-				</a>
-			{/if}
-		</li>
+		{@render anchorListItems(edge)}
 	</ul>
 </section>
 
