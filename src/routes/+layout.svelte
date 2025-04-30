@@ -8,6 +8,10 @@
 	import favicon from './favicon.svg';
 
 	let { children } = $props();
+
+	$effect(() => {
+		document.documentElement.lang = page.data.lang || 'ko';
+	});
 </script>
 
 <svelte:head>
@@ -15,6 +19,7 @@
 		<title>{page.data.title}</title>
 	{/if}
 	<link rel="canonical" href="https://hyunbin.cc/" />
+	<meta itemprop="lang" content={page.data.lang || 'ko'} />
 	<meta name="robots" content="noindex" />
 	{#if !dev}
 		<link rel="icon" type="image/svg+xml" href={favicon} />

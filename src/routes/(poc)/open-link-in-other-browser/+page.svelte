@@ -1,11 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { onMount } from 'svelte';
-
-	onMount(() => {
-		document.documentElement.lang = 'en';
-		return () => (document.documentElement.lang = 'ko');
-	});
 
 	type Anchors = [string, string?][];
 
