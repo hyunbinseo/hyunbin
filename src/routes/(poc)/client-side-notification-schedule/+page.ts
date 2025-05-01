@@ -3,12 +3,11 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load = (() => {
-	if (browser) {
-		if (!('Notification' in window)) error(400, 'Notification is not supported.');
-		if (!('serviceWorker' in navigator)) error(400, 'Service Worker is not supported.');
-	}
+	if (browser && !('Notification' in window))
+		error(400, 'Notification is not supported. iOS requires PWA installation.');
+
 	return {
 		lang: 'en',
-		title: 'Schedule Web Notification Using Service Worker',
+		title: 'Notifications API Demo',
 	};
 }) satisfies PageLoad;
