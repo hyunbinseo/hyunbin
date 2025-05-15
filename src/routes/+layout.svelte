@@ -39,13 +39,15 @@
 		<footer
 			class="flex items-center gap-x-4 overflow-x-auto bg-gray-100 *:flex-shrink-0 *:text-blue-800 print:hidden"
 		>
-			<a href="/">처음으로</a>
+			<a href="/">
+				{page.data.lang === 'en' ? 'Home' : '처음으로'}
+			</a>
 			<a
 				href="{PUBLIC_GITHUB}/hyunbin.cc/tree/main/src/routes{page.route.id}"
 				target="_blank"
 				class="mr-auto"
 			>
-				소스코드
+				{page.data.lang === 'en' ? 'Source' : '소스코드'}
 			</a>
 			<a href={PUBLIC_GITHUB} target="_blank">
 				<img src={GitHub} alt="GitHub" class="h-6" />
