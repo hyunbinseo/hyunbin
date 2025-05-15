@@ -47,7 +47,7 @@
 	</ul>
 </main>
 
-<div class="fixed inset-6 flex flex-col-reverse items-end gap-y-4">
+<div class="fixed right-6 bottom-6 z-10 flex flex-col-reverse items-end gap-y-4">
 	<button
 		type="button"
 		aria-label={!isOpen ? 'Open' : 'Close'}
@@ -71,7 +71,7 @@
 	bind:this={dialog}
 	oncancel={close}
 	class={[
-		'max-h-full max-w-full overflow-y-auto max-sm:w-full sm:right-6 sm:bottom-26 sm:ml-auto sm:h-160 sm:max-h-[calc(100%-var(--spacing)*32)] sm:w-96 sm:rounded-3xl sm:shadow-2xl',
+		'z-10 max-h-full max-w-full overflow-y-auto max-sm:w-full sm:fixed sm:right-6 sm:bottom-26 sm:mt-auto sm:ml-auto sm:h-160 sm:max-h-[calc(100%-var(--spacing)*32)] sm:w-96 sm:rounded-3xl sm:shadow-2xl',
 		'flex-col gap-y-8 bg-gray-200 *:bg-white *:p-4 open:flex',
 	]}
 >
