@@ -5,7 +5,7 @@
 	import GitHub from '$lib/logos/GitHub.svg';
 	import LinkedIn from '$lib/logos/LinkedIn.svg';
 	import '../app.css';
-	import favicon from './favicon.svg';
+	import favicon from './favicon.png';
 
 	let { children } = $props();
 
@@ -22,7 +22,8 @@
 	<meta itemprop="lang" content={page.data.lang || 'ko'} />
 	<meta name="robots" content="noindex" />
 	{#if !dev}
-		<link rel="icon" type="image/svg+xml" href={favicon} />
+		<!-- https://www.flaticon.com/free-icon/sunfish_1717915 -->
+		<link rel="icon" type="image/png" href={favicon} />
 		<script defer src="https://assets.onedollarstats.com/stonks.js"></script>
 	{/if}
 	<script>
