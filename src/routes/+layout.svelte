@@ -18,7 +18,7 @@
 	{#if page.data.title}
 		<title>{page.data.title}</title>
 	{/if}
-	<link rel="canonical" href="https://hyunbin.cc/" />
+	<link rel="canonical" href="https://hyunb.in/" />
 	<meta itemprop="lang" content={page.data.lang || 'ko'} />
 	<meta name="robots" content="noindex" />
 	{#if !dev}
@@ -44,7 +44,7 @@
 				{page.data.lang === 'en' ? 'Home' : '처음으로'}
 			</a>
 			<a
-				href="{PUBLIC_GITHUB}/hyunbin.cc/tree/main/src/routes{page.route.id}"
+				href="{PUBLIC_GITHUB}/hyunbin/tree/main/src/routes{page.route.id}"
 				target="_blank"
 				class="mr-auto"
 			>
