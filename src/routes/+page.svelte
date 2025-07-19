@@ -10,19 +10,23 @@
 		서현빈입니다.
 	</p>
 
-	<ul class="mt-8 list-inside list-disc space-y-2.5">
+	<ul class="mt-8 list-disc space-y-2.5 pl-4">
 		<li>
-			<a href="mailto:{PUBLIC_EMAIL}">이메일</a>,
+			<a href="mailto:{PUBLIC_EMAIL}">이메일</a> /
+			<a href={PUBLIC_GITHUB} target="_blank">GitHub</a> /
 			<a href={PUBLIC_LINKEDIN} target="_blank">LinkedIn</a>
 		</li>
-		<li><a href="{PUBLIC_GITHUB}/holidays-kr#readme" target="_blank">대한민국의 공휴일</a></li>
+		<li>
+			<a href="{PUBLIC_GITHUB}/holidays-kr#readme" target="_blank">대한민국의 공휴일</a>
+			<span>구독용 캘린더, JS, JSON 등</span>
+		</li>
 		<li>
 			<a href="https://jamoya.one/" target="_blank">자모야 모여라</a>
-			<span>한글 자소 분리 해결 (파일명 깨짐)</span>
+			<span>한글 파일명 <span aria-label="자소">ㅈㅏㅅㅗ</span> 분리 문제 해결</span>
 		</li>
 		<li>
 			<a href="/markdown-to-sticky-notes">목록을 메모지로 변환</a>
-			<span>인쇄해 잘라 쓸 수 있도록</span>
+			<span>쓰지 말고 인쇄해 자르세요.</span>
 		</li>
 		<li>
 			<a href="https://github.com/hyunbinseo/better-surf#readme" target="_blank">Better Surf</a>
