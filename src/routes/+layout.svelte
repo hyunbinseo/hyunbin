@@ -20,7 +20,9 @@
 	{/if}
 	<link rel="canonical" href="https://hyunb.in/" />
 	<meta itemprop="lang" content={page.data.lang || 'ko'} />
-	<meta name="robots" content="noindex" />
+	{#if page.data.noindex !== false}
+		<meta name="robots" content="noindex" />
+	{/if}
 	{#if !dev}
 		<!-- https://www.flaticon.com/free-icon/sunfish_1717915 -->
 		<link rel="icon" type="image/png" href={favicon} />

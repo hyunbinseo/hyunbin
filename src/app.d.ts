@@ -8,6 +8,7 @@ declare global {
 			lang?: 'en';
 			title: string;
 			footer?: false;
+			noindex?: false;
 		}
 		// interface PageState {}
 		// interface Platform {}
