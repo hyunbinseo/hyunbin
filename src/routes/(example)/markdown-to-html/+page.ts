@@ -14,8 +14,11 @@ export const ssr = false;
 
 export const load = (async () => {
 	const { body, attrs } = extractYaml<{ title: string }>(lorem);
-	const { value } = await processor.process(body);
-	return { ...attrs, html: value };
+	return {
+		...attrs,
+		lang: 'en',
+		html: (await processor.process(body)).toString(),
+	};
 }) satisfies PageLoad;
 
 const [, width, height] = image.match(/viewBox="\d+ \d+ (\d+) (\d+)"/)!;
