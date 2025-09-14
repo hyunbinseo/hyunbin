@@ -1,4 +1,5 @@
 <script>
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { PUBLIC_EMAIL, PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
 </script>
@@ -44,6 +45,14 @@
 		</li>
 	</ul>
 </main>
+
+<button
+	aria-hidden="true"
+	type="button"
+	class="fixed right-0 bottom-0 size-16"
+	ondblclick={() => goto(resolve('/(example)/examples'))}
+>
+</button>
 
 <style>
 	@reference "$app.css";
