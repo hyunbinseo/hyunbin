@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
 	import GitHub from '$lib/logos/GitHub.svg';
@@ -42,9 +43,11 @@
 		<footer
 			class="flex items-center gap-x-4 overflow-x-auto bg-gray-100 *:flex-shrink-0 *:text-blue-800 print:hidden"
 		>
-			<a href="/">
+			<a href={resolve('/')}>
 				{page.data.lang === 'en' ? 'Home' : '처음으로'}
 			</a>
+			<!-- FIXME https://github.com/sveltejs/eslint-plugin-svelte/issues/1359 -->
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a
 				href="{PUBLIC_GITHUB}/hyunbin/tree/main/src/routes{page.route.id}"
 				target="_blank"
@@ -52,9 +55,11 @@
 			>
 				{page.data.lang === 'en' ? 'Source' : '소스코드'}
 			</a>
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a href={PUBLIC_GITHUB} target="_blank">
 				<img src={GitHub} alt="GitHub" class="h-6" />
 			</a>
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a href={PUBLIC_LINKEDIN} target="_blank">
 				<img src={LinkedIn} alt="LinkedIn" class="h-6" />
 			</a>
