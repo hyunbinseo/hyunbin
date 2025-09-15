@@ -1,4 +1,6 @@
 <script lang="ts">
+	import suitVariableUrl from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
+
 	const text = 'Point Nemo';
 	const filename = text.toLowerCase().replaceAll(' ', '-');
 
@@ -21,21 +23,23 @@
 	<canvas
 		class="mt-1.5"
 		{@attach (canvas) => {
-			const ctx = canvas.getContext('2d')!;
+			new FontFace('SUIT Variable', `url("${suitVariableUrl}")`).load().then(() => {
+				const ctx = canvas.getContext('2d')!;
 
-			// Reference https://web.dev/articles/canvas-hidipi
-			const rect = canvas.getBoundingClientRect();
-			canvas.style.width = rect.width + 'px';
-			canvas.style.height = rect.height + 'px';
-			canvas.width = rect.width * devicePixelRatio;
-			canvas.height = rect.height * devicePixelRatio;
-			ctx.scale(devicePixelRatio, devicePixelRatio);
+				// Reference https://web.dev/articles/canvas-hidipi
+				const rect = canvas.getBoundingClientRect();
+				canvas.style.width = rect.width + 'px';
+				canvas.style.height = rect.height + 'px';
+				canvas.width = rect.width * devicePixelRatio;
+				canvas.height = rect.height * devicePixelRatio;
+				ctx.scale(devicePixelRatio, devicePixelRatio);
 
-			ctx.font = '24px "SUIT Variable"';
-			ctx.textAlign = 'left';
-			ctx.textBaseline = 'top';
-			ctx.fillText(text, 0, 0);
-			dataUrl = canvas.toDataURL('image/png');
+				ctx.font = '24px "SUIT Variable"';
+				ctx.textAlign = 'left';
+				ctx.textBaseline = 'top';
+				ctx.fillText(text, 0, 0);
+				dataUrl = canvas.toDataURL('image/png');
+			});
 		}}
 	></canvas>
 </figure>
