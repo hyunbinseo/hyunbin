@@ -22,6 +22,15 @@
 		class="mt-1.5"
 		{@attach (canvas) => {
 			const ctx = canvas.getContext('2d')!;
+
+			// Reference https://web.dev/articles/canvas-hidipi
+			const rect = canvas.getBoundingClientRect();
+			canvas.style.width = rect.width + 'px';
+			canvas.style.height = rect.height + 'px';
+			canvas.width = rect.width * devicePixelRatio;
+			canvas.height = rect.height * devicePixelRatio;
+			ctx.scale(devicePixelRatio, devicePixelRatio);
+
 			ctx.font = '24px "SUIT Variable"';
 			ctx.textAlign = 'left';
 			ctx.textBaseline = 'top';
