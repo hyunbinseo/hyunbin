@@ -1,4 +1,6 @@
 <script>
+	const { data } = $props();
+
 	let height = $state('100%');
 	let width = $state('100%');
 </script>
@@ -12,25 +14,29 @@
 	<div
 		style:height
 		style:width
-		class="min-h-48 shrink-0 space-x-2 overflow-y-auto bg-white p-4 *:inline-block"
+		class="flex min-h-48 shrink-0 flex-col justify-between overflow-y-auto bg-white p-4"
 	>
-		<label>
-			Height
-			<br />
-			<select bind:value={height}>
-				<option>100%</option>
-				<option>192px</option>
-				<option>125vh</option>
-			</select>
-		</label>
-		<label>
-			Width
-			<br />
-			<select bind:value={width}>
-				<option>100%</option>
-				<option>125vw</option>
-			</select>
-		</label>
+		<div class="flex gap-x-2">
+			<label>
+				Height
+				<br />
+				<select bind:value={height}>
+					<option>100%</option>
+					<option>192px</option>
+					<option>125vh</option>
+				</select>
+			</label>
+			<label>
+				Width
+				<br />
+				<select bind:value={width}>
+					<option>100%</option>
+					<option>125vw</option>
+				</select>
+			</label>
+		</div>
+		<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+		<a href={data.url.source} target="_blank">Source</a>
 	</div>
 </div>
 

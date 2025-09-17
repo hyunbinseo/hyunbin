@@ -8,7 +8,7 @@
 	import '../app.css';
 	import favicon from './favicon.png';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
 	$effect(() => {
 		document.documentElement.lang = page.data.lang || 'ko';
@@ -46,13 +46,8 @@
 			<a href={resolve('/')}>
 				{page.data.lang === 'en' ? 'Home' : '처음으로'}
 			</a>
-			<!-- FIXME https://github.com/sveltejs/eslint-plugin-svelte/issues/1359 -->
 			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a
-				href="{PUBLIC_GITHUB}/hyunbin/tree/main/src/routes{page.route.id}"
-				target="_blank"
-				class="mr-auto"
-			>
+			<a href={data.url.source} target="_blank" class="mr-auto">
 				{page.data.lang === 'en' ? 'Source' : '소스코드'}
 			</a>
 			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
