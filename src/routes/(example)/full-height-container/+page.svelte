@@ -7,14 +7,17 @@
 
 <div
 	class={[
-		'fixed inset-0 flex flex-col justify-center-safe overflow-auto p-8',
+		'fixed inset-0 flex flex-col justify-center-safe overflow-auto',
 		'bg-linear-to-r/longer from-indigo-500 to-teal-400',
 	]}
 >
 	<div
 		style:height
 		style:width
-		class="flex min-h-48 shrink-0 flex-col justify-between overflow-y-auto bg-white p-4"
+		class={[
+			'shrink-0 overflow-y-auto bg-white p-4',
+			'flex flex-col justify-between', // optional
+		]}
 	>
 		<div class="flex gap-x-2">
 			<label>
@@ -22,7 +25,8 @@
 				<br />
 				<select bind:value={height}>
 					<option>100%</option>
-					<option>192px</option>
+					<option>20rem</option>
+					<option>40rem</option>
 					<option>125vh</option>
 				</select>
 			</label>
@@ -40,11 +44,16 @@
 	</div>
 </div>
 
-<style>
-	@supports not (justify-content: safe center) {
-		/* 12rem + 2rem + 2rem */
-		@media (max-height: 256px) {
-			.justify-center-safe {
+<style lang="postcss">
+	.justify-center-safe {
+		/* NOTE Fallback options for Safari < 17.6 */
+		justify-content: flex-start; /* 1 */
+		justify-content: center; /* 2 */
+		justify-content: safe center;
+		padding: 2rem;
+		@supports not (justify-content: safe center) {
+			/* 2. Adjust to the actual content height */
+			@media (max-height: calc(2 * 2rem + 20rem)) {
 				justify-content: flex-start;
 			}
 		}
