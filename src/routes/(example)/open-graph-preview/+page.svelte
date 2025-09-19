@@ -7,9 +7,16 @@
 <form class="flex w-[400px] flex-col gap-y-6 *:flex *:flex-col *:gap-y-1">
 	<label>
 		<span>이미지 파일</span>
+
+		<!-- 이미지의 MIME 유형입니다. image/jpeg, image/gif, image/png 중 하나입니다. -->
+		<!-- Reference https://developers.facebook.com/docs/sharing/webmasters/#images -->
+
+		<!-- WebP, AVIF formats are supported by many major platforms. -->
+		<!-- Reference https://joost.blog/use-avif-webp-share-images/ -->
+
 		<input
 			type="file"
-			accept="image/*"
+			accept={['image/jpeg', 'image/gif', 'image/png'].join(', ')}
 			onchange={(e) => {
 				const file = e.currentTarget.files?.[0];
 				if (!file) return;
