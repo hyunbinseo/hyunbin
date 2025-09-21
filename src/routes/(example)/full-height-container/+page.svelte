@@ -7,26 +7,18 @@
 
 <div
 	class={[
-		'fixed inset-0 flex flex-col justify-center-safe overflow-auto',
+		'fixed inset-0 flex flex-col justify-center-safe overflow-auto *:shrink-0',
 		'bg-linear-to-r/longer from-indigo-500 to-teal-400',
 	]}
 >
-	<div
-		style:height
-		style:width
-		class={[
-			'shrink-0 overflow-y-auto bg-white p-4',
-			'flex flex-col justify-between', // optional
-		]}
-	>
+	<div style:height style:width class="flex flex-col justify-between bg-white p-4">
 		<div class="flex gap-x-2">
 			<label>
 				Height
 				<br />
 				<select bind:value={height}>
 					<option>100%</option>
-					<option>20rem</option>
-					<option>40rem</option>
+					<option>24rem</option>
 					<option>125vh</option>
 				</select>
 			</label>
@@ -51,9 +43,12 @@
 		justify-content: center; /* 2 */
 		justify-content: safe center;
 		padding: 2rem;
+		> :first-child:last-child {
+			min-height: 24rem;
+		}
 		@supports not (justify-content: safe center) {
 			/* 2. Adjust to the actual content height */
-			@media (max-height: calc(2 * 2rem + 20rem)) {
+			@media (max-height: calc(2 * 2rem + 24rem)) {
 				justify-content: flex-start;
 			}
 		}
