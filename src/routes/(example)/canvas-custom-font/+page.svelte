@@ -1,13 +1,24 @@
 <script lang="ts">
 	import suitVariableUrl from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
 
-	const text = 'Point Nemo';
-	const filename = text.toLowerCase().replaceAll(' ', '-');
-
+	let text = $state('Point Nemo');
+	let canvas = $state<HTMLCanvasElement>();
 	let dataUrl = $state<string>();
+
+	const writeText = (string: string) => {
+		if (!canvas) return;
+		const ctx = canvas.getContext('2d')!;
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.fillText(string, 0, 0);
+		dataUrl = canvas.toDataURL('image/png');
+	};
+
+	$effect(() => writeText(text));
 </script>
 
-<figure>
+<input type="text" bind:value={text} />
+
+<figure class="mt-4">
 	<figcaption>DOM</figcaption>
 	<span class="text-2xl">{text}</span>
 </figure>
@@ -17,28 +28,29 @@
 		Canvas
 		{#if dataUrl}
 			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			[<a download="{filename}.png" href={dataUrl}>Save as PNG</a>]
+			[<a download="image.png" href={dataUrl}>Save as PNG</a>]
 		{/if}
 	</figcaption>
 	<canvas
 		class="mt-1.5"
-		{@attach (canvas) => {
-			new FontFace('SUIT Variable', `url("${suitVariableUrl}")`).load().then(() => {
-				const ctx = canvas.getContext('2d')!;
+		{@attach (c) => {
+			// Reference https://web.dev/articles/canvas-hidipi
+			const rect = c.getBoundingClientRect();
+			c.style.width = rect.width + 'px';
+			c.style.height = rect.height + 'px';
+			c.width = rect.width * devicePixelRatio;
+			c.height = rect.height * devicePixelRatio;
 
-				// Reference https://web.dev/articles/canvas-hidipi
-				const rect = canvas.getBoundingClientRect();
-				canvas.style.width = rect.width + 'px';
-				canvas.style.height = rect.height + 'px';
-				canvas.width = rect.width * devicePixelRatio;
-				canvas.height = rect.height * devicePixelRatio;
-				ctx.scale(devicePixelRatio, devicePixelRatio);
+			const ctx = c.getContext('2d')!;
+			ctx.scale(devicePixelRatio, devicePixelRatio);
+			ctx.textAlign = 'left';
+			ctx.textBaseline = 'top';
 
-				ctx.font = '24px "SUIT Variable"';
-				ctx.textAlign = 'left';
-				ctx.textBaseline = 'top';
-				ctx.fillText(text, 0, 0);
-				dataUrl = canvas.toDataURL('image/png');
+			const family = 'SUIT Variable';
+			new FontFace(family, `url("${suitVariableUrl}")`).load().then(() => {
+				ctx.font = `24px "${family}"`;
+				canvas = c;
+				writeText(text);
 			});
 		}}
 	></canvas>
