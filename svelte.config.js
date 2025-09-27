@@ -7,6 +7,13 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: { '$app.css': './src/app.css' },
+		typescript: {
+			config: (obj) => {
+				if (!Array.isArray(obj.include)) throw new TypeError();
+				obj.include.push('../cli/**/*.js', '../cli/**/*.ts');
+				return obj;
+			},
+		},
 	},
 };
 
