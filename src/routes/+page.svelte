@@ -50,7 +50,7 @@
 	aria-hidden="true"
 	type="button"
 	class="fixed right-0 bottom-0 size-16"
-	ondblclick={() => goto(resolve('/(example)/examples'))}
+	ondblclick={() => goto(resolve('/examples'))}
 >
 </button>
 
