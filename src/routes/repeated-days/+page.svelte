@@ -68,7 +68,7 @@
 	</label>
 </form>
 
-<style>
+<style lang="postcss">
 	@reference '$app.css';
 	fieldset {
 		@apply border p-4 pt-2;

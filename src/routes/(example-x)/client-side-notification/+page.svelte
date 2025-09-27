@@ -50,7 +50,7 @@
 	<button class="rounded bg-blue-100 px-3 py-2">Send Notification</button>
 </form>
 
-<style>
+<style lang="postcss">
 	@reference "$app.css";
 	label > span:first-child {
 		@apply block text-sm;

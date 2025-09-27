@@ -53,7 +53,7 @@
 	</ul>
 </section>
 
-<style>
+<style lang="postcss">
 	@reference "$app.css";
 	ul {
 		@apply mt-2 list-disc space-y-2 pl-4;

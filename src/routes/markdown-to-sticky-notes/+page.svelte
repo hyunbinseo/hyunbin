@@ -110,7 +110,7 @@
 	</section>
 </div>
 
-<style>
+<style lang="postcss">
 	@reference "$app.css";
 	button {
 		@apply px-3 py-2;

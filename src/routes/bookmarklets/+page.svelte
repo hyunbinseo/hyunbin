@@ -26,7 +26,7 @@
 	<li>{@render anchor(`서울대 수강신청 '이미 프로그램 사용 중' 우회`, snuSugangEnter)}</li>
 </ul>
 
-<style>
+<style lang="postcss">
 	@reference "$app.css";
 	ul > li > a {
 		@apply inline-block rounded border p-2;

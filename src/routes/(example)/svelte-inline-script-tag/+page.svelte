@@ -22,7 +22,7 @@
 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
 {@html showModal}
 
-<style>
+<style lang="postcss">
 	@reference "$app.css";
 	a,
 	button {

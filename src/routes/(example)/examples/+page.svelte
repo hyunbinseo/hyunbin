@@ -10,7 +10,7 @@
 	{/each}
 </ul>
 
-<style>
+<style lang="postcss">
 	@reference "$app.css";
 	a {
 		@apply underline;

@@ -54,7 +54,7 @@
 >
 </button>
 
-<style>
+<style lang="postcss">
 	@reference "$app.css";
 	a {
 		@apply underline underline-offset-4 hover:decoration-2;
