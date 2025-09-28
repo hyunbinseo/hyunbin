@@ -32,8 +32,8 @@
 			<span>한글 파일명 <span aria-label="자소">ㅈㅏㅅㅗ</span> 분리 문제 해결</span>
 		</li>
 		<li>
-			<a href={resolve('/markdown-to-sticky-notes')}>목록을 메모지로 변환</a>
-			<span>쓰지 말고 인쇄해 자르세요.</span>
+			<a href={resolve('/google-sheets-template')}>구글 스프레드시트 템플릿</a>
+			<span>연번 자동 입력 등</span>
 		</li>
 		<li>
 			<a href="https://github.com/hyunbinseo/better-surf#readme" target="_blank">Better Surf</a>
@@ -42,6 +42,10 @@
 		<li>
 			<a href={resolve('/bookmarklets')}>Bookmarklets</a>
 			<span>북마크에 끌어놓고 쓰는 유틸리티</span>
+		</li>
+		<li>
+			<a href={resolve('/markdown-to-sticky-notes')}>목록을 메모지로 변환</a>
+			<span>쓰지 말고 인쇄해 자르세요.</span>
 		</li>
 	</ul>
 </main>
