@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { googleSheetsTemplateUrl as href } from '.';
+
 	const { data } = $props();
 </script>
 
@@ -12,13 +14,7 @@
 {/snippet}
 
 <h1 class="text-2xl font-bold">{data.title}</h1>
-<a
-	href="https://docs.google.com/spreadsheets/d/1L49Pv939JcWfxnmfHFUncMshtmTZ6VljmXkA-ChqUm0/copy"
-	target="_blank"
-	class="mt-0.5 inline-block text-blue-700 underline"
->
-	양식 복사하기
-</a>
+<a {href} target="_blank" class="mt-0.5 inline-block text-blue-700 underline"> 양식 복사하기 </a>
 
 <h3 class="mt-6 text-lg font-bold">적용 기능</h3>
 <ul class="mt-0.5">
