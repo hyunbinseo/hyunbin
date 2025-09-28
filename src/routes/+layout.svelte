@@ -5,6 +5,7 @@
 	import { PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
 	import GitHub from '$lib/logos/GitHub.svg';
 	import LinkedIn from '$lib/logos/LinkedIn.svg';
+	import suitVariableWoff2 from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
 	import '../app.css';
 	import favicon from './favicon.png';
 
@@ -19,6 +20,7 @@
 	{#if page.data.title}
 		<title>{page.data.title}</title>
 	{/if}
+	<link rel="preload" href={suitVariableWoff2} as="font" type="font/woff2" />
 	<link rel="canonical" href="https://hyunb.in/" />
 	<meta itemprop="lang" content={page.data.lang || 'ko'} />
 	{#if page.data.noindex !== false}
