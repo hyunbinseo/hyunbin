@@ -7,6 +7,7 @@ declare global {
 		interface PageData {
 			lang?: 'en';
 			title: string;
+			description?: string;
 			footer?: false;
 			noindex?: false;
 		}

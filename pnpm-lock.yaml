@@ -71,6 +71,9 @@ importers:
       globals:
         specifier: ^16.4.0
         version: 16.4.0
+      hash-dialog-modal:
+        specifier: ^1.0.4
+        version: 1.0.4
       lit-html:
         specifier: ^3.3.1
         version: 3.3.1
@@ -89,6 +92,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.14
         version: 0.6.14(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.39.6))(prettier@3.6.2)
+      print-friendly:
+        specifier: ^0.4.1
+        version: 0.4.1
       rehype-stringify:
         specifier: ^10.0.1
         version: 10.0.1
@@ -107,6 +113,9 @@ importers:
       svelte-check:
         specifier: ^4.3.2
         version: 4.3.2(picomatch@4.0.3)(svelte@5.39.6)(typescript@5.9.2)
+      swipe-scroller:
+        specifier: ^1.0.7
+        version: 1.0.7(svelte@5.39.6)
       tailwindcss:
         specifier: ^4.1.13
         version: 4.1.13
@@ -1218,6 +1227,9 @@ packages:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
 
+  hash-dialog-modal@1.0.4:
+    resolution: {integrity: sha512-DadPvPVtp5qtkulhLYqaTpEDZ0zmdJAQRv494m2vw8tC64tM/O1gWisKr3tTtZClSYySFarllw4PxqG8hNPcjg==}
+
   hast-util-to-html@9.0.5:
     resolution: {integrity: sha512-OguPdidb+fbHQSU4Q4ZiLKnzWo8Wwsf5bZfbvu7//a9oTYoqD/fWpe96NuHkoS9h0ccGOTe0C4NGXdtS0iObOw==}
 
@@ -1676,6 +1688,9 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  print-friendly@0.4.1:
+    resolution: {integrity: sha512-mtoOj4KxCwh0LWV8pfpack1tRXqgJq2NtjWtfHaDnVxUiXQzYHOci3fifhfyyvreyS8AToHRE9Jq1Gfq2JrPrQ==}
+
   property-information@7.1.0:
     resolution: {integrity: sha512-TwEZ+X+yCJmYfL7TPUOcvBZ4QfoT5YenQiJuX//0th53DE6w0xxLEtfK3iyryQFddXuvkIk51EEgrJQ0WJkOmQ==}
 
@@ -1785,6 +1800,11 @@ packages:
   svelte@5.39.6:
     resolution: {integrity: sha512-bOJXmuwLNaoqPCTWO8mPu/fwxI5peGE5Efe7oo6Cakpz/G60vsnVF6mxbGODaxMUFUKEnjm6XOwHEqOht6cbvw==}
     engines: {node: '>=18'}
+
+  swipe-scroller@1.0.7:
+    resolution: {integrity: sha512-Bi95PUfmtmRAl2dmPrUYU3eEMQnoAWn7m6rr9alHjBwHKm3aFSO7lIft4Fu5awOCaURgTgQ+UbfsoVajs+BfKw==}
+    peerDependencies:
+      svelte: ^3.55.1 || ^4.0.0 || ^5.0.0
 
   tailwindcss@4.1.13:
     resolution: {integrity: sha512-i+zidfmTqtwquj4hMEwdjshYYgMbOrPzb9a0M3ZgNa0JMoZeFC6bxZvO8yr8ozS6ix2SDz0+mvryPeBs2TFE+w==}
@@ -2912,6 +2932,8 @@ snapshots:
 
   has-flag@4.0.0: {}
 
+  hash-dialog-modal@1.0.4: {}
+
   hast-util-to-html@9.0.5:
     dependencies:
       '@types/hast': 3.0.4
@@ -3363,6 +3385,8 @@ snapshots:
 
   prettier@3.6.2: {}
 
+  print-friendly@0.4.1: {}
+
   property-information@7.1.0: {}
 
   punycode@2.3.1: {}
@@ -3536,6 +3560,10 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.19
       zimmerframe: 1.1.4
+
+  swipe-scroller@1.0.7(svelte@5.39.6):
+    dependencies:
+      svelte: 5.39.6
 
   tailwindcss@4.1.13: {}
 

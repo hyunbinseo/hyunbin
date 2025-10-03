@@ -20,6 +20,9 @@
 	{#if page.data.title}
 		<title>{page.data.title}</title>
 	{/if}
+	{#if page.data.description}
+		<meta name="description" content={page.data.description} />
+	{/if}
 	<link rel="preload" href={suitVariableWoff2} as="font" type="font/woff2" />
 	<link rel="canonical" href="https://hyunb.in/" />
 	<meta itemprop="lang" content={page.data.lang || 'ko'} />
