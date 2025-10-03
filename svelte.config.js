@@ -5,6 +5,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
+		experimental: { remoteFunctions: true },
 		adapter: adapter(),
 		prerender: { handleMissingId: 'warn' },
 		alias: { '$app.css': './src/app.css' },
@@ -15,6 +16,9 @@ const config = {
 				return obj;
 			},
 		},
+	},
+	compilerOptions: {
+		experimental: { async: true },
 	},
 };
 

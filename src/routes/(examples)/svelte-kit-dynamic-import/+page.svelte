@@ -19,6 +19,8 @@
 		<tr>
 			<td><code>+page.svelte</code></td>
 			<td>
+				<!-- TODO Add an example for the experimental await syntax. -->
+				<!-- Blocked by https://github.com/sveltejs/svelte/issues/16885 -->
 				{#await import('./Component.svelte') then comp}
 					<comp.default></comp.default>
 				{/await}
