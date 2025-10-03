@@ -5,7 +5,7 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		interface PageData {
-			lang?: 'en';
+			lang: 'en' | 'ko';
 			title: string;
 			description?: string;
 			footer?: false;

@@ -12,6 +12,7 @@
 	let { children, data } = $props();
 
 	$effect(() => {
+		// Reference https://github.com/sveltejs/kit/issues/11018
 		document.documentElement.lang = page.data.lang || 'ko';
 	});
 </script>
