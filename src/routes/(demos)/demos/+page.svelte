@@ -5,7 +5,8 @@
 <ul class="list-inside list-disc space-y-2 font-mono">
 	{#each data.paths as href (href)}
 		<li>
-			<a {href}>{href}</a>
+			<!-- Reference https://github.com/hyunbinseo/swipe-scroller/issues/9  -->
+			<a {href} data-sveltekit-reload={href === '/swipe-scroller'}>{href}</a>
 		</li>
 	{/each}
 </ul>

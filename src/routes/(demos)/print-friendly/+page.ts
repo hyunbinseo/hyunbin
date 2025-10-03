@@ -1,7 +1,4 @@
-import { dev } from '$app/environment';
 import type { PageLoad } from './$types';
-
-export const csr = !!dev;
 
 export const load = (() => ({
 	lang: 'en',

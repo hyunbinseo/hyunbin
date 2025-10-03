@@ -7,24 +7,26 @@
 	let invertButtons = false;
 </script>
 
-<!-- TODO Update style -->
+<div class="container-outer fixed inset-0"></div>
 
-<div class="container-outer" style="position: fixed; inset: 0;"></div>
-
-<div style="position: relative; overflow-x: hidden;">
-	<div class="container-inner" style="margin-bottom: 1rem;">
-		<h1>Swipe Scroller</h1>
-		<p>
+<div class="relative overflow-x-hidden py-16">
+	<div class="container-inner">
+		<h1 class="text-4xl font-extrabold tracking-tight">Swipe Scroller</h1>
+		<p class="mt-1">
 			<span>Modern Slider.</span>
-			<a href="https://github.com/hyunbinseo/swipe-scroller#readme" target="_blank">GitHub</a>
+			<a
+				href="https://github.com/hyunbinseo/swipe-scroller#readme"
+				target="_blank"
+				class="underline">GitHub</a
+			>
 		</p>
-		<div class="line"></div>
-		<h2>xiihu</h2>
+		<hr class="my-10 w-12" />
+		<h2 class="text-2xl font-bold">xiihu</h2>
 		<p>Discography, from latest</p>
 	</div>
+	<div class="h-4"></div>
 	<Scroller {hangButtons} {invertButtons} cardGap="0.5rem">
-		<!-- eslint-disable-next-line svelte/require-each-key -->
-		{#each releases as release}
+		{#each releases as release (release.spotify)}
 			<a
 				class="card"
 				target="_blank"
@@ -37,9 +39,10 @@
 			</a>
 		{/each}
 	</Scroller>
-	<div class="container-inner options">
+	<div class="h-8"></div>
+	<div class="container-inner coarse:hidden">
 		<strong>Hover over the scroller to test these options.</strong>
-		<ul>
+		<ul class="mt-1">
 			<li>
 				<label>
 					<input type="checkbox" bind:checked={hangButtons} />
@@ -56,70 +59,29 @@
 	</div>
 </div>
 
-<style>
-	a.card {
-		text-decoration: none;
-		outline-offset: -2px;
-	}
-
+<style lang="postcss">
 	.card {
+		&:is(a) {
+			text-decoration: none;
+			outline-offset: -2px;
+		}
 		width: 80%;
 		min-width: 224px;
 		max-width: 296px;
 		overflow: hidden;
 		border-radius: 0.75rem;
-	}
-
-	.card > div {
-		padding: 1rem;
-		color: white;
-		text-align: center;
-	}
-
-	@media (min-width: 640px) {
-		.card {
+		@media (min-width: 640px) {
 			border-radius: 1rem;
 		}
-	}
-
-	/* Miscellaneous */
-
-	:root {
-		padding: 3rem 0;
-	}
-
-	a,
-	a:active,
-	a:visited {
-		color: inherit;
-	}
-
-	h1 {
-		letter-spacing: -0.025em;
-	}
-
-	.line {
-		margin: 3rem 0;
-		width: 3rem;
-		border-style: solid;
-		border-width: 0.5px;
-	}
-
-	.options {
-		display: none;
-	}
-
-	@media (pointer: fine) {
-		.options {
-			display: block;
-			margin-top: 3rem;
-			line-height: 1.5;
+		> div {
+			padding: 1rem;
+			color: white;
+			text-align: center;
 		}
-
-		.options > ul {
-			margin-top: 0.25rem;
-			list-style: none;
-			padding-inline-start: 0;
-		}
+	}
+	label:has(input[type='checkbox']) {
+		display: flex;
+		align-items: center;
+		column-gap: 0.5rem;
 	}
 </style>

@@ -6,6 +6,7 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter(),
+		prerender: { handleMissingId: 'warn' },
 		alias: { '$app.css': './src/app.css' },
 		typescript: {
 			config: (obj) => {

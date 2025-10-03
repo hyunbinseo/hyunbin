@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hash Dialog Modal</title>
+		<meta
+			name="description"
+			content="Open and close <dialog> modals based on the URL hash value. A vanilla JavaScript library for all browsers and frameworks."
+		/>
+	</head>
+	<style>
+		html {
+			font-family: system-ui, sans-serif;
+		}
+	</style>
+	<body>
+		<h1>hash-dialog-modal</h1>
+		<p>
+			<a href="https://github.com/hyunbinseo/hash-dialog-modal#readme" target="_blank">GitHub</a> /
+			<span>Open modal with anchors:</span>
+			<a href="#1">#1</a>
+			<a href="#2">#2</a>
+		</p>
+
+		<dialog></dialog>
+
+		<script type="module">
+			import { controlDialogWithUrlHash } from 'https://cdn.jsdelivr.net/npm/hash-dialog-modal@1.0.4/+esm';
+
+			// Select the dialog element.
+			const dialog = document.querySelector('dialog');
+
+			const updateDialogContent = () =>
+				(dialog.textContent = `Current hash is ${window.location.hash}`);
+
+			updateDialogContent(); // Update the dialog content on initial load.
+
+			// Dynamically update the dialog content based on the URL hash change.
+			window.addEventListener('hashchange', updateDialogContent);
+
+			// Pass the dialog element to the imported function.
+			const { removeEventListeners } = controlDialogWithUrlHash(dialog, 'auto');
+
+			// Remove all event listeners when needed.
+			// - window.removeEventListener('hashchange', updateDialogContent);
+			// - removeEventListeners();
+		</script>
+	</body>
+</html>

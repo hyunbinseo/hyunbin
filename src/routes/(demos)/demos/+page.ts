@@ -1,10 +1,11 @@
 import type { PageLoad } from './$types';
 
+const paths = // Reference https://github.com/vitejs/vite/pull/18666
+	Object.keys(import.meta.glob(['../*/+page.ts', '../*/+server.ts'])) //
+		.map((path) => path.slice(2, -(path.length - path.lastIndexOf('/+'))));
+
 export const load = (async () => ({
 	lang: 'en',
 	title: 'Open Source Demos',
-	paths:
-		// Reference https://github.com/vitejs/vite/pull/18666
-		Object.keys(import.meta.glob(['../*/+page.ts', '!./+page.ts'])) //
-			.map((path) => path.substring(2, path.length - 9)),
+	paths,
 })) satisfies PageLoad;
