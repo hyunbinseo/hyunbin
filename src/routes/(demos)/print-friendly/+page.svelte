@@ -3,7 +3,7 @@
 	import 'print-friendly';
 </script>
 
-<div class="page-container">
+<div class="page-container prose max-w-none">
 	<header>
 		Made with
 		<a href="https://github.com/hyunbinseo/print-friendly#readme" target="_blank">
