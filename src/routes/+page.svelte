@@ -1,7 +1,8 @@
 <script>
-	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { PUBLIC_EMAIL, PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
+
+	let showHiddenMenu = $state(false);
 </script>
 
 <main class="p-4">
@@ -21,6 +22,10 @@
 			<a href={PUBLIC_GITHUB} target="_blank">GitHub</a> /
 			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a href={PUBLIC_LINKEDIN} target="_blank">LinkedIn</a>
+		</li>
+		<li class:hidden={!showHiddenMenu}>
+			<a href={resolve('/demos')}>Open Source Demos</a> /
+			<a href={resolve('/examples')}>Examples</a>
 		</li>
 		<li>
 			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
@@ -54,7 +59,7 @@
 	aria-hidden="true"
 	type="button"
 	class="fixed right-0 bottom-0 size-16"
-	ondblclick={() => goto(resolve('/examples'))}
+	ondblclick={() => (showHiddenMenu = true)}
 >
 </button>
 
