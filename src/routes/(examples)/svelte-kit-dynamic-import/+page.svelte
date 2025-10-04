@@ -7,22 +7,32 @@
 <table class="mt-6 divide-y divide-gray-300">
 	<thead>
 		<tr>
-			<th>Loaded At</th>
+			<th colspan="2">Loaded At</th>
 			<th>Rendered In</th>
 		</tr>
 	</thead>
 	<tbody class="divide-y divide-gray-200">
 		<tr>
 			<td><code>+page.ts</code></td>
+			<td><code>load</code></td>
 			<td><data.comp></data.comp></td>
 		</tr>
 		<tr>
 			<td><code>+page.svelte</code></td>
+			<td><code>await</code></td>
 			<td>
-				<!-- TODO Add an example for the experimental await syntax. -->
-				<!-- Blocked by https://github.com/sveltejs/svelte/issues/16885 -->
-				{#await import('./Component.svelte') then comp}
-					<comp.default></comp.default>
+				<svelte:boundary>
+					{@const Component = (await import('./Component.svelte')).default}
+					<Component></Component>
+				</svelte:boundary>
+			</td>
+		</tr>
+		<tr>
+			<td><code>+page.svelte</code></td>
+			<td><code>#await</code></td>
+			<td>
+				{#await import('./Component.svelte').then(c=>c.default) then Component}
+					<Component></Component>
 				{/await}
 			</td>
 		</tr>
