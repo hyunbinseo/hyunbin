@@ -5,15 +5,13 @@
 	let canvas = $state<HTMLCanvasElement>();
 	let dataUrl = $state<string>();
 
-	const writeText = (string: string) => {
+	$effect(() => {
 		if (!canvas) return;
 		const ctx = canvas.getContext('2d')!;
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		ctx.fillText(string, 0, 0);
+		ctx.fillText(text, 0, 0);
 		dataUrl = canvas.toDataURL('image/png');
-	};
-
-	$effect(() => writeText(text));
+	});
 </script>
 
 <input type="text" bind:value={text} />
@@ -50,7 +48,6 @@
 			new FontFace(family, `url("${suitVariableUrl}")`).load().then(() => {
 				ctx.font = `24px "${family}"`;
 				canvas = c;
-				writeText(text);
 			});
 		}}
 	></canvas>
