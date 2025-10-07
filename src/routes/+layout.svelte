@@ -24,7 +24,13 @@
 	{#if page.data.description}
 		<meta name="description" content={page.data.description} />
 	{/if}
-	<link rel="preload" href={suitVariableWoff2} as="font" type="font/woff2" />
+	<link
+		rel="preload"
+		href={suitVariableWoff2}
+		as="font"
+		type="font/woff2"
+		crossorigin="anonymous"
+	/>
 	<link rel="canonical" href="https://hyunb.in/" />
 	<meta itemprop="lang" content={page.data.lang || 'ko'} />
 	{#if page.data.noindex !== false}
