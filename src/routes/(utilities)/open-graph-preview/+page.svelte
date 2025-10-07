@@ -17,18 +17,13 @@
 		<input
 			type="file"
 			accept={['image/jpeg', 'image/gif', 'image/png'].join(', ')}
-			onchange={(e) => {
+			onchange={async (e) => {
 				const file = e.currentTarget.files?.[0];
 				if (!file) return;
 
-				const reader = new FileReader();
-
-				reader.onload = (e) => {
-					if (!e.target) return;
-					imageUrl = e.target.result as string;
-				};
-
-				reader.readAsDataURL(file);
+				const buffer = await file.arrayBuffer();
+				const blob = new Blob([buffer], { type: file.type });
+				imageUrl = URL.createObjectURL(blob);
 			}}
 		/>
 	</label>
