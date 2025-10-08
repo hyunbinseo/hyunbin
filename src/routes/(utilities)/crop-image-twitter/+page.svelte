@@ -56,7 +56,7 @@
 
 <svelte:window
 	onpaste={(e) => {
-		// NOTE for await does not work in Firefox@143.0.4
+		// NOTE for await does not work in Firefox Windows 143.0.4
 		for (const item of e.clipboardData?.items ?? []) {
 			if (item.kind !== 'file' || !mimeTypeSet.has(item.type as MimeType)) continue;
 
@@ -156,20 +156,22 @@
 	{#if bitmap}
 		<button
 			type="button"
-			onclick={async ({ currentTarget }) => {
-				try {
-					const blob = await new Promise<Blob | null>((resolve) => {
-						canvas.toBlob(resolve, 'image/png');
-					});
+			onclick={({ currentTarget }) => {
+				// NOTE does not work in Firefox Android 143.0.4
+				// DOMException: Clipboard write is not allowed.
+				canvas.toBlob((blob) => {
 					if (!blob) return;
-					await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-					currentTarget.disabled = true;
-				} catch (e) {
-					console.error(e);
-					window.alert('클립보드에 복사할 수 없습니다.');
-				} finally {
-					setTimeout(() => (currentTarget.disabled = false), 2000);
-				}
+					navigator.clipboard
+						.write([new ClipboardItem({ [blob.type]: blob })])
+						.then(() => (currentTarget.disabled = true))
+						.catch((e) => {
+							console.error(e);
+							window.alert('클립보드에 복사할 수 없습니다.');
+						})
+						.finally(() => {
+							setTimeout(() => (currentTarget.disabled = false), 2000);
+						});
+				}, 'image/png');
 			}}
 			class="absolute top-0 right-0 rounded-bl border bg-white px-2 py-1 text-sm disabled:after:content-['되었습니다!']"
 			>복사</button
