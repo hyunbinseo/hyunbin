@@ -1,5 +1,5 @@
 <script>
-	import showModal from './show-modal.html?raw';
+	import { showModalScript } from './show-modal';
 </script>
 
 <p>
@@ -20,7 +20,7 @@
 <!-- [svelte] hydration_mismatch -->
 <!-- [svelte] hydration_html_changed -->
 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-{@html showModal}
+{@html showModalScript}
 
 <style lang="postcss">
 	@reference "$app.css";
