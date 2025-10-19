@@ -52,22 +52,29 @@
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		ctx.drawImage(bitmap, dx, dy);
 	});
-</script>
 
-<svelte:window
-	onpaste={(e) => {
-		// NOTE for await does not work in Firefox Windows 143.0.4
-		for (const item of e.clipboardData?.items ?? []) {
+	const handleDropOrPaste = (items?: DataTransferItemList) => {
+		for (const item of items ?? []) {
 			if (item.kind !== 'file' || !mimeTypeSet.has(item.type as MimeType)) continue;
 
 			const file = item.getAsFile();
 			if (!file) continue;
 
+			// for-await loop does not work in the paste handler (Firefox Windows 143.0.4)
 			createImageBitmap(file).then((_bitmap) => (bitmap = _bitmap));
 			return;
 		}
 		window.alert('유효한 이미지를 찾지 못했습니다.');
+	};
+</script>
+
+<svelte:window
+	ondragover={(e) => e.preventDefault()}
+	ondrop={(e) => {
+		e.preventDefault();
+		handleDropOrPaste(e.dataTransfer?.items);
 	}}
+	onpaste={(e) => handleDropOrPaste(e.clipboardData?.items)}
 />
 
 <hgroup>
