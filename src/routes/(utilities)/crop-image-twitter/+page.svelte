@@ -60,7 +60,8 @@
 			const file = item.getAsFile();
 			if (!file) continue;
 
-			// for-await loop does not work in the paste handler (Firefox Windows 143.0.4)
+			// NOTE for-await loop does not work in
+			// Firefox Desktop's paste handler (143.0.4)
 			createImageBitmap(file).then((_bitmap) => (bitmap = _bitmap));
 			return;
 		}
@@ -69,6 +70,21 @@
 </script>
 
 <svelte:window
+	onkeydown={(e) => {
+		if (!bitmap) return;
+		if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+			canvas.toBlob((blob) => {
+				if (!blob) return;
+				navigator.clipboard
+					.write([new ClipboardItem({ [blob.type]: blob })])
+					.then(() => window.alert('복사되었습니다.'))
+					.catch((e) => {
+						console.error(e);
+						window.alert('클립보드에 복사할 수 없습니다.');
+					});
+			}, 'image/png');
+		}
+	}}
 	ondragover={(e) => e.preventDefault()}
 	ondrop={(e) => {
 		e.preventDefault();
@@ -164,7 +180,7 @@
 		<button
 			type="button"
 			onclick={({ currentTarget }) => {
-				// NOTE does not work in Firefox Android 143.0.4
+				// NOTE Does not work in Firefox Android (143.0.4)
 				// DOMException: Clipboard write is not allowed.
 				canvas.toBlob((blob) => {
 					if (!blob) return;
