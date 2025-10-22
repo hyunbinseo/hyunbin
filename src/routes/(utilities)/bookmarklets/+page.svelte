@@ -7,6 +7,8 @@
 		snuLibraryProxy,
 		snuSugangEnter,
 	} from './functions';
+
+	let customScript = $state('');
 </script>
 
 {#snippet anchor(label: string, fn: () => void)}
@@ -26,9 +28,19 @@
 	<li>{@render anchor(`서울대 수강신청 '이미 프로그램 사용 중' 우회`, snuSugangEnter)}</li>
 </ul>
 
+<textarea
+	bind:value={customScript}
+	placeholder="나만의 자바스크립트 코드 입력"
+	rows="6"
+	class="mt-6 block w-full max-w-80 overflow-x-auto font-mono text-sm whitespace-pre"
+></textarea>
+{#if customScript}
+	<a href={`javascript:(async()=>{${customScript}})()`} class="mt-3">나만의 북마클릿</a>
+{/if}
+
 <style lang="postcss">
 	@reference "$app.css";
-	ul > li > a {
+	a {
 		@apply inline-block rounded border p-2;
 		font-size: 0.9375rem;
 	}
