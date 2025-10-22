@@ -1,4 +1,5 @@
 <script>
+	import { browser } from '$app/environment';
 	import { showModalScript } from './show-modal';
 </script>
 
@@ -16,11 +17,8 @@
 	</form>
 </dialog>
 
-<!-- Don't make this block conditional: -->
-<!-- [svelte] hydration_mismatch -->
-<!-- [svelte] hydration_html_changed -->
 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-{@html showModalScript}
+{@html !browser ? showModalScript : ''}
 
 <style lang="postcss">
 	@reference "$app.css";

@@ -1,6 +1,6 @@
-const showModal = () => {
+// NOTE Removing script avoids `hydration_mismatch`
+export const showModalScript = `<script>(${() => {
 	const dialog = document.currentScript?.previousElementSibling;
 	if (dialog instanceof HTMLDialogElement) dialog.showModal();
-};
-
-export const showModalScript = `<script>(${showModal})()</script>`;
+	document.currentScript?.remove();
+}})()</script>`;
