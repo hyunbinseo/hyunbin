@@ -1,20 +1,13 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { isoDate, length, pipe, safeParse, string, transform } from 'valibot';
+	import { isoDate, length, pipe, safeParse, string } from 'valibot';
 
 	let yyyy_mm_dd = $derived.by(() => {
-		if (!browser) return;
 		const parsed = safeParse(
-			pipe(
-				string(),
-				length(11),
-				transform((v) => v.slice(1)),
-				isoDate(),
-			),
-			page.url.hash,
+			pipe(string(), length(10), isoDate()),
+			page.url.hash.slice(1), //
 		);
-		return parsed.success ? parsed.output : undefined;
+		return parsed.success ? parsed.output : null;
 	});
 
 	const age = $derived.by(() => {

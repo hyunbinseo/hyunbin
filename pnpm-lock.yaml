@@ -53,6 +53,9 @@ importers:
       '@types/p5':
         specifier: ^1.7.6
         version: 1.7.6
+      '@types/qrcode-svg':
+        specifier: ^1.1.5
+        version: 1.1.5
       chart.js:
         specifier: ^4.5.1
         version: 4.5.1
@@ -95,6 +98,9 @@ importers:
       print-friendly:
         specifier: ^0.4.1
         version: 0.4.1
+      qrcode-svg:
+        specifier: ^1.1.0
+        version: 1.1.0
       rehype-stringify:
         specifier: ^10.0.1
         version: 10.0.1
@@ -828,6 +834,9 @@ packages:
 
   '@types/p5@1.7.6':
     resolution: {integrity: sha512-6pLTOo0V3N5jZb5nTwjiv3lPHLK3Z/TjbhQUj8CTWXocUk1Z/f6OHTp3Pcwi1BhWnf5gqKUcyEb1gP0KIJuQgw==}
+
+  '@types/qrcode-svg@1.1.5':
+    resolution: {integrity: sha512-GjkD+HB8S1wrIsf3skHDtcYBjzNhTxocMbX+wG166xDkaVOnLiMUla7bLjbwxo6mMvqqWQNP0Dk8nkIeizSmnw==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -1678,6 +1687,10 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
+  qrcode-svg@1.1.0:
+    resolution: {integrity: sha512-XyQCIXux1zEIA3NPb0AeR8UMYvXZzWEhgdBgBjH9gO7M48H9uoHzviNz8pXw3UzrAcxRRRn9gxHewAVK7bn9qw==}
+    hasBin: true
+
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -2464,6 +2477,8 @@ snapshots:
       undici-types: 7.16.0
 
   '@types/p5@1.7.6': {}
+
+  '@types/qrcode-svg@1.1.5': {}
 
   '@types/trusted-types@2.0.7': {}
 
@@ -3348,6 +3363,8 @@ snapshots:
   property-information@7.1.0: {}
 
   punycode@2.3.1: {}
+
+  qrcode-svg@1.1.0: {}
 
   queue-microtask@1.2.3: {}
 
