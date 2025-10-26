@@ -7,6 +7,8 @@
 	const size = 256;
 	const scale = 3;
 
+	let isTransparent = $state(false);
+
 	let content = $derived.by(() => {
 		if (!browser) return null;
 		return page.url.hash.slice(1) || PUBLIC_URL;
@@ -21,7 +23,11 @@
 	};
 </script>
 
-<input type="text" bind:value={content} placeholder={PUBLIC_URL} />
+<input type="text" bind:value={content} placeholder={PUBLIC_URL} size="32" class="font-mono" />
+<label class="mt-2 flex w-fit items-center gap-x-1.5 select-none">
+	<input type="checkbox" bind:checked={isTransparent} />
+	투명 배경
+</label>
 
 {#if content}
 	{@const svg = new QRCode({
@@ -29,6 +35,7 @@
 		padding: 0,
 		width: size,
 		height: size,
+		background: isTransparent ? 'transparent' : 'white',
 		ecl: 'M',
 		join: true,
 		xmlDeclaration: false,
@@ -36,9 +43,17 @@
 	}).svg()}
 	{@const blob = new Blob([svg], { type: 'image/svg+xml' })}
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	<div class="mt-4 size-40">{@html svg}</div>
+	<div class="mt-6 size-40">{@html svg}</div>
 	<div class="mt-4">
 		다운로드:
+		<button
+			type="button"
+			onclick={() => {
+				const url = URL.createObjectURL(blob);
+				download(url, 'svg');
+				URL.revokeObjectURL(url);
+			}}>SVG/벡터</button
+		>,
 		<button
 			type="button"
 			onclick={async () => {
@@ -68,14 +83,6 @@
 				download(canvas.toDataURL('image/png'), 'png');
 				canvas.remove();
 			}}>PNG</button
-		>,
-		<button
-			type="button"
-			onclick={() => {
-				const url = URL.createObjectURL(blob);
-				download(url, 'svg');
-				URL.revokeObjectURL(url);
-			}}>SVG</button
 		>
 	</div>
 {/if}
