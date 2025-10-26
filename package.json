@@ -47,7 +47,7 @@
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.2",
 		"sharp": "^0.34.4",
-		"svelte": "^5.41.4",
+		"svelte": "^5.42.2",
 		"svelte-check": "^4.3.3",
 		"swipe-scroller": "^1.0.7",
 		"tailwindcss": "^4.1.15",
