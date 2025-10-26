@@ -3,8 +3,7 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
-	import GitHub from '$lib/logos/GitHub.svg';
-	import LinkedIn from '$lib/logos/LinkedIn.svg';
+	import { code_xml, github, house, linkedin } from '$lib/icons/lucide/snippets.svelte';
 	import suitVariableWoff2 from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
 	import '../app.css';
 	import favicon from './favicon.png';
@@ -53,25 +52,23 @@
 			{@render children()}
 		</main>
 		<footer
-			class="flex items-center gap-x-4 overflow-x-auto bg-gray-100 *:flex-shrink-0 *:text-blue-800 print:hidden"
+			class="flex items-center gap-x-4 overflow-x-auto bg-gray-100 *:shrink-0 *:text-blue-800 print:hidden"
 		>
-			<a href={resolve('/')}>
-				{page.data.lang === 'en' ? 'Home' : '처음으로'}
-			</a>
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a href={data.url.source} target="_blank" class="mr-auto">
-				{page.data.lang === 'en' ? 'Source' : '소스코드'}
-			</a>
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a href={PUBLIC_GITHUB} target="_blank">
-				<img src={GitHub} alt="GitHub" class="h-6" />
-			</a>
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a href={PUBLIC_LINKEDIN} target="_blank">
-				<img src={LinkedIn} alt="LinkedIn" class="h-6" />
-			</a>
+			<a href={resolve('/')}>{@render house()}</a>
+			<!-- eslint-disable svelte/no-navigation-without-resolve -->
+			<a href={PUBLIC_GITHUB} target="_blank">{@render github()}</a>
+			<a href={data.url.source} target="_blank">{@render code_xml()}</a>
+			<a href={PUBLIC_LINKEDIN} target="_blank" class="ml-auto">{@render linkedin()}</a>
+			<!-- eslint-enable svelte/no-navigation-without-resolve -->
 		</footer>
 	</div>
 {:else}
 	{@render children()}
 {/if}
+
+<style>
+	a :global > svg {
+		color: black;
+		width: calc(var(--spacing) * 6);
+	}
+</style>

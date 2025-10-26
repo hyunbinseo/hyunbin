@@ -41,6 +41,10 @@
 			<span>연번 자동 입력 등</span>
 		</li>
 		<li>
+			<a href={resolve('/qr')}>QR 코드 생성</a>
+			<span>광고 없음. PNG, SVG(벡터) 저장</span>
+		</li>
+		<li>
 			<a href="https://github.com/hyunbinseo/better-surf#readme" target="_blank">Better Surf</a>
 			<span>더 나은 웹 서핑을 위한 확장 프로그램</span>
 		</li>
