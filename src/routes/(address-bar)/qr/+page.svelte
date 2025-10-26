@@ -3,12 +3,19 @@
 	import { page } from '$app/state';
 	import { PUBLIC_URL } from '$env/static/public';
 	import QRCode from 'qrcode-svg';
+	import { onMount } from 'svelte';
 
 	const size = 256;
 	const scale = 3;
 
 	let isTransparent = $state(false);
 	const isKakaoTalk = $derived(browser && window.navigator.userAgent.includes('KAKAOTALK'));
+
+	onMount(() => {
+		if (isKakaoTalk)
+			// when called in the svelte:head script tag, the site is not loaded and shows a blank page
+			window.location.href = `kakaotalk://web/openExternal?url=${encodeURIComponent(window.location.href)}`;
+	});
 
 	let content = $derived.by(() => {
 		if (!browser) return null;
@@ -23,13 +30,6 @@
 		a.remove();
 	};
 </script>
-
-<svelte:head>
-	<script>
-		if (window.navigator.userAgent.includes('KAKAOTALK'))
-			window.location.href = `kakaotalk://web/openExternal?url=${encodeURIComponent(window.location.href)}`;
-	</script>
-</svelte:head>
 
 <input type="text" bind:value={content} placeholder={PUBLIC_URL} size="32" class="font-mono" />
 <label class="mt-2 flex w-fit items-center gap-x-1.5 select-none">
