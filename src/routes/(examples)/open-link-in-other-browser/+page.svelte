@@ -3,12 +3,17 @@
 
 	type Anchors = [string, string?][];
 
-	const [scheme, urlFromHostname] = $derived(page.url.toString().split('://'));
+	const intent = $derived.by(() => {
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity
+		const url = new URL(page.url);
+		url.hash = `#Intent;scheme=${url.protocol.slice(0, -1)};package=com.android.chrome;end`;
+		// cannot be changed using the URL's protocol property
+		// intent: is considered invalid is simply ignored
+		return 'intent:' + url.href.slice(url.protocol.length);
+	});
+
 	const chromeForAndroid = $derived<Anchors>([
-		[
-			`intent://${urlFromHostname}#Intent;scheme=${scheme};package=com.android.chrome;end`,
-			`Shows a 'Choose activity' dialog in Chromium browsers including self as an option`,
-		],
+		[intent, `Shows a 'Choose activity' dialog in Chromium browsers including self as an option`],
 		[
 			`googlechrome://navigate?url=${page.url.toString()}`,
 			'Silently fails in Chromium browsers, probably because they share the URI scheme',
