@@ -71,15 +71,13 @@
 					canvas.height = size * scale;
 
 					const ctx = canvas.getContext('2d')!;
-					ctx.scale(scale, scale);
-
 					const img = new Image();
 					const url = URL.createObjectURL(blob);
 
 					try {
 						await new Promise<void>((resolve, reject) => {
 							img.onload = () => {
-								ctx.drawImage(img, 0, 0);
+								ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 								resolve();
 							};
 							img.onerror = reject;
