@@ -39,7 +39,16 @@
 
 <figure class="mt-6">
 	<figcaption class="font-bold">카카오</figcaption>
-	<div class="preview-box mt-1">
+	<ul class="mt-1 w-fit space-y-1 text-sm">
+		<li>
+			<a href="https://developers.kakao.com/tool/debugger/sharing">카카오 공유 디버거</a>는
+			<code>400 x 210</code> 해상도를 사용하나,
+		</li>
+		<li class="bg-yellow-400">
+			실제로는 <code>2:1</code> 비율에 가까워 위아래가 조금 더 잘립니다.
+		</li>
+	</ul>
+	<div class="preview-box mt-4">
 		<div class="preview-image-box" style:background-image="url('{imageUrl}')"></div>
 		<div class="preview-text-box">
 			<p>{title}</p>
