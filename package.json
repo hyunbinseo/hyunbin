@@ -12,13 +12,13 @@
 		"lint": "prettier --check . && eslint ."
 	},
 	"devDependencies": {
-		"@eslint/compat": "^1.4.0",
+		"@eslint/compat": "^1.4.1",
 		"@eslint/js": "^9.38.0",
 		"@hyunbinseo/holidays-kr": "^3.2026.0",
 		"@std/front-matter": "jsr:^1.0.9",
 		"@sun-typeface/suit": "^2.0.5",
 		"@sveltejs/adapter-static": "^3.0.10",
-		"@sveltejs/kit": "^2.48.2",
+		"@sveltejs/kit": "^2.48.3",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/typography": "^0.5.19",
