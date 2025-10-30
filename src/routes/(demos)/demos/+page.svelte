@@ -6,6 +6,7 @@
 	{#each data.paths as href (href)}
 		<li>
 			<!-- Reference https://github.com/hyunbinseo/swipe-scroller/issues/9  -->
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a {href} data-sveltekit-reload={href === '/swipe-scroller'}>{href}</a>
 		</li>
 	{/each}

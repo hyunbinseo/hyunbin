@@ -5,6 +5,7 @@
 <ul class="list-inside list-disc space-y-2 font-mono">
 	{#each data.paths as href (href)}
 		<li>
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a {href}>{href}</a>
 		</li>
 	{/each}

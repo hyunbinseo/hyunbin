@@ -35,9 +35,8 @@
 			{#if description}
 				<span>{description}</span><br />
 			{/if}
-			<a {href}>
-				<code>{href}</code>
-			</a>
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+			<a {href}><code>{href}</code></a>
 		</li>
 	{/each}
 {/snippet}

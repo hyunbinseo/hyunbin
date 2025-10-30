@@ -32,7 +32,7 @@
 		"chartjs-plugin-datalabels": "^2.2.0",
 		"eslint": "^9.38.0",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-svelte": "^3.12.5",
+		"eslint-plugin-svelte": "^3.13.0",
 		"globals": "^16.4.0",
 		"hash-dialog-modal": "^1.0.4",
 		"lit-html": "^3.3.1",
