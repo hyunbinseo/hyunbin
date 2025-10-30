@@ -1,19 +1,23 @@
 <script lang="ts">
 	const width = 200;
-	const height = 50;
+	const height = 80;
 
 	let innerWidth = $state<number>();
+	let innerHeight = $state<number>();
+
+	const zoom = $derived.by(() => {
+		if (!innerWidth || !innerHeight) return;
+		return innerWidth / innerHeight > width / height
+			? innerHeight / height //
+			: innerWidth / width;
+	});
 </script>
 
-<svelte:window bind:innerWidth />
+<svelte:window bind:innerWidth bind:innerHeight />
 
-{#snippet block(bg: 'red' | 'yellow', zoom?: number)}
+{#snippet block(bg: 'bg-red-400' | 'bg-yellow-200', zoom?: number)}
 	<div
-		class={[
-			bg === 'red' && 'bg-red-50',
-			bg === 'yellow' && 'bg-yellow-50',
-			'flex items-center justify-center',
-		]}
+		class={[bg, 'flex items-center justify-center opacity-80']}
 		style:width="{width}px"
 		style:height="{height}px"
 		style:zoom
@@ -22,19 +26,19 @@
 	</div>
 {/snippet}
 
-<div class="space-y-4">
-	<header>
-		<p>
-			Same HTML element, but the latter is using
-			<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/zoom" target="_blank">CSS Zoom</a>
-			to fit the width.
-		</p>
-		<p class="mt-8">Try resizing the viewport:</p>
-	</header>
-	{@render block('red')}
-	<div class={[!innerWidth && 'hidden', '-mx-4']}>
-		<div class="flex max-w-full justify-center overflow-x-hidden">
-			{@render block('yellow', innerWidth && innerWidth / width)}
-		</div>
-	</div>
+<header>
+	<p>
+		Same HTML element, but the latter is using
+		<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/zoom" target="_blank">CSS Zoom</a>
+		to fit inside the viewport.
+	</p>
+	<p class="mt-8">Try resizing the viewport:</p>
+</header>
+
+<div class="mt-4">
+	{@render block('bg-red-400')}
+</div>
+
+<div class={['fixed inset-0 flex items-center justify-center overflow-hidden', !zoom && 'hidden']}>
+	{@render block('bg-yellow-200', zoom)}
 </div>
