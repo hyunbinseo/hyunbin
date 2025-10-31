@@ -39,6 +39,11 @@
 	{@render block('bg-red-400')}
 </div>
 
-<div class={['fixed inset-0 flex items-center justify-center overflow-hidden', !zoom && 'hidden']}>
+<div
+	class={[
+		'pointer-events-none fixed inset-0 flex items-center justify-center overflow-hidden *:pointer-events-auto',
+		!zoom && 'hidden',
+	]}
+>
 	{@render block('bg-yellow-200', zoom)}
 </div>
