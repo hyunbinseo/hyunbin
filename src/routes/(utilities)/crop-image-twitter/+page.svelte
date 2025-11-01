@@ -160,15 +160,15 @@
 	<legend>기준(정렬)</legend>
 	<div
 		class={[
-			'mt-1 flex gap-x-3.5 gap-y-1 *:flex *:items-center *:gap-x-1.5',
-			bitmap && bitmap.height > bitmap.width && 'flex-col *:w-fit',
+			'mt-1 flex gap-x-3.5 gap-y-1', //
+			bitmap && bitmap.height > bitmap.width && 'flex-col',
 		]}
 	>
 		<!-- eslint-disable-next-line svelte/require-each-key -->
 		{#each positions as _position}
 			<label>
 				<input type="radio" value={_position} bind:group={position} />
-				{_position}
+				<span>{_position}</span>
 			</label>
 		{/each}
 	</div>

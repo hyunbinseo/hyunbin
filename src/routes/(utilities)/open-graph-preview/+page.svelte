@@ -4,7 +4,7 @@
 	let imageUrl = $state('https://jamoya.one/open-graph.png');
 </script>
 
-<form class="flex w-[400px] flex-col gap-y-6 *:flex *:flex-col *:gap-y-1">
+<form class="flex w-[400px] flex-col gap-y-6">
 	<label>
 		<span>이미지 파일</span>
 
@@ -25,6 +25,7 @@
 				const blob = new Blob([buffer], { type: file.type });
 				imageUrl = URL.createObjectURL(blob);
 			}}
+			class="mt-1 block"
 		/>
 	</label>
 	<label>

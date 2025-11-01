@@ -26,6 +26,7 @@
 </script>
 
 <label>
-	생년월일이 <input type="date" bind:value={yyyy_mm_dd} />이면,
+	생년월일이 <input type="date" bind:value={yyyy_mm_dd} class="mr-0.5 ml-1" />이면,
 </label>
+
 만 나이는 <strong>{age || '?'}세</strong>입니다. (오늘 기준)

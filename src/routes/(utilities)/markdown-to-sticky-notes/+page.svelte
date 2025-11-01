@@ -63,7 +63,6 @@
 		{#each { length: 2 }, index}
 			<label>
 				<span class="text-sm">{!index ? '가로' : '세로'} 길이</span>
-				<br />
 				<select bind:value={dimension[index]}>
 					<!-- eslint-disable-next-line svelte/require-each-key -->
 					{#each lengths as l}
@@ -74,7 +73,6 @@
 		{/each}
 		<label>
 			<span class="text-sm">배경 진하기</span>
-			<br />
 			<select bind:value={bgOpacity}>
 				{#each { length: 11 }, index}
 					<option value={index}>{index}</option>
@@ -118,9 +116,6 @@
 	button,
 	select {
 		@apply rounded;
-	}
-	label:has(> input[type='checkbox']) {
-		@apply flex w-fit items-center gap-x-2 select-none;
 	}
 	section :global {
 		> :is(ul, ol) {

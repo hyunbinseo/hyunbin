@@ -23,7 +23,6 @@
 <form onsubmit={(e) => e.preventDefault()} class="flex flex-col gap-y-4 *:w-fit">
 	<label>
 		<span>시작 날짜</span>
-		<br />
 		<input bind:value={startDate} type="date" min="{new Date().getFullYear()}-01-01" />
 	</label>
 	<fieldset>
@@ -55,7 +54,6 @@
 	</fieldset>
 	<label>
 		<span>생성 날짜 (총 {dates.length}일)</span>
-		<br />
 		<textarea
 			value={dates
 				.map((date, index) => (options.includeNumbering ? `${index + 1}. ${date}` : date))
@@ -74,9 +72,6 @@
 		@apply border p-4 pt-2;
 		> legend {
 			@apply -ml-2 px-2;
-		}
-		label:has(> input[type='checkbox']) {
-			@apply flex w-fit items-center gap-x-2 select-none;
 		}
 	}
 </style>

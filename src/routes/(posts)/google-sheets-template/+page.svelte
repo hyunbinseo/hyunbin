@@ -7,7 +7,7 @@
 {#snippet checkbox(label: string, checked = true)}
 	<li>
 		<label>
-			<input type="checkbox" {checked} disabled={checked} />
+			<input type="checkbox" {checked} disabled />
 			<span>{label}</span>
 		</label>
 	</li>
@@ -42,14 +42,3 @@
 	height="320"
 	src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRnllVlPYOGzRsSh--jfwppxdaucRBeBnWe9TE8h6PtOVbplbCSuuYcXd6UKhcE9er_9EmEUNWYZpz3/pubhtml?widget=true&amp;headers=false"
 ></iframe>
-
-<style>
-	label {
-		display: flex;
-		align-items: center;
-		column-gap: 0.5rem;
-	}
-	input[type='checkbox']:disabled {
-		background-color: var(--color-gray-400);
-	}
-</style>

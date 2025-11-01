@@ -12,10 +12,9 @@
 	]}
 >
 	<div style:height style:width class="flex flex-col justify-between bg-white p-4">
-		<div class="flex gap-x-2">
+		<div class="flex gap-x-4">
 			<label>
-				Height
-				<br />
+				<span>Height</span>
 				<select bind:value={height}>
 					<option>100%</option>
 					<option>24rem</option>
@@ -23,8 +22,7 @@
 				</select>
 			</label>
 			<label>
-				Width
-				<br />
+				<span>Width</span>
 				<select bind:value={width}>
 					<option>100%</option>
 					<option>125vw</option>

@@ -46,13 +46,13 @@
 			<li>
 				<label>
 					<input type="checkbox" bind:checked={hangButtons} />
-					Hang the arrow buttons at the inner container border.
+					<span>Hang the arrow buttons at the inner container border.</span>
 				</label>
 			</li>
 			<li>
 				<label>
 					<input type="checkbox" bind:checked={invertButtons} />
-					Invert the functions of the left and right arrow buttons.
+					<span>Invert the functions of the left and right arrow buttons.</span>
 				</label>
 			</li>
 		</ul>
@@ -78,10 +78,5 @@
 			color: white;
 			text-align: center;
 		}
-	}
-	label:has(input[type='checkbox']) {
-		display: flex;
-		align-items: center;
-		column-gap: 0.5rem;
 	}
 </style>

@@ -30,7 +30,7 @@
 
 		if (form.delay) window.alert('Notification has been scheduled.');
 	}}
-	class="flex flex-col gap-y-4 *:w-fit"
+	class="flex flex-col gap-y-4"
 >
 	<label>
 		<span>Title</span>
@@ -47,12 +47,5 @@
 			<option value="5" selected>5 Seconds</option>
 		</select>
 	</label>
-	<button class="rounded bg-blue-100 px-3 py-2">Send Notification</button>
+	<button class="w-fit rounded bg-blue-100 px-3 py-2">Send Notification</button>
 </form>
-
-<style lang="postcss">
-	@reference "$app.css";
-	label > span:first-child {
-		@apply block text-sm;
-	}
-</style>

@@ -31,10 +31,14 @@
 	};
 </script>
 
-<input type="text" bind:value={content} placeholder={PUBLIC_URL} size="32" class="font-mono" />
-<label class="mt-2 flex w-fit items-center gap-x-1.5 select-none">
+<label>
+	<span class="text-sm font-bold">텍스트 (URL 등)</span>
+	<input type="text" bind:value={content} placeholder={PUBLIC_URL} size="32" class="font-mono" />
+</label>
+
+<label class="mt-6 select-none">
 	<input type="checkbox" bind:checked={isTransparent} />
-	투명 배경
+	<span>투명 배경</span>
 </label>
 
 {#if content}
@@ -51,10 +55,10 @@
 	}).svg()}
 	{@const blob = new Blob([svg], { type: 'image/svg+xml' })}
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	<div class="mt-6 size-40">{@html svg}</div>
+	<div class="mt-2.5 size-40 bg-gray-200">{@html svg}</div>
 	{#if !isKakaoTalk}
 		<div class="mt-4">
-			다운로드:
+			저장:
 			<button
 				type="button"
 				onclick={() => {
