@@ -1,0 +1,15 @@
+[
+	{
+		"bindings": {
+			"alt-shift-i": "editor::SplitSelectionIntoLines",
+			"ctrl-alt-up": "editor::AddSelectionAbove",
+			"ctrl-alt-down": "editor::AddSelectionBelow"
+		}
+	},
+	{
+		"context": "Editor && edit_prediction_conflict",
+		"bindings": {
+			// "": "editor::AcceptEditPrediction"
+		}
+	}
+]

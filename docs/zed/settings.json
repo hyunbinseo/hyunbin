@@ -1,0 +1,56 @@
+{
+	"agent": {
+		"inline_assistant_model": {
+			"provider": "google",
+			"model": "gemini-2.5-flash"
+		},
+		"default_model": {
+			"provider": "copilot_chat",
+			"model": "claude-sonnet-4.5"
+		}
+	},
+	"theme": {
+		"mode": "system",
+		"light": "Ayu Light",
+		"dark": "Ayu Dark"
+	},
+	"file_types": {
+		"plaintext": ["_redirects"]
+	},
+	"base_keymap": "VSCode",
+	"buffer_font_family": "구름 산스 코드 400",
+	"format_on_save": "on",
+	"ensure_final_newline_on_save": true,
+	"hard_tabs": true,
+	"tab_size": 2,
+	"languages": {
+		"Markdown": {
+			"hard_tabs": false
+		},
+		"Svelte": {
+			"formatter": [
+				{ "code_action": "source.organizeImports" },
+				{ "code_action": "source.fixAll.eslint" },
+				"prettier"
+			]
+		},
+		"JavaScript": {
+			"formatter": [
+				{ "code_action": "source.organizeImports" },
+				{ "code_action": "source.fixAll.eslint" },
+				"prettier"
+			]
+		},
+		"TypeScript": {
+			"formatter": [
+				{ "code_action": "source.organizeImports" },
+				{ "code_action": "source.fixAll.eslint" },
+				"prettier"
+			]
+		}
+	},
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	}
+}
