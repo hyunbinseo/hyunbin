@@ -29,15 +29,14 @@
 <p>뷰포트 크기를 줄여보세요.</p>
 
 <style lang="postcss">
-	.valid-viewport\:hidden {
-		@media (min-aspect-ratio: 4/3) and (min-width: 768px) and (min-height: 576px) {
+	@media (min-aspect-ratio: 4/3) {
+		.valid-aspect\:hidden {
 			display: none;
 		}
-	}
-
-	.valid-aspect\:hidden {
-		@media (min-aspect-ratio: 4/3) {
-			display: none;
+		@media (min-width: 768px) and (min-height: 576px) {
+			.valid-viewport\:hidden {
+				display: none;
+			}
 		}
 	}
 </style>
