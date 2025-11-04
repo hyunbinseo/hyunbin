@@ -40,29 +40,6 @@
 		padding-inline: calc(var(--spacing) * 2.5);
 	}
 
-	dialog {
-		translate: calc(-1 * var(--width));
-		&:modal {
-			translate: 0;
-			@starting-style {
-				translate: calc(-1 * var(--width));
-			}
-		}
-	}
-
-	dialog,
-	dialog::backdrop {
-		opacity: 0;
-	}
-
-	dialog:modal,
-	dialog:modal::backdrop {
-		opacity: 1;
-		@starting-style {
-			opacity: 0;
-		}
-	}
-
 	@media (prefers-reduced-motion: no-preference) {
 		dialog,
 		dialog::backdrop {
@@ -71,6 +48,29 @@
 			@supports (transition-behavior: allow-discrete) and (overlay: auto) {
 				transition-behavior: allow-discrete;
 				transition-property: opacity, translate, display, overlay;
+			}
+		}
+
+		dialog {
+			opacity: 0;
+			translate: calc(-1 * var(--width));
+			&:modal {
+				opacity: 1;
+				translate: 0;
+				@starting-style {
+					opacity: 0;
+					translate: calc(-1 * var(--width));
+				}
+			}
+
+			&::backdrop {
+				opacity: 0;
+			}
+			&:modal::backdrop {
+				opacity: 1;
+				@starting-style {
+					opacity: 0;
+				}
 			}
 		}
 	}
