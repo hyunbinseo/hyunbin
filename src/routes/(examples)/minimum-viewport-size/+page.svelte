@@ -5,6 +5,7 @@
 	const viewport = $state({ w: 0, h: 0 });
 </script>
 
+<!-- NOTE The values are rounded (575.5px becomes 576) -->
 <svelte:window bind:innerWidth={viewport.w} bind:innerHeight={viewport.h} />
 
 <div class="valid-viewport:hidden fixed inset-0 z-50 bg-white p-4">
@@ -14,12 +15,14 @@
 		<dt class="text-lg font-bold">요구사항</dt>
 		<!-- eslint-disable-next-line svelte/require-each-key -->
 		{#each ['w', 'h'] as const as type}
-			{#if viewport[type] && viewport[type] < required[type]}
+			{#if viewport[type]}
 				<dd>
 					{type === 'h' ? '세로' : '가로'}: {required[type]}px
-					<span class="text-red-700">
-						(현재: {viewport[type]}px)
-					</span>
+					{#if viewport[type] < required[type]}
+						<span class="text-red-700">
+							(현재: {viewport[type]}px)
+						</span>
+					{/if}
 				</dd>
 			{/if}
 		{/each}
