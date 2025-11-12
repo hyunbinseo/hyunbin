@@ -8,6 +8,7 @@ declare global {
 			lang: 'en' | 'ko';
 			title: string;
 			description?: string;
+			icon?: false;
 			footer?: false;
 			noindex?: false;
 		}

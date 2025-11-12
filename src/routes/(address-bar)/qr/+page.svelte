@@ -4,6 +4,7 @@
 	import { PUBLIC_URL } from '$env/static/public';
 	import QRCode from 'qrcode-svg';
 	import { onMount } from 'svelte';
+	import favicon from './qr-code.svg';
 
 	const size = 256;
 	const scale = 3;
@@ -30,6 +31,10 @@
 		a.remove();
 	};
 </script>
+
+<svelte:head>
+	<link rel="icon" type="image/svg+xml" href={favicon} />
+</svelte:head>
 
 <label>
 	<span class="text-sm font-bold">텍스트 (URL 등)</span>

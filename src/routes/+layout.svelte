@@ -35,9 +35,12 @@
 	{#if page.data.noindex !== false}
 		<meta name="robots" content="noindex" />
 	{/if}
-	{#if !dev}
-		<!-- https://www.flaticon.com/free-icon/sunfish_1717915 -->
+	{#if page.data.icon !== false}
+		<!-- Reference https://github.com/sveltejs/svelte/issues/15337 -->
+		<!-- Source https://www.flaticon.com/free-icon/sunfish_1717915 -->
 		<link rel="icon" type="image/png" href={favicon} />
+	{/if}
+	{#if !dev}
 		<script defer src="https://assets.onedollarstats.com/stonks.js"></script>
 	{/if}
 	<script>
