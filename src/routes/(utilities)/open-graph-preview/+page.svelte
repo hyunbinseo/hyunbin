@@ -1,42 +1,46 @@
 <script lang="ts">
+	import StyledLabels from '$lib/components/StyledLabels.svelte';
+
 	let title = $state('자모야 모여라');
 	let description = $state('한글 자모가 분리되어 표시되는 파일 이름을 수정하는 온라인 도구입니다.');
 	let imageUrl = $state('https://jamoya.one/open-graph.png');
 </script>
 
-<form class="flex w-[400px] flex-col gap-y-6">
-	<label>
-		<span>이미지 파일</span>
+<StyledLabels>
+	<form class="flex w-[400px] flex-col gap-y-6">
+		<label>
+			<span>이미지 파일</span>
 
-		<!-- 이미지의 MIME 유형입니다. image/jpeg, image/gif, image/png 중 하나입니다. -->
-		<!-- Reference https://developers.facebook.com/docs/sharing/webmasters/#images -->
+			<!-- 이미지의 MIME 유형입니다. image/jpeg, image/gif, image/png 중 하나입니다. -->
+			<!-- Reference https://developers.facebook.com/docs/sharing/webmasters/#images -->
 
-		<!-- WebP, AVIF formats are supported by many major platforms. -->
-		<!-- Reference https://joost.blog/use-avif-webp-share-images/ -->
+			<!-- WebP, AVIF formats are supported by many major platforms. -->
+			<!-- Reference https://joost.blog/use-avif-webp-share-images/ -->
 
-		<input
-			type="file"
-			accept={['image/jpeg', 'image/gif', 'image/png'].join(', ')}
-			onchange={async (e) => {
-				const file = e.currentTarget.files?.[0];
-				if (!file) return;
+			<input
+				type="file"
+				accept={['image/jpeg', 'image/gif', 'image/png'].join(', ')}
+				onchange={async (e) => {
+					const file = e.currentTarget.files?.[0];
+					if (!file) return;
 
-				const buffer = await file.arrayBuffer();
-				const blob = new Blob([buffer], { type: file.type });
-				imageUrl = URL.createObjectURL(blob);
-			}}
-			class="mt-1 block"
-		/>
-	</label>
-	<label>
-		<span>제목</span>
-		<input type="text" bind:value={title} />
-	</label>
-	<label>
-		<span>설명</span>
-		<textarea bind:value={description} rows="4"></textarea>
-	</label>
-</form>
+					const buffer = await file.arrayBuffer();
+					const blob = new Blob([buffer], { type: file.type });
+					imageUrl = URL.createObjectURL(blob);
+				}}
+				class="mt-1 block"
+			/>
+		</label>
+		<label>
+			<span>제목</span>
+			<input type="text" bind:value={title} />
+		</label>
+		<label>
+			<span>설명</span>
+			<textarea bind:value={description} rows="4"></textarea>
+		</label>
+	</form>
+</StyledLabels>
 
 <figure class="mt-6">
 	<figcaption class="font-bold">카카오</figcaption>

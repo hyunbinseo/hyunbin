@@ -1,4 +1,5 @@
 <script lang="ts">
+	import StyledLabels from '$lib/components/StyledLabels.svelte';
 	import Scroller from 'swipe-scroller/Scroller.svelte';
 	import 'swipe-scroller/style';
 	import { releases } from '.';
@@ -42,20 +43,22 @@
 	<div class="h-8"></div>
 	<div class="container-inner coarse:hidden">
 		<strong>Hover over the scroller to test these options.</strong>
-		<ul class="mt-1">
-			<li>
-				<label>
-					<input type="checkbox" bind:checked={hangButtons} />
-					<span>Hang the arrow buttons at the inner container border.</span>
-				</label>
-			</li>
-			<li>
-				<label>
-					<input type="checkbox" bind:checked={invertButtons} />
-					<span>Invert the functions of the left and right arrow buttons.</span>
-				</label>
-			</li>
-		</ul>
+		<StyledLabels>
+			<ul class="mt-1">
+				<li>
+					<label>
+						<input type="checkbox" bind:checked={hangButtons} />
+						<span>Hang the arrow buttons at the inner container border.</span>
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" bind:checked={invertButtons} />
+						<span>Invert the functions of the left and right arrow buttons.</span>
+					</label>
+				</li>
+			</ul>
+		</StyledLabels>
 	</div>
 </div>
 

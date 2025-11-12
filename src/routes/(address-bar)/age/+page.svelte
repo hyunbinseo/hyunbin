@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import StyledLabels from '$lib/components/StyledLabels.svelte';
 	import { isoDate, length, pipe, safeParse, string } from 'valibot';
 
 	let yyyy_mm_dd = $derived.by(() => {
@@ -25,8 +26,10 @@
 	});
 </script>
 
-<label>
-	생년월일이 <input type="date" bind:value={yyyy_mm_dd} class="mr-0.5 ml-1" />이면,
-</label>
+<StyledLabels>
+	<label>
+		생년월일이 <input type="date" bind:value={yyyy_mm_dd} class="mr-0.5 ml-1" />이면,
+	</label>
+</StyledLabels>
 
 만 나이는 <strong>{age || '?'}세</strong>입니다. (오늘 기준)

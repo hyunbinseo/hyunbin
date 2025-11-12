@@ -1,4 +1,5 @@
 <script lang="ts">
+	import StyledLabels from '$lib/components/StyledLabels.svelte';
 	import { googleSheetsTemplateUrl as href } from '.';
 
 	const { data } = $props();
@@ -19,21 +20,25 @@
 <a {href} target="_blank" class="mt-0.5 inline-block text-blue-700 underline"> 양식 복사하기 </a>
 
 <h3 class="mt-6 text-lg font-bold">적용 기능</h3>
-<ul class="mt-0.5">
-	{@render checkbox('연번 자동 입력')}
-	{@render checkbox('앞뒤 공백 경고 (조건부 서식)')}
-</ul>
+<StyledLabels>
+	<ul class="mt-0.5">
+		{@render checkbox('연번 자동 입력')}
+		{@render checkbox('앞뒤 공백 경고 (조건부 서식)')}
+	</ul>
+</StyledLabels>
 
 <h3 class="mt-6 text-lg font-bold">적용 내역</h3>
-<ul class="mt-0.5">
-	{@render checkbox('글꼴 / Noto Sans KR')}
-	{@render checkbox('열 크기 조정 / 데이터에 맞추기')}
-	{@render checkbox('미사용 행⋅열 일괄 삭제')}
-	{@render checkbox('서식 / 교차 색상')}
-	{@render checkbox('보기 / 고정 / 행 1개')}
-	{@render checkbox('보기 / 고정 / 열 2개', false)}
-	{@render checkbox('삽입 / 표 생성 (필터 제공)', false)}
-</ul>
+<StyledLabels>
+	<ul class="mt-0.5">
+		{@render checkbox('글꼴 / Noto Sans KR')}
+		{@render checkbox('열 크기 조정 / 데이터에 맞추기')}
+		{@render checkbox('미사용 행⋅열 일괄 삭제')}
+		{@render checkbox('서식 / 교차 색상')}
+		{@render checkbox('보기 / 고정 / 행 1개')}
+		{@render checkbox('보기 / 고정 / 열 2개', false)}
+		{@render checkbox('삽입 / 표 생성 (필터 제공)', false)}
+	</ul>
+</StyledLabels>
 
 <h3 class="mt-6 text-lg font-bold">미리 보기</h3>
 <iframe

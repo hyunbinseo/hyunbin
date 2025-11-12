@@ -2,6 +2,7 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
 	import { PUBLIC_URL } from '$env/static/public';
+	import StyledLabels from '$lib/components/StyledLabels.svelte';
 	import QRCode from 'qrcode-svg';
 	import { onMount } from 'svelte';
 	import favicon from './qr-code.svg';
@@ -36,15 +37,16 @@
 	<link rel="icon" type="image/svg+xml" href={favicon} />
 </svelte:head>
 
-<label>
-	<span class="text-sm font-bold">텍스트 (URL 등)</span>
-	<input type="text" bind:value={content} placeholder={PUBLIC_URL} size="32" class="font-mono" />
-</label>
-
-<label class="mt-6 select-none">
-	<input type="checkbox" bind:checked={isTransparent} />
-	<span>투명 배경</span>
-</label>
+<StyledLabels>
+	<label>
+		<span class="text-sm font-bold">텍스트 (URL 등)</span>
+		<input type="text" bind:value={content} placeholder={PUBLIC_URL} size="32" class="font-mono" />
+	</label>
+	<label class="mt-6 select-none">
+		<input type="checkbox" bind:checked={isTransparent} />
+		<span>투명 배경</span>
+	</label>
+</StyledLabels>
 
 {#if content}
 	{@const svg = new QRCode({

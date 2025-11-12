@@ -1,4 +1,6 @@
 <script lang="ts">
+	import StyledLabels from '$lib/components/StyledLabels.svelte';
+
 	const { data } = $props();
 
 	let canvas: HTMLCanvasElement;
@@ -156,23 +158,25 @@
 	>
 {/snippet}
 
-<fieldset class="mt-6">
-	<legend>기준(정렬)</legend>
-	<div
-		class={[
-			'mt-1 flex gap-x-3.5 gap-y-1', //
-			bitmap && bitmap.height > bitmap.width && 'flex-col',
-		]}
-	>
-		<!-- eslint-disable-next-line svelte/require-each-key -->
-		{#each positions as _position}
-			<label>
-				<input type="radio" value={_position} bind:group={position} />
-				<span>{_position}</span>
-			</label>
-		{/each}
-	</div>
-</fieldset>
+<StyledLabels>
+	<fieldset class="mt-6">
+		<legend>기준(정렬)</legend>
+		<div
+			class={[
+				'mt-1 flex gap-x-3.5 gap-y-1', //
+				bitmap && bitmap.height > bitmap.width && 'flex-col',
+			]}
+		>
+			<!-- eslint-disable-next-line svelte/require-each-key -->
+			{#each positions as _position}
+				<label>
+					<input type="radio" value={_position} bind:group={position} />
+					<span>{_position}</span>
+				</label>
+			{/each}
+		</div>
+	</fieldset>
+</StyledLabels>
 
 <div class="relative w-fit">
 	<canvas bind:this={canvas} class={['mt-6 w-full max-w-96', bitmap && 'border']}></canvas>

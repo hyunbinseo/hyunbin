@@ -1,4 +1,6 @@
 <script>
+	import StyledLabels from '$lib/components/StyledLabels.svelte';
+
 	const { data } = $props();
 
 	let height = $state('100%');
@@ -12,23 +14,25 @@
 	]}
 >
 	<div style:height style:width class="flex flex-col justify-between bg-white p-4">
-		<div class="flex gap-x-4">
-			<label>
-				<span>Height</span>
-				<select bind:value={height}>
-					<option>100%</option>
-					<option>24rem</option>
-					<option>125vh</option>
-				</select>
-			</label>
-			<label>
-				<span>Width</span>
-				<select bind:value={width}>
-					<option>100%</option>
-					<option>125vw</option>
-				</select>
-			</label>
-		</div>
+		<StyledLabels>
+			<div class="flex gap-x-4">
+				<label>
+					<span>Height</span>
+					<select bind:value={height}>
+						<option>100%</option>
+						<option>24rem</option>
+						<option>125vh</option>
+					</select>
+				</label>
+				<label>
+					<span>Width</span>
+					<select bind:value={width}>
+						<option>100%</option>
+						<option>125vw</option>
+					</select>
+				</label>
+			</div>
+		</StyledLabels>
 		<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 		<a href={data.url.source} target="_blank">Source</a>
 	</div>
