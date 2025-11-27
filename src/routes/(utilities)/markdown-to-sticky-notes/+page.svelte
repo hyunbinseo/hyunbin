@@ -114,7 +114,7 @@
 </StyledLabels>
 
 <style lang="postcss">
-	@reference "$app.css";
+	@reference "$lib/layout.css";
 	button {
 		@apply px-3 py-2;
 	}

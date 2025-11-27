@@ -21,7 +21,7 @@
 {@html !browser ? showModalScript : ''}
 
 <style lang="postcss">
-	@reference "$app.css";
+	@reference "$lib/layout.css";
 	a,
 	button {
 		@apply cursor-pointer text-blue-800 underline;

@@ -13,7 +13,7 @@
 </ul>
 
 <style lang="postcss">
-	@reference "$app.css";
+	@reference "$lib/layout.css";
 	a {
 		@apply underline;
 	}

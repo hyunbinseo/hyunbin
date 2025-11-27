@@ -39,7 +39,7 @@
 {/if}
 
 <style lang="postcss">
-	@reference "$app.css";
+	@reference "$lib/layout.css";
 	a {
 		@apply inline-block rounded border p-2;
 		font-size: 0.9375rem;

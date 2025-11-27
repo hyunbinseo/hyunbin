@@ -70,7 +70,7 @@
 </StyledLabels>
 
 <style lang="postcss">
-	@reference '$app.css';
+	@reference '$lib/layout.css';
 	fieldset {
 		@apply border p-4 pt-2;
 		> legend {

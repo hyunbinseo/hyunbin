@@ -4,8 +4,8 @@
 	import { page } from '$app/state';
 	import { PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
 	import { code_xml, github, house, linkedin } from '$lib/icons/lucide/snippets.svelte';
+	import '$lib/layout.css';
 	import suitVariableWoff2 from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
-	import '../app.css';
 	import favicon from './favicon.png';
 
 	let { children, data } = $props();
