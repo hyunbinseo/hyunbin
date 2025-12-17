@@ -17,6 +17,9 @@ importers:
       '@hyunbinseo/holidays-kr':
         specifier: ^3.2026.0
         version: 3.2026.0
+      '@lucide/svelte':
+        specifier: ^0.561.0
+        version: 0.561.0(svelte@5.46.0)
       '@std/front-matter':
         specifier: jsr:^1.0.9
         version: '@jsr/std__front-matter@1.0.9'
@@ -569,6 +572,11 @@ packages:
 
   '@kurkle/color@0.3.4':
     resolution: {integrity: sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==}
+
+  '@lucide/svelte@0.561.0':
+    resolution: {integrity: sha512-vofKV2UFVrKE6I4ewKJ3dfCXSV6iP6nWVmiM83MLjsU91EeJcEg7LoWUABLp/aOTxj1HQNbJD1f3g3L0JQgH9A==}
+    peerDependencies:
+      svelte: ^5
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
@@ -2239,6 +2247,10 @@ snapshots:
   '@jsr/std__yaml@1.0.10': {}
 
   '@kurkle/color@0.3.4': {}
+
+  '@lucide/svelte@0.561.0(svelte@5.46.0)':
+    dependencies:
+      svelte: 5.46.0
 
   '@polka/url@1.0.0-next.29': {}
 

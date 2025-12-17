@@ -3,8 +3,8 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
-	import { code_xml, github, house, linkedin } from '$lib/icons/lucide/snippets.svelte';
 	import '$lib/layout.css';
+	import { CodeXml, Github, House, Linkedin } from '@lucide/svelte';
 	import suitVariableWoff2 from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
 	import favicon from './favicon.png';
 
@@ -54,24 +54,15 @@
 		<main class="flex-1 overflow-y-auto">
 			{@render children()}
 		</main>
-		<footer
-			class="flex items-center gap-x-4 overflow-x-auto bg-gray-100 *:shrink-0 *:text-blue-800 print:hidden"
-		>
-			<a href={resolve('/')}>{@render house()}</a>
+		<footer class="flex items-center gap-x-4 bg-gray-100 print:hidden">
+			<a href={resolve('/')}><House></House></a>
 			<!-- eslint-disable svelte/no-navigation-without-resolve -->
-			<a href={PUBLIC_GITHUB} target="_blank">{@render github()}</a>
-			<a href={data.url.source} target="_blank">{@render code_xml()}</a>
-			<a href={PUBLIC_LINKEDIN} target="_blank" class="ml-auto">{@render linkedin()}</a>
+			<a href={PUBLIC_GITHUB} target="_blank"><Github></Github></a>
+			<a href={data.url.source} target="_blank"><CodeXml></CodeXml></a>
+			<a href={PUBLIC_LINKEDIN} target="_blank" class="ml-auto"><Linkedin></Linkedin></a>
 			<!-- eslint-enable svelte/no-navigation-without-resolve -->
 		</footer>
 	</div>
 {:else}
 	{@render children()}
 {/if}
-
-<style>
-	a :global > svg {
-		color: black;
-		width: calc(var(--spacing) * 6);
-	}
-</style>
