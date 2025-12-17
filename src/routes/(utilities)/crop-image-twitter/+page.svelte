@@ -130,34 +130,6 @@
 	</dd>
 </dl>
 
-<!-- NOTE Does not work with file copy-and-paste. -->
-<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-{#snippet paste()}
-	<button
-		type="button"
-		onclick={async () => {
-			try {
-				const items = await navigator.clipboard.read();
-				for (const item of items) {
-					for (const type of item.types) {
-						if (!mimeTypeSet.has(type as MimeType)) continue;
-						item
-							.getType(type)
-							.then((blob) => createImageBitmap(blob))
-							.then((_bitmap) => (bitmap = _bitmap));
-						return;
-					}
-				}
-				window.alert('유효한 이미지를 찾지 못했습니다.');
-			} catch (e) {
-				console.error(e);
-				window.alert('클립보드를 읽을 수 없습니다.');
-			}
-		}}
-		class="rounded border px-1 py-0.5 text-xs">붙여넣기</button
-	>
-{/snippet}
-
 <StyledLabels>
 	<fieldset class="mt-6">
 		<legend>기준(정렬)</legend>

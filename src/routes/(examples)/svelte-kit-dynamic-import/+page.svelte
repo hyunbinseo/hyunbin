@@ -31,7 +31,7 @@
 			<td><code>+page.svelte</code></td>
 			<td><code>#await</code></td>
 			<td>
-				{#await import('./Component.svelte').then(c=>c.default) then Component}
+				{#await import('./Component.svelte').then((c) => c.default) then Component}
 					<Component></Component>
 				{/await}
 			</td>

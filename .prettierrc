@@ -6,6 +6,10 @@
 	"printWidth": 100,
 	"endOfLine": "auto",
 	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
-	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }],
+	"overrides": [
+		{ "files": "*.jsonc", "options": { "trailingComma": "none" } },
+		{ "files": "*.md", "options": { "useTabs": false, "tabWidth": 2 } },
+		{ "files": "*.svelte", "options": { "parser": "svelte" } }
+	],
 	"tailwindStylesheet": "./src/lib/layout.css"
 }

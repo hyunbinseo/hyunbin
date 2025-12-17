@@ -4,12 +4,17 @@ export const copyZwsp = () => {
 };
 
 export const generatePINString = (length = 6) => {
+	if (!Number.isInteger(length) || length <= 0) throw new RangeError();
+
 	let pin = '';
+
 	while (pin.length < length) {
 		const [randomValue] = crypto.getRandomValues(new Uint32Array(1));
-		pin = pin + randomValue.toString();
+		if (!randomValue) continue;
+		pin += (randomValue % 10).toString();
 	}
-	prompt('무작위 숫자 문자열:', pin.substring(0, length));
+
+	prompt('무작위 숫자 문자열:', pin);
 };
 
 export const getViewportSize = () => {

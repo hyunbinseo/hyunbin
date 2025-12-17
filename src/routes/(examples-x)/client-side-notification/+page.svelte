@@ -23,7 +23,7 @@
 			}
 
 			setTimeout(() => {
-				const notification = new Notification(form.title, { body: form.body });
+				const notification = new Notification(form.title, { body: form.body ?? '' });
 				notification.onclick = (e) => {
 					e.preventDefault();
 					window.open('https://github.com/hyunbinseo', '_blank');
