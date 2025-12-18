@@ -1,25 +1,33 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { getForecasts, type Forecasts } from './fetch';
 	import { wmoCodeToEmoji } from './index';
 
-	const { data } = $props();
+	let forecasts = $state<Forecasts>();
 
-	let departure = $derived(data.forecasts.find(([, code]) => code === 0)?.[0]);
-	let arrival = $derived(data.forecasts.findLast(([, code]) => code === 0)?.[0]);
+	onMount(async () => {
+		forecasts = await getForecasts();
+	});
+
+	let departure = $derived(forecasts && forecasts.find(([, code]) => code === 0)?.[0]);
+	let arrival = $derived(forecasts && forecasts.findLast(([, code]) => code === 0)?.[0]);
 </script>
 
 <div class="mx-auto w-fit">
 	<table>
-		<thead>
-			<tr>
-				<th>날짜</th>
-				<th>날씨</th>
-				<th>출발</th>
-				<th>도착</th>
-			</tr>
-		</thead>
+		{#if forecasts}
+			<thead>
+				<tr>
+					<th>날짜</th>
+					<th>날씨</th>
+					<th>출발</th>
+					<th>도착</th>
+				</tr>
+			</thead>
+		{/if}
 		<tbody>
-			{#each data.forecasts as [date, code] (date)}
+			{#each forecasts as [date, code] (date)}
 				<tr>
 					<td>{date}</td>
 					<td>{wmoCodeToEmoji(code)}</td>
@@ -29,6 +37,10 @@
 					<td>
 						<input type="radio" name="arrival" bind:group={arrival} value={date} required />
 					</td>
+				</tr>
+			{:else}
+				<tr>
+					<td colspan="4">데이터를 불러오는 중입니다.</td>
 				</tr>
 			{/each}
 		</tbody>
@@ -48,7 +60,8 @@
 			<a
 				href={'https://tour.yanolja.com/air/search' +
 					`/c:SEL-a:CJU-${departure.replaceAll('-', '')}` +
-					`/a:CJU-c:SEL-${arrival.replaceAll('-', '')}`}
+					`/a:CJU-c:SEL-${arrival.replaceAll('-', '')}` +
+					'?cabin=ALL&adult=1'}
 				target="_blank"
 				class="bg-[#3549FF]">NOL 항공권</a
 			>
