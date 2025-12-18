@@ -5,21 +5,23 @@
 
 	const { data } = $props();
 
-	let map: maplibregl.Map | undefined = $state();
+	let map = $state<maplibregl.Map>();
 </script>
 
-<div
-	class="fixed inset-0"
-	{@attach (div) => {
-		map = new maplibregl.Map({
-			container: div,
-			attributionControl: false,
-			style: 'https://tiles.openfreemap.org/styles/liberty',
-			center: [126.5219, 33.5097],
-			zoom: 13,
-		});
-	}}
-></div>
+<div class="fixed inset-0">
+	<div
+		class="size-full"
+		{@attach (div) => {
+			map = new maplibregl.Map({
+				container: div,
+				attributionControl: false,
+				style: 'https://tiles.openfreemap.org/styles/liberty',
+				center: [126.5219, 33.5097],
+				zoom: 13,
+			});
+		}}
+	></div>
+</div>
 
 {#if map}
 	<!-- eslint-disable svelte/no-navigation-without-resolve -->
