@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { marked } from 'marked';
 	import 'print-friendly';
+	import 표준근로계약서 from './표준근로계약서.md?raw';
 
 	marked.use({ gfm: true });
 
@@ -8,12 +9,18 @@
 </script>
 
 <div class="page-container">
+	<header class="mb-2 flex justify-between">
+		<button type="button" onclick={() => window.print()}>Print</button>
+		<button type="button" onclick={() => (md = 표준근로계약서)}>
+			대한민국 표준 근로계약서 입력
+		</button>
+	</header>
 	<textarea
 		bind:value={md}
 		placeholder="Enter markdown here"
 		class="mb-(--page-gap-y) min-h-[30svh] resize-none"
 	></textarea>
-	<div class="page prose max-w-none">
+	<div class="page prose max-w-none empty:hidden">
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html marked.parse(md)}
 	</div>
