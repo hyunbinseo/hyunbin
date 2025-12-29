@@ -1,11 +1,29 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import StyledLabels from '$lib/components/StyledLabels.svelte';
-	import { isoDate, length, pipe, safeParse, string } from 'valibot';
+	import { digits, isoDate, length, pipe, safeParse, string, transform, union } from 'valibot';
 
 	let yyyy_mm_dd = $derived.by(() => {
 		const parsed = safeParse(
-			pipe(string(), length(10), isoDate()),
+			union([
+				pipe(string(), length(10), isoDate()),
+				pipe(
+					string(),
+					digits(),
+					length(6),
+					transform((input) => {
+						const yy = input.slice(0, 2);
+						const mm = input.slice(2, 4);
+						const dd = input.slice(4, 6);
+
+						const actualYY = Number(yy);
+						const currentYY = new Date().getFullYear() % 100;
+
+						return (actualYY < currentYY ? '20' : '19') + `${yy}-${mm}-${dd}`;
+					}),
+					isoDate(),
+				),
+			]),
 			page.url.hash.slice(1), //
 		);
 		return parsed.success ? parsed.output : null;
