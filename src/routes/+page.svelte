@@ -37,6 +37,10 @@
 			<span>한글 파일명 <span aria-label="자소">ㅈㅏㅅㅗ</span> 분리 문제 해결</span>
 		</li>
 		<li>
+			<a href={resolve('/markdown-to-print')}>마크다운 인쇄용으로 변환</a>
+			<span>PDF, 해시 생성 등</span>
+		</li>
+		<li>
 			<a href={resolve('/google-sheets-template')}>구글 스프레드시트 템플릿</a>
 			<span>연번 자동 입력 등</span>
 		</li>

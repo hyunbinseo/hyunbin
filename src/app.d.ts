@@ -6,7 +6,7 @@ declare global {
 		// interface Locals {}
 		interface PageData {
 			lang: 'en' | 'ko';
-			title: string;
+			title: string | null;
 			description?: string;
 			icon?: false;
 			footer?: false;
