@@ -8,7 +8,7 @@
 	marked.use({ gfm: true });
 
 	let md = $state('');
-	let hash = $state('');
+	let hash = $state<string>();
 
 	$effect(() => {
 		if (!navigator.userAgent.toLowerCase().includes('firefox')) return;
@@ -39,7 +39,7 @@
 		const url = URL.createObjectURL(blob);
 		const a = document.createElement('a');
 		a.href = url;
-		a.download = `${hash}.md`;
+		a.download = `${hash.slice(0, 6)}.md`;
 		a.click();
 		URL.revokeObjectURL(url);
 	};
