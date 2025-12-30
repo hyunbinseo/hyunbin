@@ -10,6 +10,11 @@
 	let md = $state('');
 	let hash = $state('');
 
+	$effect(() => {
+		if (!navigator.userAgent.toLowerCase().includes('firefox')) return;
+		md = 'Firefox generates image PDF without font embedding. Chromium-based browser is advised.';
+	});
+
 	const html = $derived.by(() => {
 		if (!md) return null;
 		return marked.parse(md, { async: false });
