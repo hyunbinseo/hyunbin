@@ -27,6 +27,17 @@
 		const array = Array.from(new Uint8Array(buffer));
 		hash = array.map((b) => b.toString(16).padStart(2, '0')).join('');
 	}, 300);
+
+	const saveMarkdown = () => {
+		if (!md || !hash) return;
+		const blob = new Blob([md], { type: 'text/markdown' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = `${hash}.md`;
+		a.click();
+		URL.revokeObjectURL(url);
+	};
 </script>
 
 <svelte:head>
@@ -35,10 +46,14 @@
 
 <div class="page-container">
 	<header class="mb-2 flex justify-between px-2">
-		<button type="button" onclick={() => window.print()}>Print/인쇄</button>
-		<button type="button" onclick={() => (md = 표준근로계약서)}>
-			대한민국 표준 근로계약서 입력
-		</button>
+		{#if md}
+			<button type="button" onclick={() => window.print()}>Print</button>
+			<button type="button" onclick={() => saveMarkdown()}>Save</button>
+		{:else}
+			<button type="button" onclick={() => (md = 표준근로계약서)} class="ml-auto">
+				대한민국 표준 근로계약서 입력
+			</button>
+		{/if}
 	</header>
 	<textarea
 		bind:value={md}
