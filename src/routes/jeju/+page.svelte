@@ -12,6 +12,13 @@
 
 	let departure = $derived(forecasts && forecasts.find(([, code]) => code === 0)?.[0]);
 	let arrival = $derived(forecasts && forecasts.findLast(([, code]) => code === 0)?.[0]);
+
+	const formatter = new Intl.DateTimeFormat('ko-KR', {
+		year: '2-digit',
+		month: '2-digit',
+		day: '2-digit',
+		weekday: 'short',
+	});
 </script>
 
 <div class="mx-auto w-fit">
@@ -27,15 +34,22 @@
 			</thead>
 		{/if}
 		<tbody>
-			{#each forecasts as [date, code] (date)}
+			{#each forecasts as [yyyy_mm_dd, code] (yyyy_mm_dd)}
+				{@const date = new Date(yyyy_mm_dd)}
 				<tr>
-					<td>{date}</td>
+					<td>{formatter.format(date)}</td>
 					<td>{wmoCodeToEmoji(code)}</td>
 					<td>
-						<input type="radio" name="departure" bind:group={departure} value={date} required />
+						<input
+							type="radio"
+							name="departure"
+							bind:group={departure}
+							value={yyyy_mm_dd}
+							required
+						/>
 					</td>
 					<td>
-						<input type="radio" name="arrival" bind:group={arrival} value={date} required />
+						<input type="radio" name="arrival" bind:group={arrival} value={yyyy_mm_dd} required />
 					</td>
 				</tr>
 			{:else}
