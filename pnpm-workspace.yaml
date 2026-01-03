@@ -7,4 +7,3 @@ trustPolicy: no-downgrade
 
 trustPolicyExclude:
   - chokidar@4.0.3
-  - ts-api-utils@2.3.0
