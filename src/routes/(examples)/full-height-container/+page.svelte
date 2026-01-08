@@ -33,8 +33,7 @@
 				</label>
 			</div>
 		</StyledLabels>
-		<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-		<a href={data.url.source} target="_blank">Source</a>
+		<a href={data.url.source} rel="external" target="_blank">Source</a>
 	</div>
 </div>
 

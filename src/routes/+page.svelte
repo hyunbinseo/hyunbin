@@ -8,28 +8,25 @@
 <main class="p-4">
 	<h1 class="text-2xl font-bold">안녕하세요!</h1>
 	<p class="mt-2">
-		<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-		<a href={PUBLIC_GITHUB} target="_blank">오픈소스 개발자</a>,
-		<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-		<a href={PUBLIC_LINKEDIN} target="_blank">창업가</a>
+		<a href={PUBLIC_GITHUB} rel="external" target="_blank">오픈소스 개발자</a>,
+		<a href={PUBLIC_LINKEDIN} rel="external" target="_blank">창업가</a>
 		서현빈입니다.
 	</p>
 
 	<ul class="mt-8 list-disc space-y-2.5 pl-4">
 		<li>
 			<a href="mailto:{PUBLIC_EMAIL}">이메일</a> /
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a href={PUBLIC_GITHUB} target="_blank">GitHub</a> /
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a href={PUBLIC_LINKEDIN} target="_blank">LinkedIn</a>
+			<a href={PUBLIC_GITHUB} rel="external" target="_blank">GitHub</a> /
+			<a href={PUBLIC_LINKEDIN} rel="external" target="_blank">LinkedIn</a>
 		</li>
 		<li class:hidden={!showHiddenMenu}>
 			<a href={resolve('/demos')}>Open Source Demos</a> /
 			<a href={resolve('/examples')}>Examples</a>
 		</li>
 		<li>
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a href="{PUBLIC_GITHUB}/holidays-kr#readme" target="_blank">대한민국의 공휴일</a>
+			<a href="{PUBLIC_GITHUB}/holidays-kr#readme" rel="external" target="_blank">
+				대한민국의 공휴일
+			</a>
 			<span>구독용 캘린더, JS, JSON 등</span>
 		</li>
 		<li>

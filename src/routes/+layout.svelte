@@ -56,11 +56,15 @@
 		</main>
 		<footer class="flex items-center gap-x-4 bg-gray-100 print:hidden">
 			<a href={resolve('/')}><House></House></a>
-			<!-- eslint-disable svelte/no-navigation-without-resolve -->
-			<a href={PUBLIC_GITHUB} target="_blank"><Github></Github></a>
-			<a href={data.url.source} target="_blank"><CodeXml></CodeXml></a>
-			<a href={PUBLIC_LINKEDIN} target="_blank" class="ml-auto"><Linkedin></Linkedin></a>
-			<!-- eslint-enable svelte/no-navigation-without-resolve -->
+			<a href={PUBLIC_GITHUB} rel="external" target="_blank">
+				<Github></Github>
+			</a>
+			<a href={data.url.source} rel="external" target="_blank">
+				<CodeXml></CodeXml>
+			</a>
+			<a href={PUBLIC_LINKEDIN} rel="external" target="_blank" class="ml-auto">
+				<Linkedin></Linkedin>
+			</a>
 		</footer>
 	</div>
 {:else}

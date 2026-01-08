@@ -1,6 +1,6 @@
 <script lang="ts">
 	import StyledLabels from '$lib/components/StyledLabels.svelte';
-	import { googleSheetsTemplateUrl as href } from '.';
+	import { googleSheetsTemplateUrl } from '.';
 
 	const { data } = $props();
 
@@ -28,8 +28,12 @@
 
 <h1 class="text-2xl font-bold">{data.title}</h1>
 
-<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-<a {href} target="_blank" class="mt-1 inline-block text-blue-700 underline">양식 복사하기</a>
+<a
+	href={googleSheetsTemplateUrl}
+	rel="external"
+	target="_blank"
+	class="mt-1 inline-block text-blue-700 underline">양식 복사하기</a
+>
 
 <h2 class="mt-6 text-lg font-bold">적용 기능</h2>
 <StyledLabels>

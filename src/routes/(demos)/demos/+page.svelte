@@ -3,11 +3,13 @@
 </script>
 
 <ul class="list-inside list-disc space-y-2 font-mono">
-	{#each data.paths as href (href)}
+	{#each data.paths as path (path)}
 		<li>
 			<!-- Reference https://github.com/hyunbinseo/swipe-scroller/issues/9  -->
 			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a {href} data-sveltekit-reload={href === '/swipe-scroller'}>{href}</a>
+			<a href={path} data-sveltekit-reload={path === '/swipe-scroller'}>
+				<code>{path}</code>
+			</a>
 		</li>
 	{/each}
 </ul>
