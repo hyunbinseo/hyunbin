@@ -6,6 +6,13 @@
 
 @theme {
 	--font-sans: 'SUIT Variable';
+
+	/* If you are adding additional breakpoints to the defaults, make sure you use `rem` */
+	/* See https://tailwindcss.com/docs/responsive-design#customizing-your-theme */
+
+	/* 1cm = 96px/2.54 */
+	/* 21cm = 49.6062992126rem */
+	--breakpoint-a4: 49.606rem;
 }
 
 @layer base {
