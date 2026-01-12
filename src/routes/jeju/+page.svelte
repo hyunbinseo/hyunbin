@@ -87,7 +87,7 @@
 	th,
 	td {
 		padding-inline: calc(var(--spacing) * 2);
-		padding-block: calc(var(--spacing) * 1);
+		padding-block: var(--spacing);
 	}
 	td {
 		text-align: center;

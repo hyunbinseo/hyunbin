@@ -22,7 +22,7 @@
 				/* Reference https://tailwindcss-forms.vercel.app/kitchen-sink.html */
 				+ input:not([type='checkbox'], [type='radio'], [type='range'], [type='color'], [type='file']) {
 				display: block;
-				margin-top: calc(var(--spacing) * 1);
+				margin-top: var(--spacing);
 			}
 		}
 	}

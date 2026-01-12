@@ -13,21 +13,21 @@
 		"lint": "prettier --check . && eslint ."
 	},
 	"devDependencies": {
-		"@eslint/compat": "^2.0.0",
+		"@eslint/compat": "^2.0.1",
 		"@eslint/js": "^9.39.2",
 		"@hyunbinseo/holidays-kr": "^3.2026.1",
 		"@lucide/svelte": "^0.562.0",
 		"@std/front-matter": "jsr:^1.0.9",
 		"@sun-typeface/suit": "^2.0.5",
 		"@sveltejs/adapter-static": "^3.0.10",
-		"@sveltejs/kit": "^2.49.3",
-		"@sveltejs/vite-plugin-svelte": "^6.2.3",
+		"@sveltejs/kit": "^2.49.4",
+		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.18",
 		"@types/hast": "^3.0.4",
 		"@types/mdast": "^4.0.4",
-		"@types/node": "^24.10.4",
+		"@types/node": "^24.10.7",
 		"@types/p5": "^1.7.7",
 		"@types/qrcode-svg": "^1.1.5",
 		"chart.js": "^4.5.1",
@@ -62,5 +62,5 @@
 		"valibot": "^1.2.0",
 		"vite": "^7.3.1"
 	},
-	"packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a"
+	"packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48"
 }
