@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-
-	type Anchors = [string, string?][];
+	import Section from './Section.svelte';
 
 	const intent = $derived.by(() => {
 		// eslint-disable-next-line svelte/prefer-svelte-reactivity
@@ -11,52 +10,29 @@
 		// intent: is considered invalid is simply ignored
 		return 'intent:' + url.href.slice(url.protocol.length);
 	});
-
-	const chromeForAndroid = $derived<Anchors>([
-		[intent, `Shows a 'Choose activity' dialog in Chromium browsers including self as an option`],
-		[
-			`googlechrome://navigate?url=${page.url.toString()}`,
-			'Silently fails in Chromium browsers, probably because they share the URI scheme',
-		],
-	]);
-
-	const edge = $derived<Anchors>([
-		[
-			`microsoft-edge:${page.url.toString()}`,
-			`Shows a 'Choose activity' dialog in Android Chromium browsers`,
-		],
-	]);
 </script>
 
-{#snippet anchorListItems(anchors: Anchors)}
-	<ul class="mt-2 list-disc space-y-2 pl-4">
-		<!-- eslint-disable-next-line svelte/require-each-key -->
-		{#each anchors as [href, description]}
-			<li>
-				{#if description}
-					<span>{description}</span><br />
-				{/if}
-				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-				<a {href}><code>{href}</code></a>
-			</li>
-		{/each}
-	</ul>
-{/snippet}
+<div class="space-y-8">
+	<Section
+		h2="Chrome for Android"
+		p="Chromium browsers include Samsung Internet, Brave, Vivaldi"
+		anchors={[
+			[intent, `Shows a 'Choose activity' dialog in Chromium browsers including self as an option`],
+			[
+				`googlechrome://navigate?url=${page.url.toString()}`,
+				'Silently fails in Chromium browsers, probably because they share the URI scheme',
+			],
+		]}
+	></Section>
 
-<section>
-	<h2 class="text-xl font-bold">Chrome for Android</h2>
-	<p class="mt-1">Chromium browsers include Samsung Internet, Brave, Vivaldi</p>
-	{@render anchorListItems(chromeForAndroid)}
-</section>
-
-<section class="mt-8">
-	<h2 class="text-xl font-bold">Microsoft Edge</h2>
-	<p class="mt-1">Tested on Android, macOS, Windows 11</p>
-	{@render anchorListItems(edge)}
-</section>
-
-<style>
-	a {
-		text-decoration-line: underline;
-	}
-</style>
+	<Section
+		h2="Microsoft Edge"
+		p="Tested on Android, macOS, Windows 11"
+		anchors={[
+			[
+				`microsoft-edge:${page.url.toString()}`,
+				`Shows a 'Choose activity' dialog in Android Chromium browsers`,
+			],
+		]}
+	></Section>
+</div>
