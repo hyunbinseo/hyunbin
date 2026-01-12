@@ -68,12 +68,21 @@
 >
 </button>
 
-<style lang="postcss">
-	@reference "$lib/layout.css";
+<style>
 	a {
-		@apply underline underline-offset-4 hover:decoration-2;
+		text-decoration-line: underline;
+		text-underline-offset: 4px;
+		&:hover {
+			@media (hover: hover) {
+				text-decoration-thickness: 2px;
+			}
+		}
 	}
 	li > a + span {
-		@apply text-xs text-gray-500 before:content-['/\00a0'];
+		font-size: var(--text-xs);
+		color: var(--color-gray-500);
+		&::before {
+			content: '/\00a0';
+		}
 	}
 </style>

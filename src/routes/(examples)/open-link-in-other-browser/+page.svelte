@@ -29,40 +29,34 @@
 </script>
 
 {#snippet anchorListItems(anchors: Anchors)}
-	<!-- eslint-disable-next-line svelte/require-each-key -->
-	{#each anchors as [href, description]}
-		<li>
-			{#if description}
-				<span>{description}</span><br />
-			{/if}
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a {href}><code>{href}</code></a>
-		</li>
-	{/each}
+	<ul class="mt-2 list-disc space-y-2 pl-4">
+		<!-- eslint-disable-next-line svelte/require-each-key -->
+		{#each anchors as [href, description]}
+			<li>
+				{#if description}
+					<span>{description}</span><br />
+				{/if}
+				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+				<a {href}><code>{href}</code></a>
+			</li>
+		{/each}
+	</ul>
 {/snippet}
 
 <section>
 	<h2 class="text-xl font-bold">Chrome for Android</h2>
 	<p class="mt-1">Chromium browsers include Samsung Internet, Brave, Vivaldi</p>
-	<ul class="mt-4">
-		{@render anchorListItems(chromeForAndroid)}
-	</ul>
+	{@render anchorListItems(chromeForAndroid)}
 </section>
 
 <section class="mt-8">
 	<h2 class="text-xl font-bold">Microsoft Edge</h2>
 	<p class="mt-1">Tested on Android, macOS, Windows 11</p>
-	<ul class="mt-4">
-		{@render anchorListItems(edge)}
-	</ul>
+	{@render anchorListItems(edge)}
 </section>
 
-<style lang="postcss">
-	@reference "$lib/layout.css";
-	ul {
-		@apply mt-2 list-disc space-y-2 pl-4;
-	}
+<style>
 	a {
-		@apply underline;
+		text-decoration-line: underline;
 	}
 </style>

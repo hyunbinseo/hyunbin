@@ -38,10 +38,13 @@
 	<a href={`javascript:(async()=>{${customScript}})()`} class="mt-3">나만의 북마클릿</a>
 {/if}
 
-<style lang="postcss">
-	@reference "$lib/layout.css";
+<style>
 	a {
-		@apply inline-block rounded border p-2;
-		font-size: 0.9375rem;
+		display: inline-block;
+		border-radius: 0.25rem;
+		border-style: solid;
+		border-width: 1px;
+		padding: calc(var(--spacing) * 2);
+		font-size: 15px;
 	}
 </style>

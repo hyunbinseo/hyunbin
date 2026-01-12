@@ -14,9 +14,8 @@
 	{/each}
 </ul>
 
-<style lang="postcss">
-	@reference "$lib/layout.css";
+<style>
 	a {
-		@apply underline;
+		text-decoration-line: underline;
 	}
 </style>

@@ -20,10 +20,10 @@
 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
 {@html !browser ? showModalScript : ''}
 
-<style lang="postcss">
-	@reference "$lib/layout.css";
+<style>
 	a,
 	button {
-		@apply cursor-pointer text-blue-800 underline;
+		color: var(--color-blue-800);
+		text-decoration-line: underline;
 	}
 </style>

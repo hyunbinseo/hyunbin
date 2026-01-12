@@ -69,12 +69,15 @@
 	</form>
 </StyledLabels>
 
-<style lang="postcss">
-	@reference '$lib/layout.css';
+<style>
 	fieldset {
-		@apply border p-4 pt-2;
+		border-style: solid;
+		border-width: 1px;
+		padding: calc(var(--spacing) * 4);
+		padding-top: calc(var(--spacing) * 2);
 		> legend {
-			@apply -ml-2 px-2;
+			margin-left: calc(var(--spacing) * -2);
+			padding-inline: calc(var(--spacing) * 2);
 		}
 	}
 </style>
