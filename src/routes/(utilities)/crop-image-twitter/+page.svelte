@@ -3,8 +3,23 @@
 
 	const { data } = $props();
 
-	let canvas: HTMLCanvasElement;
+	const TARGET_ASPECT = 8 / 9;
+
 	let bitmap = $state<ImageBitmap>();
+
+	let canvasCount = $derived.by(() => {
+		if (!bitmap) return 0;
+		if (position !== '분할') return 1;
+		if (bitmap.width / bitmap.height < TARGET_ASPECT) {
+			const targetHeight = Math.floor(bitmap.width / TARGET_ASPECT);
+			return Math.ceil(bitmap.height / targetHeight);
+		} else {
+			const targetWidth = Math.floor(bitmap.height * TARGET_ASPECT);
+			return Math.ceil(bitmap.width / targetWidth);
+		}
+	});
+
+	let canvases = $state<HTMLCanvasElement[]>([]);
 
 	// NOTE HEIF and HEIC are only supported by Safari as of 2025-10.
 	const mimeTypes = [
@@ -17,20 +32,59 @@
 	const mimeTypeSet = new Set(mimeTypes);
 	type MimeType = (typeof mimeTypes)[number];
 
-	const positions = ['시작', '가운데', '끝'] as const;
+	const positions = ['분할', '시작', '가운데', '끝'] as const;
 	type Position = (typeof positions)[number];
 	let position = $state<Position>('가운데');
 
 	$effect(() => {
-		if (!bitmap) return;
+		for (let i = 0; i < canvasCount; i += 1) {
+			if (!canvases[i]) return;
+		}
 
-		let dx: number, dy: number;
-		const canvasAspect = 8 / 9;
+		if (!bitmap) return;
 		const imageAspect = bitmap.width / bitmap.height;
 
-		if (imageAspect > canvasAspect) {
+		if (position === '분할') {
+			if (imageAspect < TARGET_ASPECT) {
+				const targetHeight = Math.floor(bitmap.width / TARGET_ASPECT);
+
+				for (let i = 0; i < canvasCount; i += 1) {
+					const canvas = canvases[i]!;
+					canvas.width = bitmap.width;
+					canvas.height = targetHeight;
+
+					const ctx = canvas.getContext('2d')!;
+					const sy = i * targetHeight;
+					const sh = Math.min(targetHeight, bitmap.height - sy);
+
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					ctx.drawImage(bitmap, 0, sy, bitmap.width, sh, 0, 0, bitmap.width, sh);
+				}
+			} else {
+				const targetWidth = Math.floor(bitmap.height * TARGET_ASPECT);
+
+				for (let i = 0; i < canvasCount; i += 1) {
+					const canvas = canvases[i]!;
+					canvas.width = targetWidth;
+					canvas.height = bitmap.height;
+
+					const ctx = canvas.getContext('2d')!;
+					const sx = i * targetWidth;
+					const sw = Math.min(targetWidth, bitmap.width - sx);
+
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					ctx.drawImage(bitmap, sx, 0, sw, bitmap.height, 0, 0, sw, bitmap.height);
+				}
+			}
+			return;
+		}
+
+		const canvas = canvases[0]!;
+		let dx: number, dy: number;
+
+		if (imageAspect > TARGET_ASPECT) {
 			canvas.height = bitmap.height;
-			canvas.width = Math.floor(canvas.height * canvasAspect);
+			canvas.width = Math.floor(canvas.height * TARGET_ASPECT);
 			dy = 0;
 			dx =
 				position === '가운데'
@@ -40,7 +94,7 @@
 						: 0;
 		} else {
 			canvas.width = bitmap.width;
-			canvas.height = Math.floor(canvas.width / canvasAspect);
+			canvas.height = Math.floor(canvas.width / TARGET_ASPECT);
 			dx = 0;
 			dy =
 				position === '가운데'
@@ -75,7 +129,7 @@
 	onkeydown={(e) => {
 		if (!bitmap) return;
 		if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
-			canvas.toBlob((blob) => {
+			canvases[0]?.toBlob((blob) => {
 				if (!blob) return;
 				navigator.clipboard
 					.write([new ClipboardItem({ [blob.type]: blob })])
@@ -150,32 +204,39 @@
 	</fieldset>
 </StyledLabels>
 
-<div class="relative w-fit">
-	<canvas bind:this={canvas} class={['mt-6 w-full max-w-96', bitmap && 'border']}></canvas>
-	{#if bitmap}
-		<button
-			type="button"
-			onclick={({ currentTarget }) => {
-				// NOTE Does not work in Firefox Android (143.0.4)
-				// DOMException: Clipboard write is not allowed.
-				canvas.toBlob((blob) => {
-					if (!blob) return;
-					navigator.clipboard
-						.write([new ClipboardItem({ [blob.type]: blob })])
-						.then(() => (currentTarget.disabled = true))
-						.catch((e) => {
-							console.error(e);
-							window.alert('클립보드에 복사할 수 없습니다.');
-						})
-						.finally(() => {
-							setTimeout(() => (currentTarget.disabled = false), 2000);
-						});
-				}, 'image/png');
-			}}
-			class="absolute top-0 right-0 rounded-bl border bg-white px-2 py-1 text-sm disabled:after:content-['되었습니다!']"
-			>복사</button
-		>
-	{/if}
+<div
+	class={[
+		'mt-6 flex gap-4 overflow-x-auto *:shrink-0',
+		bitmap && bitmap.width / bitmap.height > TARGET_ASPECT ? 'flex-row' : 'flex-col',
+	]}
+>
+	{#each { length: canvasCount }, index}
+		<div class="relative w-fit">
+			<canvas bind:this={canvases[index]} class={['w-full max-w-96 border']}></canvas>
+			<button
+				type="button"
+				onclick={({ currentTarget }) => {
+					// NOTE Does not work in Firefox Android (143.0.4)
+					// DOMException: Clipboard write is not allowed.
+					canvases[index]?.toBlob((blob) => {
+						if (!blob) return;
+						navigator.clipboard
+							.write([new ClipboardItem({ [blob.type]: blob })])
+							.then(() => (currentTarget.disabled = true))
+							.catch((e) => {
+								console.error(e);
+								window.alert('클립보드에 복사할 수 없습니다.');
+							})
+							.finally(() => {
+								setTimeout(() => (currentTarget.disabled = false), 2000);
+							});
+					}, 'image/png');
+				}}
+				class="absolute top-0 right-0 rounded-bl border bg-white px-2 py-1 text-sm disabled:after:content-['되었습니다!']"
+				>복사</button
+			>
+		</div>
+	{/each}
 </div>
 
 <style>
