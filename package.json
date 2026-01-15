@@ -51,7 +51,7 @@
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.2",
 		"sharp": "^0.34.5",
-		"svelte": "^5.46.1",
+		"svelte": "^5.46.4",
 		"svelte-check": "^4.3.5",
 		"svelte-html-modal": "^4.0.1",
 		"swipe-scroller": "^1.0.7",
