@@ -53,6 +53,7 @@
 		"sharp": "^0.34.5",
 		"svelte": "^5.46.1",
 		"svelte-check": "^4.3.5",
+		"svelte-html-modal": "^4.0.1",
 		"swipe-scroller": "^1.0.7",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",

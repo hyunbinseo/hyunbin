@@ -128,6 +128,9 @@ importers:
       svelte-check:
         specifier: ^4.3.5
         version: 4.3.5(picomatch@4.0.3)(svelte@5.46.1)(typescript@5.9.3)
+      svelte-html-modal:
+        specifier: ^4.0.1
+        version: 4.0.1(svelte@5.46.1)
       swipe-scroller:
         specifier: ^1.0.7
         version: 1.0.7(svelte@5.46.1)
@@ -1917,6 +1920,11 @@ packages:
     peerDependenciesMeta:
       svelte:
         optional: true
+
+  svelte-html-modal@4.0.1:
+    resolution: {integrity: sha512-xXI00N1bAnm4Unh1rTwZ8EcZGB3TKt5ZvJvXx9kxszVP0HUTlHrc2bvZ2qvB7BbJ2Gs+TamApdYWi5e0Yb/aXg==}
+    peerDependencies:
+      svelte: ^5.0.2
 
   svelte@5.46.1:
     resolution: {integrity: sha512-ynjfCHD3nP2el70kN5Pmg37sSi0EjOm9FgHYQdC4giWG/hzO3AatzXXJJgP305uIhGQxSufJLuYWtkY8uK/8RA==}
@@ -3736,6 +3744,10 @@ snapshots:
       postcss-scss: 4.0.9(postcss@8.5.6)
       postcss-selector-parser: 7.1.1
     optionalDependencies:
+      svelte: 5.46.1
+
+  svelte-html-modal@4.0.1(svelte@5.46.1):
+    dependencies:
       svelte: 5.46.1
 
   svelte@5.46.1:
