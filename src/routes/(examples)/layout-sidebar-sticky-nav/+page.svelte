@@ -33,16 +33,21 @@
 	</button>
 </div>
 
-<div class="contents [--sidebar-w:17rem]">
+<div class="contents md:mx-auto md:flex md:max-w-7xl md:shadow-2xl">
 	<!-- NOTE height: 100dvh; and inset-block: 0; both have delay on Android Chromium (e.g. Chrome, Samsung Internet) -->
 	<aside
-		class="fixed inset-y-0 left-0 z-10 w-(--sidebar-w) overflow-y-auto overscroll-contain p-4 shadow-box-right max-md:hidden"
+		class={[
+			'max-md:hidden',
+			'sticky top-0 z-10 h-dvh w-68 shrink-0 overflow-y-auto overscroll-contain shadow-box-right',
+		]}
 	>
-		Fixed Sidebar
+		<p class="py-4 text-center">Sidebar</p>
 		{@render long()}
 	</aside>
-	<div class="*:mx-4 md:ml-(--sidebar-w)">
-		<nav class="sticky top-0 mx-0! bg-white/70 py-4 text-center backdrop-blur">Sticky Nav</nav>
+	<div class="flex-1 *:mx-4">
+		<nav class="sticky top-0 mx-0! bg-white/70 py-4 text-center shadow-box-bottom backdrop-blur">
+			Sticky Nav
+		</nav>
 		{@render long()}
 	</div>
 </div>
