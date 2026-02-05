@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { PUBLIC_URL } from '$env/static/public';
 	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import { ORIGIN } from '$lib/constants';
 	import QRCode from 'qrcode-svg';
 	import { onMount } from 'svelte';
 	import favicon from './qr-code.svg';
@@ -21,7 +21,7 @@
 
 	let content = $derived.by(() => {
 		if (!browser) return null;
-		return page.url.hash.slice(1) || PUBLIC_URL;
+		return page.url.hash.slice(1) || ORIGIN;
 	});
 
 	const download = (href: string, extension: 'png' | 'svg') => {
@@ -40,7 +40,7 @@
 <StyledLabels>
 	<label>
 		<span class="text-sm font-bold">텍스트 (URL 등)</span>
-		<input type="text" bind:value={content} placeholder={PUBLIC_URL} size="32" class="font-mono" />
+		<input type="text" bind:value={content} placeholder={ORIGIN} size="32" class="font-mono" />
 	</label>
 	<label class="mt-6 select-none">
 		<input type="checkbox" bind:checked={isTransparent} />

@@ -1,6 +1,6 @@
 <script>
 	import { resolve } from '$app/paths';
-	import { PUBLIC_EMAIL, PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
+	import { EMAIL_ADDRESS, GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL } from '$lib/constants';
 
 	let showHiddenMenu = $state(false);
 </script>
@@ -8,23 +8,23 @@
 <main class="p-4">
 	<h1 class="text-2xl font-bold">안녕하세요!</h1>
 	<p class="mt-2">
-		<a href={PUBLIC_GITHUB} rel="external" target="_blank">오픈소스 개발자</a>,
-		<a href={PUBLIC_LINKEDIN} rel="external" target="_blank">창업가</a>
+		<a href={GITHUB_PROFILE_URL} rel="external" target="_blank">오픈소스 개발자</a>,
+		<a href={LINKEDIN_PROFILE_URL} rel="external" target="_blank">창업가</a>
 		서현빈입니다.
 	</p>
 
 	<ul class="mt-8 list-disc space-y-2.5 pl-4">
 		<li>
-			<a href="mailto:{PUBLIC_EMAIL}">이메일</a> /
-			<a href={PUBLIC_GITHUB} rel="external" target="_blank">GitHub</a> /
-			<a href={PUBLIC_LINKEDIN} rel="external" target="_blank">LinkedIn</a>
+			<a href="mailto:{EMAIL_ADDRESS}">이메일</a> /
+			<a href={GITHUB_PROFILE_URL} rel="external" target="_blank">GitHub</a> /
+			<a href={LINKEDIN_PROFILE_URL} rel="external" target="_blank">LinkedIn</a>
 		</li>
 		<li class:hidden={!showHiddenMenu}>
 			<a href={resolve('/demos')}>Open Source Demos</a> /
 			<a href={resolve('/examples')}>Examples</a>
 		</li>
 		<li>
-			<a href="{PUBLIC_GITHUB}/holidays-kr#readme" rel="external" target="_blank">
+			<a href="{GITHUB_PROFILE_URL}/holidays-kr#readme" rel="external" target="_blank">
 				대한민국의 공휴일
 			</a>
 			<span>구독용 캘린더, JS, JSON 등</span>

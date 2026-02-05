@@ -2,7 +2,7 @@
 	import { dev } from '$app/environment';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { PUBLIC_GITHUB, PUBLIC_LINKEDIN } from '$env/static/public';
+	import { GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL } from '$lib/constants';
 	import '$lib/layout.css';
 	import { CodeXml, Github, House, Linkedin } from '@lucide/svelte';
 	import suitVariableWoff2 from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
@@ -56,13 +56,13 @@
 		</main>
 		<footer class="flex items-center gap-x-4 bg-gray-100 print:hidden">
 			<a href={resolve('/')}><House></House></a>
-			<a href={PUBLIC_GITHUB} rel="external" target="_blank">
+			<a href={GITHUB_PROFILE_URL} rel="external" target="_blank">
 				<Github></Github>
 			</a>
 			<a href={data.url.source} rel="external" target="_blank">
 				<CodeXml></CodeXml>
 			</a>
-			<a href={PUBLIC_LINKEDIN} rel="external" target="_blank" class="ml-auto">
+			<a href={LINKEDIN_PROFILE_URL} rel="external" target="_blank" class="ml-auto">
 				<Linkedin></Linkedin>
 			</a>
 		</footer>
