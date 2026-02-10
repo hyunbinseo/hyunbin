@@ -2,8 +2,7 @@
 	import { debounce } from 'es-toolkit/function';
 	import { marked } from 'marked';
 	import 'print-friendly';
-	import { TITLE } from '.';
-	import 표준근로계약서 from './표준근로계약서.md?raw';
+	import { templates, TITLE } from '.';
 
 	marked.use({ gfm: true });
 
@@ -50,15 +49,39 @@
 </svelte:head>
 
 <div class="page-container">
-	<header class="mb-2 flex justify-between px-2">
-		{#if md}
-			<button type="button" onclick={() => window.print()}>Print</button>
-			<button type="button" onclick={() => saveMarkdown()}>Save</button>
-		{:else}
-			<button type="button" onclick={() => (md = 표준근로계약서)} class="ml-auto">
-				대한민국 표준 근로계약서 입력
-			</button>
-		{/if}
+	<header class="mb-2 flex flex-wrap items-end justify-between gap-2 max-a4:px-2">
+		<div>
+			{#if !md}
+				<span>{TITLE}</span>
+			{:else}
+				<button type="button" onclick={() => window.print()} class="underline">Print</button>
+				<span>/</span>
+				<button type="button" onclick={() => saveMarkdown()} class="underline">Save</button>
+			{/if}
+		</div>
+		<form
+			onsubmit={async (e) => {
+				e.preventDefault();
+				const name = new FormData(e.currentTarget).get('template') as string;
+				const loader = templates[`./${name}.md`];
+				if (!loader) {
+					window.alert('오류가 발생했습니다.');
+					return;
+				}
+				md = await loader();
+			}}
+			class="flex gap-x-2"
+		>
+			<label>
+				<span class="sr-only">양식</span>
+				<select name="template" required>
+					<option value="" disabled selected>선택하세요.</option>
+					<option value="표준근로계약서">표준 근로계약서</option>
+					<option value="재직증명서">재직증명서</option>
+				</select>
+			</label>
+			<button class="rounded bg-amber-200 px-2.5">양식 입력</button>
+		</form>
 	</header>
 	<textarea
 		bind:value={md}
