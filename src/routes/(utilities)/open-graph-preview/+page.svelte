@@ -3,7 +3,7 @@
 
 	let title = $state('자모야 모여라');
 	let description = $state('한글 자모가 분리되어 표시되는 파일 이름을 수정하는 온라인 도구입니다.');
-	let imageUrl = $state('https://jamoya.one/open-graph.png');
+	let imageUrl = $state('https://jamo.hyunb.in/open-graph.png');
 </script>
 
 <StyledLabels>

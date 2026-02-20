@@ -30,7 +30,7 @@
 			<span>구독용 캘린더, JS, JSON 등</span>
 		</li>
 		<li>
-			<a href="https://jamoya.one/" target="_blank">자모야 모여라</a>
+			<a href="https://jamo.hyunb.in/" target="_blank">자모야 모여라</a>
 			<span>한글 파일명 <span aria-label="자소">ㅈㅏㅅㅗ</span> 분리 문제 해결</span>
 		</li>
 		<li>
