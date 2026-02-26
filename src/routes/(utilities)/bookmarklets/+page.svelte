@@ -17,7 +17,7 @@
 	</a>
 {/snippet}
 
-<p>북마크바에 끌어놓아 추가할 수 있습니다.</p>
+<p>북마크바에 끌어놓아 추가해서 사용하세요:</p>
 <ul class="mt-3 space-y-3">
 	<li>{@render anchor('무작위 숫자 비밀번호 생성', generatePINString)}</li>
 	<li>{@render anchor('뷰포트 크기 확인', getViewportSize)}</li>

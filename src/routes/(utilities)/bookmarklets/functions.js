@@ -1,19 +1,17 @@
 export const copyZwsp = () => {
-	navigator.clipboard.writeText('​');
+	navigator.clipboard.writeText('\u200B');
 	alert('ZWSP가 복사되었습니다.');
 };
 
+// NOTE Avoid editing this or check the final build
+// Uncaught SyntaxError: illegal character U+0010
 export const generatePINString = (length = 6) => {
-	if (!Number.isInteger(length) || length <= 0) throw new RangeError();
-
 	let pin = '';
-
 	while (pin.length < length) {
-		const [randomValue] = crypto.getRandomValues(new Uint32Array(1));
-		if (!randomValue) continue;
-		pin += (randomValue % 10).toString();
+		const [v] = crypto.getRandomValues(new Uint32Array(1));
+		if (!v) continue;
+		pin += v.toString().at(-1);
 	}
-
 	prompt('무작위 숫자 문자열:', pin);
 };
 
