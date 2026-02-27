@@ -63,8 +63,11 @@
 	src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRnllVlPYOGzRsSh--jfwppxdaucRBeBnWe9TE8h6PtOVbplbCSuuYcXd6UKhcE9er_9EmEUNWYZpz3/pubhtml?widget=true&amp;headers=false"
 ></iframe>
 
-<p class="mt-6 font-bold">전역에 적용된 조건부 서식:</p>
+<p class="mt-6 font-bold">공백 관련 조건부 서식:</p>
 <pre class="mt-1 w-fit border p-2">{String.raw`=OR(
   REGEXMATCH(A1, "\s{2,}"),
   REGEXMATCH(A1, "(?m)^\s|\s$")
 )`}</pre>
+
+<p class="mt-6 font-bold">연번 자동 입력:</p>
+<pre class="mt-1 w-fit border p-2">=SEQUENCE(ROWS(A2:A), 1, 1)</pre>
