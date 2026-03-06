@@ -63,7 +63,7 @@
 			onsubmit={async (e) => {
 				e.preventDefault();
 				const name = new FormData(e.currentTarget).get('template') as string;
-				const loader = templates[`./${name}.md`];
+				const loader = templates[`./${name.replaceAll(' ', '-')}.md`];
 				if (!loader) {
 					window.alert('오류가 발생했습니다.');
 					return;
@@ -76,8 +76,9 @@
 				<span class="sr-only">양식</span>
 				<select name="template" required>
 					<option value="" disabled selected>선택하세요.</option>
-					<option value="표준근로계약서">표준 근로계약서</option>
-					<option value="재직증명서">재직증명서</option>
+					<option>근로 계약서</option>
+					<option>경력 증명서</option>
+					<option>재직 증명서</option>
 				</select>
 			</label>
 			<button class="rounded bg-amber-200 px-2.5">양식 입력</button>
