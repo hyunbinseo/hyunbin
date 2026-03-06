@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { array, object, parse, pipe, transform, type InferOutput } from 'valibot';
-import { keywords, ShopSchema } from '../src/routes/onnuri-shop-finder/shops.ts';
+import { keywords, ShopSchema } from '../src/routes/(pages)/onnuri-shop-finder/shops.ts';
 import { root } from './utilities.ts';
 
 const requests = keywords.map(
