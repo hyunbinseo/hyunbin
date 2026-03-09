@@ -568,16 +568,16 @@ packages:
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
   '@jsr/std__collections@1.1.6':
-    resolution: {integrity: sha512-hmuIU7r/xepXLXIBiK9gmq1BnSalyySnfdJ1mqvT39hU2g4Pz0DJDx6z1CMWVGbUQhpxBHuVQH9diqwMoN6/pw==, tarball: https://npm.jsr.io/~/11/@jsr/std__collections/1.1.6.tgz}
+    resolution: {integrity: sha512-hmuIU7r/xepXLXIBiK9gmq1BnSalyySnfdJ1mqvT39hU2g4Pz0DJDx6z1CMWVGbUQhpxBHuVQH9diqwMoN6/pw==}
 
   '@jsr/std__front-matter@1.0.9':
-    resolution: {integrity: sha512-CSz8B8ABdHk9O1sbeIhR+hwIfrIImhTzCMxPWnFmwtuoIHoOAqHQJKmKFl0r2MYD5TZlN+t+Z+0wlp0dfU0TaA==, tarball: https://npm.jsr.io/~/11/@jsr/std__front-matter/1.0.9.tgz}
+    resolution: {integrity: sha512-CSz8B8ABdHk9O1sbeIhR+hwIfrIImhTzCMxPWnFmwtuoIHoOAqHQJKmKFl0r2MYD5TZlN+t+Z+0wlp0dfU0TaA==}
 
   '@jsr/std__toml@1.0.11':
-    resolution: {integrity: sha512-+LZAizoPAPwMDmRZr86/xPrbO8E0Oq0BJ70mr1fNMobJ/6X6v15Jk16ZClFGukWgzBMd8ggiMWnzp24+N3VNZg==, tarball: https://npm.jsr.io/~/11/@jsr/std__toml/1.0.11.tgz}
+    resolution: {integrity: sha512-+LZAizoPAPwMDmRZr86/xPrbO8E0Oq0BJ70mr1fNMobJ/6X6v15Jk16ZClFGukWgzBMd8ggiMWnzp24+N3VNZg==}
 
   '@jsr/std__yaml@1.0.12':
-    resolution: {integrity: sha512-pz/BisWZWH16JvLJBwrNwUwfIsRnf9qniMrmI6Z3vIAcVRVFcA5+i4o6z6QqsMKqFzjlB66WZE+jSyujT/RvRg==, tarball: https://npm.jsr.io/~/11/@jsr/std__yaml/1.0.12.tgz}
+    resolution: {integrity: sha512-pz/BisWZWH16JvLJBwrNwUwfIsRnf9qniMrmI6Z3vIAcVRVFcA5+i4o6z6QqsMKqFzjlB66WZE+jSyujT/RvRg==}
 
   '@kurkle/color@0.3.4':
     resolution: {integrity: sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==}
