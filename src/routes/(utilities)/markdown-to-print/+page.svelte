@@ -123,4 +123,12 @@
 			--page-gap-y: 0.75in;
 		}
 	}
+	.prose :global {
+		input[type='text'] {
+			margin-top: 0;
+			border-top: 0;
+			border-inline: 0;
+			padding: 0;
+		}
+	}
 </style>
