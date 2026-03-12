@@ -8,6 +8,7 @@
 
 	let md = $state('');
 	let hash = $state<string>();
+	let pageEl = $state<HTMLDivElement>();
 
 	$effect(() => {
 		if (!navigator.userAgent.toLowerCase().includes('firefox')) return;
@@ -26,6 +27,13 @@
 
 	const debouncedSetHash = debounce(async () => {
 		if (!html) return;
+
+		// NOTE GFM enables the tasklist extension, which renders checkboxes
+		if (pageEl?.querySelector('input:not([type="checkbox"]), select, textarea')) {
+			hash = '';
+			return;
+		}
+
 		const encoded = new TextEncoder().encode(html);
 		const buffer = await window.crypto.subtle.digest('SHA-256', encoded);
 		const array = Array.from(new Uint8Array(buffer));
@@ -89,7 +97,7 @@
 		placeholder="Enter markdown here"
 		class="mb-(--page-gap-y) min-h-[30svh] resize-none"
 	></textarea>
-	<div class="page prose max-w-none empty:hidden">
+	<div bind:this={pageEl} class="page prose max-w-none empty:hidden">
 		{#if html}
 			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html html}
