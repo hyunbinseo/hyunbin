@@ -1,22 +1,43 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { page } from '$app/state';
 	import StyledLabels from '$lib/components/StyledLabels.svelte';
 	import { digits, pipe, safeParse, string, transform } from 'valibot';
 
-	const BASE_YEAR = 2026;
-	const MINIMUM_WAGE = 10_320;
+	const MINIMUM_WAGES = new Map([
+		// [2027, 10_500],
+		[2026, 10_320],
+	]);
+
+	const FALLBACK_YEAR = MINIMUM_WAGES.keys().next().value!;
+	const CURRENT_YEAR = !browser ? null : new Date().getFullYear();
+
+	let BASE_YEAR = $derived.by(() => {
+		if (!CURRENT_YEAR) return FALLBACK_YEAR;
+		return MINIMUM_WAGES.has(CURRENT_YEAR) ? CURRENT_YEAR : FALLBACK_YEAR;
+	});
+
+	const MINIMUM_WAGE = $derived(MINIMUM_WAGES.get(BASE_YEAR));
 
 	let 주_소정근로시간 = $derived.by(() => {
 		const parsed = safeParse(
 			pipe(string(), digits(), transform(Number)),
 			page.url.hash.slice(1), //
 		);
-		return parsed.success ? parsed.output : null;
+		return parsed.success ? parsed.output : 40;
 	});
 </script>
 
-{BASE_YEAR}년 기준
 <StyledLabels>
+	<label>
+		<select bind:value={BASE_YEAR}>
+			<!-- eslint-disable-next-line svelte/require-each-key -->
+			{#each MINIMUM_WAGES as [year]}
+				<option value={year}>{year}년</option>
+			{/each}
+		</select>
+		기준 <span class="sr-only">연도</span>
+	</label>
 	<label>
 		주 소정근로시간이 <input
 			type="number"
@@ -37,10 +58,11 @@
 	<!-- NOTE 고용노동부는 소정근로시간 계산 시 발생하는 소수점 이하의 숫자는 반올림한 후, 임금 등을 계산할 것을 권장하고 있습니다. -->
 	<!-- See https://www.shoplworks.com/blog-insight/contractual-working-hours-209-hours-calculation -->
 	{@const 월_소정근로시간 = Math.ceil((주_소정근로시간 + 주휴수당_시간) * (365 / 7 / 12))}
-	{@const 최저월급 = 월_소정근로시간 * MINIMUM_WAGE}
 	<ul class="mt-2 list-disc space-y-2 pl-6">
 		<li>주휴수당 시간: {주휴수당_시간}시간</li>
 		<li>월 소정근로시간: {월_소정근로시간}시간</li>
-		<li>최저월급: {최저월급.toLocaleString('ko-KR')}원</li>
+		{#if MINIMUM_WAGE}
+			<li>최저월급: {(월_소정근로시간 * MINIMUM_WAGE).toLocaleString('ko-KR')}원</li>
+		{/if}
 	</ul>
 {/if}
