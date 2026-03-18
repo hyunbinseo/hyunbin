@@ -4,8 +4,6 @@
 	import 'print-friendly';
 	import { templates, TITLE } from '.';
 
-	marked.use({ gfm: true });
-
 	let md = $state('');
 	let hash = $state<string>();
 	let pageEl = $state<HTMLDivElement>();
@@ -17,7 +15,7 @@
 
 	const html = $derived.by(() => {
 		if (!md) return null;
-		return marked.parse(md, { async: false });
+		return marked.parse(md, { async: false, gfm: true });
 	});
 
 	$effect(() => {
