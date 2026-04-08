@@ -102,8 +102,8 @@ importers:
         specifier: ^0.7.2
         version: 0.7.2(prettier-plugin-svelte@3.5.1(prettier@3.8.1)(svelte@5.55.2))(prettier@3.8.1)
       print-friendly:
-        specifier: ^0.4.1
-        version: 0.4.1
+        specifier: ^0.4.2
+        version: 0.4.2
       qrcode-svg:
         specifier: ^1.1.0
         version: 1.1.0
@@ -1708,8 +1708,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  print-friendly@0.4.1:
-    resolution: {integrity: sha512-mtoOj4KxCwh0LWV8pfpack1tRXqgJq2NtjWtfHaDnVxUiXQzYHOci3fifhfyyvreyS8AToHRE9Jq1Gfq2JrPrQ==}
+  print-friendly@0.4.2:
+    resolution: {integrity: sha512-3Bor25MXTDFK4IBQasY8eeTQGrEAo8RD3ilz8I6ZKe04UEe0+O8wnpwuoZVQvvwhmSa0FPWJeqjYdPTSa8+1nw==}
 
   property-information@7.1.0:
     resolution: {integrity: sha512-TwEZ+X+yCJmYfL7TPUOcvBZ4QfoT5YenQiJuX//0th53DE6w0xxLEtfK3iyryQFddXuvkIk51EEgrJQ0WJkOmQ==}
@@ -3392,7 +3392,7 @@ snapshots:
 
   prettier@3.8.1: {}
 
-  print-friendly@0.4.1: {}
+  print-friendly@0.4.2: {}
 
   property-information@7.1.0: {}
 
