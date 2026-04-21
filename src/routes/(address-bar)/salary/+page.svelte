@@ -60,7 +60,7 @@
 	{@const 월_소정근로시간 = Math.ceil((주_소정근로시간 + 주휴수당_시간) * (365 / 7 / 12))}
 	<ul class="mt-2 list-disc space-y-2 pl-6">
 		<li>주휴수당 시간: {주휴수당_시간}시간</li>
-		<li>월 소정근로시간: {월_소정근로시간}시간</li>
+		<li>월 소정근로시간: {월_소정근로시간}시간 - 반올림됨</li>
 		{#if MINIMUM_WAGE}
 			<li>최저월급: {(월_소정근로시간 * MINIMUM_WAGE).toLocaleString('ko-KR')}원</li>
 		{/if}
