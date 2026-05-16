@@ -1,9 +1,7 @@
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - esbuild
-  - sharp
-
 trustPolicy: no-downgrade
 
 trustPolicyExclude:
   - chokidar@4.0.3
+
+allowBuilds:
+  sharp: true
