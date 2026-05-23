@@ -16,12 +16,10 @@ const sharpStream = sharp({
 	// - does not throw runtime error
 	// Reference https://sharp.pixelplumbing.com/api-output/#avif
 	// Reference https://sharp.pixelplumbing.com/api-output/#toformat
-	// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-	() => sharpStream.clone().toFormat('avif', { progressive: true });
+	sharpStream.clone().toFormat('avif', { progressive: true });
 
 	// @ts-expect-error avif method is properly typed and shows error
-	// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-	() => sharpStream.clone().avif({ progressive: true });
+	sharpStream.clone().avif({ progressive: true });
 
 	// NOTE Google Squoosh does not support progressive AVIF as well.
 	// Reference https://github.com/GoogleChromeLabs/squoosh/issues/1377
