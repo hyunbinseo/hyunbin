@@ -5,3 +5,6 @@ trustPolicyExclude:
 
 allowBuilds:
   sharp: true
+
+minimumReleaseAgeExclude:
+  - '@sveltejs/kit@2.61.0'
