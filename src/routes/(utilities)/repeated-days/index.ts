@@ -24,7 +24,7 @@ export const formatDateString = (options?: Partial<FormatDateOptions>) => {
 
 const getMonthInUtc0 = (date: Date) => Number(date.toISOString().substring(5, 7));
 
-export const getDates = ({
+export const getDates = async ({
 	startDate,
 	selectedDays,
 	excludeHolidays,
@@ -57,7 +57,7 @@ export const getDates = ({
 
 		if (dayIndex === -1) throw new Error();
 
-		if (selectedDays.includes(dayIndex) && (!excludeHolidays ? true : !isHoliday(date))) {
+		if (selectedDays.includes(dayIndex) && (!excludeHolidays ? true : !(await isHoliday(date)))) {
 			dates.push(
 				date.toLocaleDateString('ko-KR', {
 					timeZone: 'Asia/Seoul',

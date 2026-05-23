@@ -14,7 +14,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
-		"@hyunbinseo/holidays-kr": "^3.2026.3",
+		"@hyunbinseo/holidays-kr": "^4.2026.0",
 		"@lucide/svelte": "^1.16.0",
 		"@std/front-matter": "jsr:^1.0.9",
 		"@sun-typeface/suit": "^2.0.5",

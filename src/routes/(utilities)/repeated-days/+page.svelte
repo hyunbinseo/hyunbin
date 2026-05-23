@@ -2,30 +2,32 @@
 	import StyledLabels from '$lib/components/StyledLabels.svelte';
 	import { days, formatDateString, getDates } from '.';
 
-	let startDate = formatDateString({ date: new Date() });
-	let selectedDays = [1, 3, 5];
+	let startDate = $state(formatDateString({ date: new Date() }));
+	let selectedDays = $state([1, 3, 5]);
 
-	let options = {
+	let options = $state({
 		excludeHolidays: true,
 		limitToCurrentMonth: true,
 		includeNumbering: false,
-	};
-
-	// Should work regardless of system time-zone.
-	$: dates = getDates({
-		startDate,
-		selectedDays,
-		excludeHolidays: options.excludeHolidays,
-		limitToCurrentMonth: options.limitToCurrentMonth,
-		totalCount: 50, // TODO Limit to next year, stop if errored.
 	});
+
+	const dates = $derived(
+		// Should work regardless of system time-zone.
+		await getDates({
+			startDate,
+			selectedDays,
+			excludeHolidays: options.excludeHolidays,
+			limitToCurrentMonth: options.limitToCurrentMonth,
+			totalCount: 50, // TODO Limit to next year, stop if errored.
+		}),
+	);
 </script>
 
 <StyledLabels>
 	<form onsubmit={(e) => e.preventDefault()} class="flex flex-col gap-y-4 *:w-fit">
 		<label>
 			<span>시작 날짜</span>
-			<input bind:value={startDate} type="date" min="{new Date().getFullYear()}-01-01" />
+			<input bind:value={startDate} type="date" />
 		</label>
 		<fieldset>
 			<legend>요일</legend>
