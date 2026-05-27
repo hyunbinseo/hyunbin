@@ -10,6 +10,8 @@ import {
 	version,
 } from '$service-worker';
 
+// NOTE `build` and `prerendered` are empty arrays during development
+
 const self = globalThis.self as unknown as ServiceWorkerGlobalScope;
 const assets: ReadonlySet<string> = new Set([...build, ...files]);
 

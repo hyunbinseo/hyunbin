@@ -6,6 +6,7 @@ const config = {
 		experimental: { remoteFunctions: true },
 		adapter: adapter(),
 		prerender: { handleMissingId: 'warn' },
+		serviceWorker: { register: false },
 	},
 	compilerOptions: {
 		experimental: { async: true },
