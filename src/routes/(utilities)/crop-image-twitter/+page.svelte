@@ -109,19 +109,56 @@
 		ctx.drawImage(bitmap, dx, dy);
 	});
 
-	const handleDropOrPaste = (items?: DataTransferItemList) => {
+	const handleDropOrPaste = async (items?: DataTransferItemList) => {
 		for (const item of items ?? []) {
 			if (item.kind !== 'file' || !mimeTypeSet.has(item.type as MimeType)) continue;
 
 			const file = item.getAsFile();
 			if (!file) continue;
 
-			// NOTE for-await loop does not work in
-			// Firefox Desktop's paste handler (143.0.4)
+			// NOTE for-await loop does not work in Firefox Desktop onpaste (143.0.4)
 			createImageBitmap(file).then((_bitmap) => (bitmap = _bitmap));
 			return;
 		}
-		window.alert('유효한 이미지를 찾지 못했습니다.');
+
+		for (const item of items ?? []) {
+			if (item.kind !== 'string') continue;
+			const text = await new Promise<string>((resolve) => item.getAsString(resolve));
+
+			let href = text.trim();
+			if (href.startsWith('//')) href = 'https:' + href;
+
+			if (!URL.canParse(href)) break;
+			const url = new URL(href);
+			if (url.protocol !== 'http:' && url.protocol !== 'https:') break;
+
+			try {
+				const res = await fetch(url, { headers: { Accept: mimeTypes.join(', ') } });
+				if (!res.ok) throw new Error();
+				const blob = await res.blob();
+				if (!mimeTypeSet.has(blob.type as MimeType)) {
+					if (window.confirm('지원되지 않는 형식입니다. 새 창에서 여시겠습니까?')) {
+						const w = window.open('', '_blank');
+						if (!w) {
+							window.prompt('새 창을 열 수 없습니다.', url.href);
+							return;
+						}
+						// NOTE Firefox allows SVG to be copied if loaded in `<img>`
+						w.document.write(`<!doctype html><img src="${url.href}">`);
+						w.document.close();
+					}
+					return;
+				}
+				bitmap = await createImageBitmap(blob);
+			} catch {
+				// NOTE CORS results in TypeError
+				if (window.confirm('이미지를 가져올 수 없습니다. 새 창에서 여시겠습니까?')) {
+					window.open(url, '_blank');
+				}
+			}
+			return;
+		}
+		window.alert('유효한 이미지 파일(URL)을 찾지 못했습니다.');
 	};
 </script>
 
