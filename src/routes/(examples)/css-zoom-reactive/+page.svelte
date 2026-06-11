@@ -14,11 +14,7 @@
 
 {#snippet block(bg: 'bg-red-400' | 'bg-yellow-200', zoom?: number)}
 	<div
-		class={[
-			bg,
-			'grid place-items-center opacity-80',
-			typeof zoom === 'number' && 'fixed inset-x-0 top-1/2 -translate-y-1/2 overflow-hidden',
-		]}
+		class={[bg, 'grid place-items-center opacity-80']}
 		style:width="{size.w}px"
 		style:height="{size.h}px"
 		style:zoom
@@ -36,4 +32,6 @@
 
 {@render block('bg-red-400')}
 
-{@render block('bg-yellow-200', zoom)}
+<div class="fixed inset-0 grid place-items-center overflow-hidden">
+	{@render block('bg-yellow-200', zoom)}
+</div>
