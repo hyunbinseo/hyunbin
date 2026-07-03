@@ -51,14 +51,6 @@
 	</script>
 </svelte:head>
 
-<svelte:window
-	onload={() => {
-		if (!dev && 'serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/service-worker.js');
-		}
-	}}
-/>
-
 {#if page.data.footer !== false}
 	<div class="flex min-h-dvh flex-col *:not-print:p-4">
 		<main class="flex-1 overflow-y-auto">

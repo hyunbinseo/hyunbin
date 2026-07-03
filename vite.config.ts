@@ -14,7 +14,6 @@ export default defineConfig({
 			experimental: { remoteFunctions: true },
 			adapter: adapter(),
 			prerender: { handleMissingId: 'warn' },
-			serviceWorker: { register: false },
 		}),
 	],
 	server: {
