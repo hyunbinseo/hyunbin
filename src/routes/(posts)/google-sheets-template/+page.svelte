@@ -63,11 +63,22 @@
 	src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRnllVlPYOGzRsSh--jfwppxdaucRBeBnWe9TE8h6PtOVbplbCSuuYcXd6UKhcE9er_9EmEUNWYZpz3/pubhtml?widget=true&amp;headers=false"
 ></iframe>
 
-<p class="mt-6 font-bold">공백 관련 조건부 서식:</p>
-<pre class="mt-1 w-fit border p-2">{String.raw`=OR(
+<h2 class="mt-6 text-lg font-bold">조건부 서식 및 함수</h2>
+
+<figure class="mt-3">
+	<figcaption class="font-bold">중복/전후 공백 존재:</figcaption>
+	<pre class="mt-1 w-fit border p-2">{String.raw`=OR(
   REGEXMATCH(A1, "\s{2,}"),
   REGEXMATCH(A1, "(?m)^\s|\s$")
 )`}</pre>
+</figure>
 
-<p class="mt-6 font-bold">연번 자동 입력:</p>
-<pre class="mt-1 w-fit border p-2">=SEQUENCE(ROWS(A2:A), 1, 1)</pre>
+<figure class="mt-3">
+	<figcaption class="font-bold">함수가 적용되지 않음:</figcaption>
+	<pre class="mt-1 w-fit border p-2">=NOT(ISFORMULA(C2))</pre>
+</figure>
+
+<figure class="mt-3">
+	<figcaption class="font-bold">연번 자동 입력:</figcaption>
+	<pre class="mt-1 w-fit border p-2">=SEQUENCE(ROWS(A2:A), 1, 1)</pre>
+</figure>
