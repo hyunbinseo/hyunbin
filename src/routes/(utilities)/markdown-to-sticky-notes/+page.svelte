@@ -42,8 +42,7 @@
 				{placeholder}
 				rows={minRows}
 				required
-				class="mt-2 block w-full resize-none border"
-			></textarea>
+				class="mt-2 block w-full resize-none border"></textarea>
 		</label>
 		<nav class="mt-4 flex justify-between gap-4 break-keep">
 			<button class="bg-blue-100">메모지로 변환하기</button>

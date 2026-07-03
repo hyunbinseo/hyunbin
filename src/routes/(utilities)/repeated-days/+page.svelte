@@ -65,8 +65,7 @@
 				rows={dates.length + 1}
 				cols={18}
 				readonly
-				class="resize-none"
-			></textarea>
+				class="resize-none"></textarea>
 		</label>
 	</form>
 </StyledLabels>

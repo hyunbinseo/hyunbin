@@ -93,8 +93,7 @@
 	<textarea
 		bind:value={md}
 		placeholder="Enter markdown here"
-		class="mb-(--page-gap-y) min-h-[30svh] resize-none"
-	></textarea>
+		class="mb-(--page-gap-y) min-h-[30svh] resize-none"></textarea>
 	<div bind:this={pageEl} class="page prose max-w-none empty:hidden">
 		{#if html}
 			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
