@@ -1,17 +1,18 @@
 <script lang="ts">
-	let { data } = $props();
+	import { resolve } from '$app/paths';
 </script>
 
 <ul class="list-inside list-disc space-y-2 font-mono">
-	{#each data.paths as path (path)}
-		<li>
-			<!-- Reference https://github.com/hyunbinseo/swipe-scroller/issues/9  -->
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a href={path} data-sveltekit-reload={path === '/swipe-scroller'}>
-				<code>{path}</code>
-			</a>
-		</li>
-	{/each}
+	<li>
+		<a href="/hash-dialog-modal" rel="external">Hash Dialog Modal</a>
+	</li>
+	<li>
+		<a href={resolve('/(demos)/print-friendly')}>Print Friendly</a>
+	</li>
+	<li>
+		<!-- See https://github.com/hyunbinseo/swipe-scroller/issues/9 -->
+		<a href={resolve('/(demos)/swipe-scroller')} data-sveltekit-reload>Swipe Scroller</a>
+	</li>
 </ul>
 
 <style>
