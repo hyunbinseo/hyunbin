@@ -63,6 +63,7 @@
 	src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRnllVlPYOGzRsSh--jfwppxdaucRBeBnWe9TE8h6PtOVbplbCSuuYcXd6UKhcE9er_9EmEUNWYZpz3/pubhtml?widget=true&amp;headers=false"
 ></iframe>
 
+<!-- 참고용 자료. 실제 양식에 모두 적용된 것은 아님 -->
 <h2 class="mt-6 text-lg font-bold">조건부 서식 및 함수</h2>
 
 <figure class="mt-3">
@@ -75,7 +76,12 @@
 
 <figure class="mt-3">
 	<figcaption class="font-bold">함수가 적용되지 않음:</figcaption>
-	<pre class="mt-1 w-fit border p-2">=NOT(ISFORMULA(C2))</pre>
+	<pre class="mt-1 w-fit border p-2">=NOT(ISFORMULA(A2))</pre>
+</figure>
+
+<figure class="mt-3">
+	<figcaption class="font-bold">중복 값 존재:</figcaption>
+	<pre class="mt-1 w-fit border p-2">=COUNTIF(A$2:A, A2)>1</pre>
 </figure>
 
 <figure class="mt-3">
