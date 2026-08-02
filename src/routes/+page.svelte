@@ -15,7 +15,14 @@
 
 	<ul class="mt-8 list-disc space-y-2.5 pl-4">
 		<li>
-			<a href="mailto:{EMAIL_ADDRESS}">이메일</a> /
+			<button
+				type="button"
+				onclick={() => {
+					if (!window.confirm('메일을 보낼 땐 본인을 소개해 주세요. 동의하시나요?')) return;
+					window.prompt('다음 주소를 복사해 사용하세요.', EMAIL_ADDRESS);
+				}}>이메일</button
+			>
+			/
 			<a href={GITHUB_PROFILE_URL} rel="external" target="_blank">GitHub</a> /
 			<a href={LINKEDIN_PROFILE_URL} rel="external" target="_blank">LinkedIn</a>
 		</li>
@@ -69,7 +76,8 @@
 </button>
 
 <style>
-	a {
+	a,
+	button {
 		text-decoration-line: underline;
 		text-underline-offset: 4px;
 		&:hover {
