@@ -1,8 +1,6 @@
 <script>
 	import { resolve } from '$app/paths';
 	import { EMAIL_ADDRESS, GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL } from '$lib/constants';
-
-	let showHiddenMenu = $state(false);
 </script>
 
 <main class="p-4">
@@ -25,10 +23,6 @@
 			/
 			<a href={GITHUB_PROFILE_URL} rel="external" target="_blank">GitHub</a> /
 			<a href={LINKEDIN_PROFILE_URL} rel="external" target="_blank">LinkedIn</a>
-		</li>
-		<li class:hidden={!showHiddenMenu}>
-			<a href={resolve('/demos')}>Open Source Demos</a> /
-			<a href={resolve('/examples')}>Examples</a>
 		</li>
 		<li>
 			<a href="{GITHUB_PROFILE_URL}/holidays-kr#readme" rel="external" target="_blank">
@@ -64,16 +58,12 @@
 			<a href={resolve('/markdown-to-sticky-notes')}>목록을 메모지로 변환</a>
 			<span>쓰지 말고 인쇄해 자르세요.</span>
 		</li>
+		<li>
+			<a href={resolve('/demos')}>Open Source Demos</a> /
+			<a href={resolve('/examples')}>Examples</a>
+		</li>
 	</ul>
 </main>
-
-<button
-	aria-hidden="true"
-	type="button"
-	class="fixed right-0 bottom-0 size-16"
-	ondblclick={() => (showHiddenMenu = true)}
->
-</button>
 
 <style>
 	a,
