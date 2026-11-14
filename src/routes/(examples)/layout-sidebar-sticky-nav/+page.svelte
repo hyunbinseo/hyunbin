@@ -16,14 +16,28 @@
 {/snippet}
 
 <div class="contents md:hidden">
-	<div class="modal-wrapper">
-		<Modal bind:isOpen={isDrawerOpen} closeOnBackdropClick={true}>
-			<aside class="w-68 p-4">
-				Sidebar
-				{@render long()}
-			</aside>
-		</Modal>
-	</div>
+	<Modal
+		bind:isOpen={isDrawerOpen}
+		closeOnBackdropClick={true}
+		class={[
+			'm-0 ml-auto h-full max-h-none',
+			'backdrop:backdrop-blur-sm backdrop:backdrop-brightness-50',
+			// dialog transition
+			'translate-x-full opacity-0 duration-300',
+			'open:translate-x-0 open:opacity-100',
+			'starting:open:translate-x-full starting:open:opacity-0',
+			'motion-safe:transition motion-safe:supports-overlay:transition-discrete',
+			// backdrop transition
+			'backdrop:opacity-0 backdrop:duration-200',
+			'open:backdrop:opacity-100 starting:open:backdrop:opacity-0',
+			'motion-safe:backdrop:transition motion-safe:supports-overlay:backdrop:transition-discrete',
+		]}
+	>
+		<aside class="w-68 p-4">
+			Sidebar
+			{@render long()}
+		</aside>
+	</Modal>
 	<button
 		type="button"
 		onclick={() => (isDrawerOpen = true)}
@@ -52,51 +66,3 @@
 	</div>
 </div>
 
-<style lang="postcss">
-	.modal-wrapper :global > dialog {
-		&::backdrop {
-			backdrop-filter: blur(8px) brightness(0.5);
-		}
-
-		@media (prefers-reduced-motion: no-preference) {
-			&,
-			&::backdrop {
-				transition-property: opacity, translate;
-				@supports (transition-behavior: allow-discrete) and (overlay: auto) {
-					transition-behavior: allow-discrete;
-					transition-property: opacity, translate, display, overlay;
-				}
-			}
-		}
-
-		margin: 0;
-		margin-left: auto;
-		height: 100%;
-		max-height: none;
-
-		/* dialog transition */
-		transition-duration: 0.3s;
-		opacity: 0;
-		translate: 100% 0;
-		&:modal {
-			opacity: 1;
-			translate: 0;
-			@starting-style {
-				opacity: 0;
-				translate: 100% 0;
-			}
-		}
-
-		/* backdrop transition */
-		&::backdrop {
-			transition-duration: 0.2s;
-			opacity: 0;
-		}
-		&:modal::backdrop {
-			opacity: 1;
-			@starting-style {
-				opacity: 0;
-			}
-		}
-	}
-</style>
