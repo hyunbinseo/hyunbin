@@ -25,7 +25,7 @@ const sharpStream = sharp({
 	// Reference https://github.com/GoogleChromeLabs/squoosh/issues/1377
 }
 
-const saveProgressiveImage = (format: 'jpg' | 'png' | 'gif') =>
+const saveProgressiveImage = (format: 'jpeg' | 'png' | 'gif') =>
 	sharpStream
 		.clone()
 		.toFormat(format, { progressive: true })
@@ -33,7 +33,7 @@ const saveProgressiveImage = (format: 'jpg' | 'png' | 'gif') =>
 
 await Promise.all([
 	// NOTE IrfanView image information(properties) shows the file compression type.
-	saveProgressiveImage('jpg'), // JPEG, progressive, quality: 80, subsampling ON (2x2)
+	saveProgressiveImage('jpeg'), // JPEG, progressive, quality: 80, subsampling ON (2x2)
 	saveProgressiveImage('png'), // PNG - ZIP  , interlaced
 	saveProgressiveImage('gif'), // GIF - LZW, Transparent color: 0, Interlaced
 ]);
