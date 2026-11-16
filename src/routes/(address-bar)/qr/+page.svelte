@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import { page } from '$app/state';
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
-	import { ORIGIN } from '$lib/constants';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
+	import { ORIGIN } from '#lib/constants.ts';
 	import QRCode from 'qrcode-svg';
 	import { onMount } from 'svelte';
 	import favicon from './qr-code.svg';

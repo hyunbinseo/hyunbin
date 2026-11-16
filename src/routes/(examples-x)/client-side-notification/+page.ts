@@ -1,4 +1,4 @@
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 

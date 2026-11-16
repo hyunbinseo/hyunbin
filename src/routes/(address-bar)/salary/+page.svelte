@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import { page } from '$app/state';
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
 	import { digits, pipe, safeParse, string, transform } from 'valibot';
 
 	const MINIMUM_WAGES = new Map([

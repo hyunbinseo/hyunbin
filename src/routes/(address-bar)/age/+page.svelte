@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
 	import { digits, isoDate, length, pipe, safeParse, string, transform, union } from 'valibot';
 
 	let yyyy_mm_dd = $derived.by(() => {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
 	import { marked } from 'marked';
 	import { tick } from 'svelte';
 	import example from './example.md?raw';
@@ -113,7 +113,7 @@
 </StyledLabels>
 
 <style lang="postcss">
-	@reference "$lib/layout.css";
+	@reference "../../../lib/layout.css";
 	button {
 		@apply px-3 py-2;
 	}

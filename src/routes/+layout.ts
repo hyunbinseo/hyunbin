@@ -1,4 +1,4 @@
-import { GITHUB_PROFILE_URL } from '$lib/constants';
+import { GITHUB_PROFILE_URL } from '#lib/constants.ts';
 
 export const prerender = true;
 

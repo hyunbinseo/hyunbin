@@ -18,8 +18,8 @@
 		"@lucide/svelte": "^1.73.0",
 		"@std/front-matter": "jsr:^1.0.9",
 		"@sun-typeface/suit": "^2.0.5",
-		"@sveltejs/adapter-static": "^3.0.11",
-		"@sveltejs/kit": "^2.70.4",
+		"@sveltejs/adapter-static": "^4.0.1",
+		"@sveltejs/kit": "^3.2.0",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.20",
@@ -66,5 +66,8 @@
 			"version": "26.13.1",
 			"onFail": "download"
 		}
+	},
+	"imports": {
+		"#lib/*": "./src/lib/*"
 	}
 }

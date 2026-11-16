@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
 	import { digits, object, optional, parse, pipe, string, transform, trim } from 'valibot';
 </script>
 

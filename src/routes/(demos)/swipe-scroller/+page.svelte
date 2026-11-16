@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
 	import Scroller from 'swipe-scroller/Scroller.svelte';
 	import 'swipe-scroller/style';
 	import { releases } from '.';

@@ -4,7 +4,7 @@
 
 	const intent = $derived.by(() => {
 		// eslint-disable-next-line svelte/prefer-svelte-reactivity
-		const url = new URL(page.url);
+		const url = new URL(page.url.href);
 		url.hash = `#Intent;scheme=${url.protocol.slice(0, -1)};package=com.android.chrome;end`;
 		// cannot be changed using the URL's protocol property
 		// intent: is considered invalid is simply ignored

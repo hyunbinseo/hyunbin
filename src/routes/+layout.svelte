@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { dev } from '$app/environment';
+	import { dev } from '$app/env';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL } from '$lib/constants';
-	import GitHub from '$lib/icons/GitHub.svelte';
-	import LinkedIn from '$lib/icons/LinkedIn.svelte';
-	import '$lib/layout.css';
+	import { GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL } from '#lib/constants.ts';
+	import GitHub from '#lib/icons/GitHub.svelte';
+	import LinkedIn from '#lib/icons/LinkedIn.svelte';
+	import '#lib/layout.css';
 	import { CodeXml, House } from '@lucide/svelte';
 	import suitVariableWoff2 from '@sun-typeface/suit/fonts/variable/woff2/SUIT-Variable.woff2?url';
 	import favicon from './favicon.png';
@@ -53,20 +53,16 @@
 
 {#if page.data.footer !== false}
 	<div class="flex min-h-dvh flex-col *:not-print:p-4">
-		<main class="flex-1 overflow-y-auto">
-			{@render children()}
-		</main>
+		<main class="flex-1 overflow-y-auto">{@render children()}</main>
+
 		<footer class="flex items-center gap-x-4 bg-gray-100 print:hidden">
-			<a href={resolve('/')}><House></House></a>
-			<a href={GITHUB_PROFILE_URL} rel="external" target="_blank">
-				<GitHub></GitHub>
-			</a>
-			<a href={data.url.source} rel="external" target="_blank">
-				<CodeXml></CodeXml>
-			</a>
-			<a href={LINKEDIN_PROFILE_URL} rel="external" target="_blank" class="ml-auto">
-				<LinkedIn></LinkedIn>
-			</a>
+			<a href={resolve('')}><House /></a>
+
+			<a href={GITHUB_PROFILE_URL} rel="external" target="_blank"><GitHub /></a>
+
+			<a href={data.url.source} rel="external" target="_blank"><CodeXml /></a>
+
+			<a href={LINKEDIN_PROFILE_URL} rel="external" target="_blank" class="ml-auto"><LinkedIn /></a>
 		</footer>
 	</div>
 {:else}

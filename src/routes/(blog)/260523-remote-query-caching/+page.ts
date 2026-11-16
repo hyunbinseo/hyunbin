@@ -1,4 +1,4 @@
-import { dev } from '$app/environment';
+import { dev } from '$app/env';
 import { resolve } from '$app/paths';
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
@@ -8,7 +8,7 @@ import type { PageLoad } from './$types';
 export const ssr = false;
 
 export const load = (() => {
-	if (!dev) redirect(307, resolve('/'));
+	if (!dev) redirect(307, resolve(''));
 	return {
 		lang: 'en',
 		title: 'Remote Query Caching',

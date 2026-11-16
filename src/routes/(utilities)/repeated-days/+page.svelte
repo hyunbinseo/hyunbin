@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
 	import { days, formatDateString, getDates } from '.';
 
 	let startDate = $state(formatDateString({ date: new Date() }));

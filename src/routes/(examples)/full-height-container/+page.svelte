@@ -1,5 +1,5 @@
 <script>
-	import StyledLabels from '$lib/components/StyledLabels.svelte';
+	import StyledLabels from '#lib/components/StyledLabels.svelte';
 
 	const { data } = $props();
 

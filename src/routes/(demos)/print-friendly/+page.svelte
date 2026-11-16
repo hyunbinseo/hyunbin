@@ -1,5 +1,5 @@
 <script lang="ts">
-	import 정관 from '$lib/static/정관.html?raw';
+	import 정관 from '#lib/static/정관.html?raw';
 	import 'print-friendly';
 </script>
 
