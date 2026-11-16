@@ -21,6 +21,8 @@
 	--shadow-box-bottom:
 		0px 2px 4px -3px rgba(0, 0, 0, 0.2), 0px 4px 5px -2px rgba(0, 0, 0, 0.14),
 		0px 1px 10px -10px rgba(0, 0, 0, 0.12);
+
+	--spacing-sticky-header: 3.5rem;
 }
 
 @layer base {
@@ -28,10 +30,22 @@
 	[role='button']:not(:disabled) {
 		cursor: pointer;
 	}
+
+	html:has([data-sticky-header]) {
+		scroll-padding-top: calc(var(--spacing-sticky-header) + 1rem);
+		overscroll-behavior-y: auto; /* none also disables pull-to-refresh */
+	}
 }
 
 /* Component utilities support autocomplete unlike `@layer` CSS at-rules */
 /* See https://tailwindcss.com/docs/upgrade-guide#adding-custom-utilities */
+
+@utility sidebar {
+	/* NOTE Add shrink-0 with a fixed width (e.g. w-68) to prevent flex shrinking */
+	@apply sticky top-sticky-header overflow-y-auto overscroll-y-none;
+	/* NOTE 100dvh lags on Android Chromium as the toolbar collapses or expands */
+	height: calc(100dvh - var(--spacing-sticky-header));
+}
 
 @custom-variant coarse {
 	@media (pointer: coarse) {

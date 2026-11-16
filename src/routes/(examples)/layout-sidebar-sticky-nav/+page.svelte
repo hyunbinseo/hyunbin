@@ -5,22 +5,23 @@
 	let isDrawerOpen = $state(false);
 </script>
 
-{#snippet long()}
-	<div
-		class="min-h-[300vh] bg-linear-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-4"
-	>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, asperiores similique ratione
-		eligendi vero culpa ipsam cupiditate dolor neque numquam recusandae id vitae vel dignissimos
-		voluptatum, natus fuga debitis quidem.
-	</div>
+{#snippet elongate()}
+	{let isChecked = $state(false)}
+	<label class="my-4 flex w-fit items-center gap-2">
+		<input type="checkbox" bind:checked={isChecked} />
+		Elongate
+	</label>
+	{#if isChecked}
+		<div class="h-[300vh]"></div>
+	{/if}
 {/snippet}
 
-<div class="contents md:hidden">
+<div class="contents lg:hidden">
 	<Modal
 		bind:isOpen={isDrawerOpen}
 		closeOnBackdropClick={true}
 		class={[
-			'm-0 ml-auto h-full max-h-none',
+			'm-0 ml-auto h-full max-h-none overscroll-y-none',
 			'backdrop:backdrop-blur-sm backdrop:backdrop-brightness-50',
 			// dialog transition
 			'translate-x-full opacity-0 duration-300',
@@ -33,9 +34,11 @@
 			'motion-safe:backdrop:transition motion-safe:supports-overlay:backdrop:transition-discrete',
 		]}
 	>
-		<aside class="w-68 p-4">
-			Sidebar
-			{@render long()}
+		<aside
+			class="min-h-full w-68 bg-linear-to-b from-violet-100 from-10% via-fuchsia-100 via-30% to-pink-100 to-90% p-4"
+		>
+			<h2 class="font-bold">Sidebar (Drawer)</h2>
+			{@render elongate()}
 		</aside>
 	</Modal>
 	<button
@@ -47,22 +50,27 @@
 	</button>
 </div>
 
-<div class="contents md:mx-auto md:flex md:max-w-7xl md:shadow-2xl">
-	<!-- NOTE height: 100dvh; and inset-block: 0; both have delay on Android Chromium (e.g. Chrome, Samsung Internet) -->
-	<aside
-		class={[
-			'max-md:hidden',
-			'sticky top-0 z-10 h-dvh w-68 shrink-0 overflow-y-auto overscroll-contain shadow-box-right',
-		]}
+<div class="flex min-h-dvh flex-col lg:mx-auto lg:max-w-7xl lg:shadow-2xl">
+	<nav
+		class="sticky top-0 z-20 flex h-sticky-header items-center-safe justify-center-safe overflow-x-auto bg-white/70 shadow-box-bottom backdrop-blur"
+		data-sticky-header
 	>
-		<p class="py-4 text-center">Sidebar</p>
-		{@render long()}
-	</aside>
-	<div class="flex-1 *:mx-4">
-		<nav class="sticky top-0 mx-0! bg-white/70 py-4 text-center shadow-box-bottom backdrop-blur">
-			Sticky Nav
-		</nav>
-		{@render long()}
+		Top Nav (Sticky)
+	</nav>
+	<div class="flex flex-1">
+		<aside class="sidebar z-10 w-68 shrink-0 shadow-box-right max-lg:hidden">
+			<div
+				class="min-h-full bg-linear-to-b from-amber-100 from-10% via-orange-100 via-30% to-rose-100 to-90% p-4"
+			>
+				<h2 class="font-bold">Sidebar (Sticky, Scrolls Independently)</h2>
+				{@render elongate()}
+			</div>
+		</aside>
+		<main
+			class="min-w-0 flex-1 bg-linear-to-b from-indigo-100 from-10% via-sky-100 via-30% to-emerald-100 to-90% p-4"
+		>
+			<h2 class="font-bold">Main (Document Scroll)</h2>
+			{@render elongate()}
+		</main>
 	</div>
 </div>
-
