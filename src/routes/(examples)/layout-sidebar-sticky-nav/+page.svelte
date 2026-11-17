@@ -50,15 +50,17 @@
 	</button>
 </div>
 
-<div class="flex min-h-dvh flex-col lg:mx-auto lg:max-w-7xl lg:shadow-2xl">
+<div class="lg:mx-auto lg:max-w-7xl lg:shadow-2xl">
 	<nav
 		class="sticky top-0 z-20 flex h-sticky-header items-center-safe justify-center-safe overflow-x-auto bg-white/70 shadow-box-bottom backdrop-blur"
 		data-sticky-header
 	>
 		Top Nav (Sticky)
 	</nav>
-	<div class="flex flex-1">
-		<aside class="sidebar z-10 w-68 shrink-0 shadow-box-right max-lg:hidden">
+	<div class="flex">
+		<aside
+			class="sticky top-sticky-header z-10 h-below-header w-68 shrink-0 overflow-y-auto overscroll-y-none shadow-box-right max-lg:hidden"
+		>
 			<div
 				class="min-h-full bg-linear-to-b from-amber-100 from-10% via-orange-100 via-30% to-rose-100 to-90% p-4"
 			>
@@ -67,7 +69,7 @@
 			</div>
 		</aside>
 		<main
-			class="min-w-0 flex-1 bg-linear-to-b from-indigo-100 from-10% via-sky-100 via-30% to-emerald-100 to-90% p-4"
+			class="min-h-below-header min-w-0 flex-1 bg-linear-to-b from-indigo-100 from-10% via-sky-100 via-30% to-emerald-100 to-90% p-4"
 		>
 			<h2 class="font-bold">Main (Document Scroll)</h2>
 			{@render elongate()}
